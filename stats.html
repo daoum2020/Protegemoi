@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProtègeMoi — Statistiques</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:980px;margin:32px auto;padding:0 16px}
+    .nav{margin-bottom:16px}
+    .nav a{color:#0a5bd7;text-decoration:none}
+    .card{border:1px solid #e5e5e5;border-radius:12px;padding:16px;margin:12px 0}
+    label{display:block;font-weight:600;margin:8px 0 4px}
+    input,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px}
+    .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+    .row .full{grid-column:1 / -1}
+    .actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+    button{padding:10px 14px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer}
+    button.primary{background:#0a5bd7;color:white;border-color:#0a5bd7}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .metric{font-size:14px;color:#333}
+    .bar{background:#e8f5fe;height:18px;border-radius:8px;position:relative;margin:6px 0}
+    .bar > span{position:absolute;left:8px;top:0;height:100%;line-height:18px;font-size:12px;color:#055}
+    .section-title{margin:12px 0 4px;font-weight:700}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px;border-bottom:1px solid #eee;text-align:left;font-size:14px}
+    .muted{color:#666;font-size:12px}
+  </style>
+
+  <style>
+    @media print {
+      .nav, .actions, select, input[type=date] { display: none !important; }
+      body { margin: 0; }
+      .card { border: none; margin: 8px 0; padding: 0; }
+      table, th, td { border: 1px solid #ddd; }
+      th, td { padding: 6px; }
+      .bar { height: 14px; }
+      #debugLog { display: none !important; }
+    }
+  </style>
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* PM Pro Theme */
+    :root{
+      --pm-bg:#ffffff;
+      --pm-text:#0a3ea1;
+      --pm-muted:#5f7487;
+      --pm-primary:#0a5bd7; /* logo blue */
+      --pm-primary-2:#083a93;
+      --pm-card:#ffffff;
+      --pm-border:#e7eef6;
+      --pm-hero-grad: linear-gradient(180deg, rgba(14,165,233,0.10), rgba(255,255,255,0));
+    }
+    body.dark{
+      --pm-bg:#0b1320;
+      --pm-text:#e6f0f7;
+      --pm-muted:#a6b5c1;
+      --pm-card:#0f1b2d;
+      --pm-border:#1d2a3a;
+      --pm-hero-grad: linear-gradient(180deg, rgba(14,165,233,0.18), rgba(11,19,32,0));
+    }
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--pm-bg);color:var(--pm-text);transition:background .3s,color .3s}
+    a{color:var(--pm-primary);text-decoration:none}
+    header.pm{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--pm-border);position:sticky;top:0;background:var(--pm-bg);z-index:10}
+    header.pm .brand{display:flex;align-items:center;gap:8px;font-weight:700}
+    header.pm .nav{margin-left:auto;display:flex;gap:12px;align-items:center;font-size:14px}
+    .btn{padding:10px 16px;border-radius:12px;border:1px solid var(--pm-primary);background:var(--pm-primary);color:#fff;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--pm-primary)}
+    .btn:hover{filter:brightness(1.05)}
+    .card{border:1px solid var(--pm-border);background:var(--pm-card);border-radius:14px;padding:16px}
+    .fade-in{opacity:0;transform:translateY(8px);animation:fade .5s ease forwards}
+    @keyframes fade{to{opacity:1;transform:none}}
+  </style>
+
+
+  <script>
+    // PM_THEME_TOGGLE
+    (function(){
+      const LS_KEY='PM_THEME';
+      const q = (sel)=>document.querySelector(sel);
+      function applyTheme(t){ document.body.classList.toggle('dark', t==='dark'); }
+      function load(){ return localStorage.getItem(LS_KEY) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') }
+      function save(t){ localStorage.setItem(LS_KEY, t) }
+      window.PM_toggleTheme = function(){
+        const t = document.body.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(t); save(t);
+        const btn=q('#themeBtn'); if(btn) btn.textContent = t==='dark' ? '☀️' : '🌙';
+      }
+      const t = load(); applyTheme(t);
+      window.addEventListener('DOMContentLoaded',()=>{
+        const btn=q('#themeBtn'); if(btn) btn.textContent = (document.body.classList.contains('dark') ? '☀️' : '🌙');
+      });
+    })();
+  </script>
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+  <link rel="apple-touch-icon" href="./favicon-180.png">
+  <link rel="manifest" href="./manifest.json">
+
+</head>
+<body>
+
+  <header class="pm">
+    <div class="brand"><img src="./logo.png" alt="ProtègeMoi" style="height:28px"><span>ProtègeMoi</span></div>
+    <div class="nav">
+      <a href="./index.html">Accueil</a>
+      <a href="./settings.html">Paramètres</a>
+      <a href="./stats.html">Statistiques</a>
+      <button id="themeBtn" class="btn ghost" onclick="PM_toggleTheme()">🌙</button>
+    </div>
+  </header>
+
+  <div class="nav"><a href="./index.html">← Retour</a> • <a href="./settings.html">Paramètres</a></div>
+  <h1>Statistiques — ProtègeMoi</h1>
+
+  <div id="pdfHeader" style="display:flex;align-items:center;gap:12px;margin:8px 0 16px">
+    <img src="./logo.png" alt="Logo ProtègeMoi" style="height:36px">
+    <div>
+      <div style="font-size:20px;font-weight:700">Rapport — ProtègeMoi</div>
+      <div id="hPeriod" class="muted"></div>
+      <div class="muted">Parent: <span id="hParentName">—</span> (<span id="hParentId">—</span>)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row">
+      <div class="full">
+        <label for="parentNameStats">Nom du parent (pour PDF)</label>
+        <input id="parentNameStats" placeholder="(optionnel) Nom ou email du parent">
+      </div>
+      <div class="full">
+        <label for="parentIdStats">parentId</label>
+        <input id="parentIdStats" placeholder="UID du parent">
+      </div>
+      <div>
+        <label for="range">Période</label>
+        <select id="range">
+          <option value="7">7 jours</option>
+          <option value="30" selected>30 jours</option>
+          <option value="90">90 jours</option>
+          <option value="custom">Personnalisée</option>
+        </select>
+      </div>
+      <div>
+        <label for="from">Du</label>
+        <input id="from" type="date">
+      </div>
+      <div>
+        <label for="to">Au</label>
+        <input id="to" type="date">
+      </div>
+    </div>
+    <div class="actions">
+      <button class="primary" id="computeBtn">Calculer</button>
+      <span id="statsStatus"></span>
+      <button id="exportPdfBtn">Exporter PDF</button>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="section-title">Résumé</div>
+      <div class="metric">Total alertes : <b id="mTotal">-</b></div>
+      <div class="metric">Alertes / jour (moyenne) : <b id="mPerDay">-</b></div>
+      <div class="metric">Enfants distincts : <b id="mChildren">-</b></div>
+      <div class="metric muted" id="mRange"></div>
+    </div>
+    <div class="card">
+      <div class="section-title">Par enfant</div>
+      <div id="byChild"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">Évolution (alertes / jour)</div>
+    <div id="perDayBars"></div>
+  </div>
+
+  
+<div class="card">
+  <div class="section-title">Statistiques avancées</div>
+  <div class="grid">
+    <div>
+      <div class="section-title">Top heures</div>
+      <div id="topHours"></div>
+    </div>
+    <div>
+      <div class="section-title">Top jours de la semaine</div>
+      <div id="topWeekdays"></div>
+    </div>
+  </div>
+  <div style="margin-top:12px">
+    <div class="section-title">Heatmap hebdomadaire (Jours × Heures)</div>
+    <div id="heatmapLegend" class="muted" style="margin:6px 0">Plus la case est foncée, plus il y a d'alertes.</div>
+    <div id="heatmap" style="display:grid;grid-template-columns:80px repeat(24,1fr);gap:4px;align-items:center"></div>
+  </div>
+</div>
+
+
+  <div class="card">
+    <div class="section-title">Dernières alertes</div>
+    <table id="recentTbl">
+      <thead><tr><th>Date</th><th>Enfant</th><th>Texte</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script type="module" src="./stats.js"></script>
+
+  <div id="pdfFooter" style="position:fixed;bottom:0;left:0;right:0;text-align:right;padding:8px 16px;font-size:12px;color:#555">
+    Exporté le <span id="hExportDate">—</span>
+  </div>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./firebase-messaging-sw.js').catch(console.warn);
+    }
+  </script>
+
+
+<script>
+// PWA Update Banner
+(function(){
+  if(!('serviceWorker' in navigator)) return;
+  const bannerCss = document.createElement('style');
+  bannerCss.textContent = `
+    .pm-update{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;background:#0a5bd7;color:#fff;
+      padding:10px 14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.15);display:none;gap:8px;align-items:center;z-index:9999}
+    .pm-update button{background:#fff;color:#0b2942;border:0;border-radius:10px;padding:8px 12px;cursor:pointer}
+  `;
+  document.head.appendChild(bannerCss);
+  const bar = document.createElement('div');
+  bar.className = 'pm-update';
+  bar.innerHTML = '<span>Nouvelle version disponible</span> <button id="pmReloadBtn">Mettre à jour</button>';
+  document.body.appendChild(bar);
+  let newWorker = null;
+  navigator.serviceWorker.getRegistration().then(reg => {
+    if(!reg) return;
+    reg.addEventListener('updatefound', () => {
+      newWorker = reg.installing;
+      if(!newWorker) return;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          bar.style.display = 'flex';
+        }
+      });
+    });
+  });
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    window.location.reload();
+  });
+  document.addEventListener('click', (e)=>{
+    if(e.target && e.target.id === 'pmReloadBtn'){
+      if(newWorker){
+        newWorker.postMessage({ type: 'SKIP_WAITING' });
+      } else {
+        // Fallback: ask any waiting worker
+        navigator.serviceWorker.getRegistration().then(reg => {
+          if(reg && reg.waiting){ reg.waiting.postMessage({ type: 'SKIP_WAITING' }); }
+        });
+      }
+    }
+  });
+})();
+</script>
+
+
+  <style>
+    #updateBanner{display:none;position:fixed;bottom:12px;left:50%;transform:translateX(-50%);
+      background:#0a5bd7;color:#fff;padding:10px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:1000}
+    #updateBanner button{margin-left:12px;padding:6px 10px;border:none;border-radius:6px;background:#fff;color:#0a5bd7;cursor:pointer}
+  </style>
+  <div id="updateBanner">Nouvelle version disponible <button onclick="location.reload()">Mettre à jour</button></div>
+  <script>
+    // PM_SW_UPDATE
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+        const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+      });
+      navigator.serviceWorker.register('./firebase-messaging-sw.js').then(reg=>{
+        if(reg.waiting){
+          const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+        }
+        reg.addEventListener('updatefound', ()=>{
+          const nw=reg.installing; nw.addEventListener('statechange', ()=>{
+            if(nw.state==='installed' && navigator.serviceWorker.controller){
+              const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+            }
+          });
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

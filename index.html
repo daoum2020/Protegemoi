@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProtègeMoi — Parent (Ultimate)</title>
+  <style>
+    :root{ --bg:#0b1220; --panel:#111a2b; --muted:#a7b3c7; --brand:#4da3ff; }
+    *{ box-sizing: border-box }
+    body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+          background: var(--bg); color: #fff; margin: 20px; }
+    .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center }
+    .card{ background:#111a2b; padding:16px; border-radius:12px; margin:10px 0 }
+    input,button{ padding:10px; border:none; border-radius:6px }
+    button{ background: var(--brand); color:#fff; cursor:pointer }
+    button.danger{ background:#ff4d4f }
+    ul{ list-style:none; padding:0 }
+    li{ margin:6px 0; padding:6px; background:#0f2038; border-radius:6px }
+    .muted{ color:#a7b3c7 }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px }
+    .two{ display:grid; grid-template-columns:1fr 1fr; gap:10px }
+    @media (max-width:640px){ .two{ grid-template-columns:1fr } }
+    table{ width:100%; border-collapse: collapse; }
+    th,td{ padding:8px; border-bottom:1px solid #1c2a40; text-align:left }
+    code{ background:#0d1a2c; padding:2px 6px; border-radius:6px }
+    dialog{ border:none; border-radius:12px; padding:0; overflow:hidden }
+    .modal{ background:#0c1628; color:#fff; padding:16px; min-width:280px }
+  </style>
+  <script src="/config.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* PM Pro Theme */
+    :root{
+      --pm-bg:#ffffff;
+      --pm-text:#0a3ea1;
+      --pm-muted:#5f7487;
+      --pm-primary:#0a5bd7; /* logo blue */
+      --pm-primary-2:#083a93;
+      --pm-card:#ffffff;
+      --pm-border:#e7eef6;
+      --pm-hero-grad: linear-gradient(180deg, rgba(14,165,233,0.10), rgba(255,255,255,0));
+    }
+    body.dark{
+      --pm-bg:#0b1320;
+      --pm-text:#e6f0f7;
+      --pm-muted:#a6b5c1;
+      --pm-card:#0f1b2d;
+      --pm-border:#1d2a3a;
+      --pm-hero-grad: linear-gradient(180deg, rgba(14,165,233,0.18), rgba(11,19,32,0));
+    }
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--pm-bg);color:var(--pm-text);transition:background .3s,color .3s}
+    a{color:var(--pm-primary);text-decoration:none}
+    header.pm{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--pm-border);position:sticky;top:0;background:var(--pm-bg);z-index:10}
+    header.pm .brand{display:flex;align-items:center;gap:8px;font-weight:700}
+    header.pm .nav{margin-left:auto;display:flex;gap:12px;align-items:center;font-size:14px}
+    .btn{padding:10px 16px;border-radius:12px;border:1px solid var(--pm-primary);background:var(--pm-primary);color:#fff;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--pm-primary)}
+    .btn:hover{filter:brightness(1.05)}
+    .card{border:1px solid var(--pm-border);background:var(--pm-card);border-radius:14px;padding:16px}
+    .fade-in{opacity:0;transform:translateY(8px);animation:fade .5s ease forwards}
+    @keyframes fade{to{opacity:1;transform:none}}
+  </style>
+
+
+  <script>
+    // PM_THEME_TOGGLE
+    (function(){
+      const LS_KEY='PM_THEME';
+      const q = (sel)=>document.querySelector(sel);
+      function applyTheme(t){ document.body.classList.toggle('dark', t==='dark'); }
+      function load(){ return localStorage.getItem(LS_KEY) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') }
+      function save(t){ localStorage.setItem(LS_KEY, t) }
+      window.PM_toggleTheme = function(){
+        const t = document.body.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(t); save(t);
+        const btn=q('#themeBtn'); if(btn) btn.textContent = t==='dark' ? '☀️' : '🌙';
+      }
+      const t = load(); applyTheme(t);
+      window.addEventListener('DOMContentLoaded',()=>{
+        const btn=q('#themeBtn'); if(btn) btn.textContent = (document.body.classList.contains('dark') ? '☀️' : '🌙');
+      });
+    })();
+  </script>
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+  <link rel="apple-touch-icon" href="./favicon-180.png">
+  <link rel="manifest" href="./manifest.json">
+
+</head>
+<body>
+
+  <header class="pm">
+    <div class="brand"><img src="./logo.png" alt="ProtègeMoi" style="height:28px"><span>ProtègeMoi</span></div>
+    <div class="nav"><span id="pmAuthEmail" style="opacity:.8;font-size:13px;"></span> | 
+      <a href="./index.html">Accueil</a>
+      <a href="./settings.html">Paramètres</a>
+      <a href="./stats.html">Statistiques</a> <a href="./subscription.html">Abonnement</a>
+      <button id="themeBtn" class="btn ghost" onclick="PM_toggleTheme()">🌙</button>
+    </div>
+  </header>
+
+
+  <header style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #eee;position:sticky;top:0;background:#fff;z-index:10">
+    <img src="./logo.png" alt="ProtègeMoi" style="height:36px">
+    <div style="font-weight:700;">ProtègeMoi</div>
+    <div style="margin-left:auto;font-size:14px;">
+      <a href="./settings.html">Paramètres</a> • <a href="./stats.html">Statistiques</a> <a href="./subscription.html">Abonnement</a>
+    </div>
+  </header>
+  <section class="hero-landing" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 16px 24px;background:linear-gradient(180deg,#f0f8ff, #fff)">
+    <img src="./logo.png" alt="Logo" style="height:80px;margin-bottom:12px;filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));">
+    <h1 style="margin:8px 0 4px;">Bienvenue sur ProtègeMoi</h1>
+    <p style="max-width:620px;color:#555;margin:0 auto 16px;">Surveillez et recevez des alertes en temps réel. Cliquez sur “Entrer” pour afficher le tableau de bord ci-dessous.</p>
+    <button id="enterBtn" style="padding:10px 16px;border-radius:10px;border:1px solid #0ea5e9;background:#0a5bd7;color:#fff;cursor:pointer">Entrer</button>
+  </section>
+  <script>
+    (function(){
+      const btn = document.getElementById('enterBtn');
+      if(btn){
+        btn.addEventListener('click', function(){
+          const el = document.getElementById('app-section');
+          if(el){ el.scrollIntoView({behavior:'smooth'}); }
+        });
+      }
+    })();
+  </script>
+
+<div style="position:fixed;top:8px;right:12px;font-size:14px;"><a href="./settings.html">Paramètres</a> • <a href="./stats.html" style="margin-left:8px">Statistiques</a> <a href="./subscription.html">Abonnement</a></div>
+>
+  <header class="card">
+    <h1>ProtègeMoi — Parent (Ultimate)</h1>
+    <p class="muted">Enfants sous <code>/parents/{uid}/children</code> — création via <code>createChild</code> (quota) — QR de liaison — tableau des alertes en temps réel — envoi de push FCM — Stripe Checkout pour augmenter le quota.</p>
+  </header>
+
+  <section class="card">
+    <h2>Connexion</h2>
+    <div class="row">
+      <input id="email" type="email" placeholder="vous@exemple.com">
+      <input id="password" type="password" placeholder="Mot de passe">
+      <button id="btnSignIn">Se connecter</button>
+      <button id="btnSignUp">Créer un compte</button>
+      <button id="btnForgot">Mot de passe oublié</button>
+      <button id="btnSignOut" class="danger">Se déconnecter</button>
+    </div>
+    <small id="authState" class="muted">Non connecté</small>
+  </section>
+
+  <section class="card">
+    <h2>Mes enfants</h2>
+    <div class="row">
+      <input id="childName" placeholder="Prénom de l’enfant">
+      <input id="childAge" type="number" min="0" placeholder="Âge">
+      <button id="btnCreateChild">Créer via Function</button>
+      <button id="btnReloadChildren">Recharger</button>
+      <button id="btnGetQuota">Voir mon quota</button>
+    </div>
+    <small id="quotaInfo" class="muted"></small>
+    <ul id="childrenList"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Alertes (temps réel)</h2>
+    <table>
+      <thead>
+        <tr><th>Horodatage</th><th>Enfant</th><th>Niveau</th><th>Texte</th></tr>
+      </thead>
+      <tbody id="alertsTable"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Notifications Push</h2>
+    <div class="row">
+      <input id="fcmToken" placeholder="FCM token (optionnel)">
+      <button id="btnSaveToken">Enregistrer mon token</button>
+    </div>
+    <small class="muted">Quand une alerte arrive, une push peut être envoyée au parent si un token FCM est enregistré.</small>
+  </section>
+
+  <section class="card">
+    <h2>Augmenter mon quota (Stripe)</h2>
+    <div class="row">
+      <button id="btnCheckout1">Pack 1 enfant</button>
+      <button id="btnCheckout2">Pack 2 enfants</button>
+      <button id="btnCheckout3">Pack 3 enfants</button>
+    </div>
+    <small class="muted">Exemple : déclenche une Session Checkout côté serveur puis redirige vers Stripe.</small>
+  </section>
+
+  <dialog id="qrModal">
+    <div class="modal">
+      <h3>QR de liaison</h3>
+      <p class="muted" id="qrHint"></p>
+      <div id="qrBox" style="width:220px;height:220px;background:#fff;border-radius:8px"></div>
+      <div class="row" style="margin-top:10px">
+        <button id="btnCloseQR">Fermer</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="./qrcode.min.js"></script>
+  <script type="module" src="./app.js"></script>
+<section id="app-section"></section>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then(
+          reg => console.log('SW registered', reg),
+          err => console.warn('SW failed', err)
+        );
+      });
+    }
+  </script>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./firebase-messaging-sw.js').catch(console.warn);
+    }
+  </script>
+
+
+<script>
+// PWA Update Banner
+(function(){
+  if(!('serviceWorker' in navigator)) return;
+  const bannerCss = document.createElement('style');
+  bannerCss.textContent = `
+    .pm-update{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;background:#0a5bd7;color:#fff;
+      padding:10px 14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.15);display:none;gap:8px;align-items:center;z-index:9999}
+    .pm-update button{background:#fff;color:#0b2942;border:0;border-radius:10px;padding:8px 12px;cursor:pointer}
+  `;
+  document.head.appendChild(bannerCss);
+  const bar = document.createElement('div');
+  bar.className = 'pm-update';
+  bar.innerHTML = '<span>Nouvelle version disponible</span> <button id="pmReloadBtn">Mettre à jour</button>';
+  document.body.appendChild(bar);
+  let newWorker = null;
+  navigator.serviceWorker.getRegistration().then(reg => {
+    if(!reg) return;
+    reg.addEventListener('updatefound', () => {
+      newWorker = reg.installing;
+      if(!newWorker) return;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          bar.style.display = 'flex';
+        }
+      });
+    });
+  });
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    window.location.reload();
+  });
+  document.addEventListener('click', (e)=>{
+    if(e.target && e.target.id === 'pmReloadBtn'){
+      if(newWorker){
+        newWorker.postMessage({ type: 'SKIP_WAITING' });
+      } else {
+        // Fallback: ask any waiting worker
+        navigator.serviceWorker.getRegistration().then(reg => {
+          if(reg && reg.waiting){ reg.waiting.postMessage({ type: 'SKIP_WAITING' }); }
+        });
+      }
+    }
+  });
+})();
+</script>
+
+
+  <style>
+    #updateBanner{display:none;position:fixed;bottom:12px;left:50%;transform:translateX(-50%);
+      background:#0a5bd7;color:#fff;padding:10px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:1000}
+    #updateBanner button{margin-left:12px;padding:6px 10px;border:none;border-radius:6px;background:#fff;color:#0a5bd7;cursor:pointer}
+  </style>
+  <div id="updateBanner">Nouvelle version disponible <button onclick="location.reload()">Mettre à jour</button></div>
+  <script>
+    // PM_SW_UPDATE
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+        const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+      });
+      navigator.serviceWorker.register('./firebase-messaging-sw.js').then(reg=>{
+        if(reg.waiting){
+          const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+        }
+        reg.addEventListener('updatefound', ()=>{
+          const nw=reg.installing; nw.addEventListener('statechange', ()=>{
+            if(nw.state==='installed' && navigator.serviceWorker.controller){
+              const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+            }
+          });
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
