@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>ProtègeMoi — Abonnement</title>
+  <meta name="theme-color" content="#0a5bd7"/>
+  <link rel="icon" type="image/png" href="./favicon-32.png"/>
+  <link rel="manifest" href="./manifest.json"/>
+  <style>
+    :root{--c1:#0a5bd7;--c2:#083a93;--text:#0b1e39;--muted:#6b7c95;--card:#fff;--border:#e6ebf5}
+    *{box-sizing:border-box} body{margin:0;font:16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:#fff}
+    header{position:sticky;top:0;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);background:#fff;z-index:10}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
+    .brand img{height:28px}
+    .wrap{width:min(1080px,92vw);margin:22px auto}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 6px 18px rgba(8,58,147,.05);padding:16px;margin:14px 0}
+    .muted{color:var(--muted)} .small{font-size:14px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .col-4{grid-column:span 4} .col-12{grid-column:span 12}
+    @media (max-width:900px){.col-4{grid-column:span 12}}
+    .btn{padding:10px 14px;border-radius:12px;border:1px solid var(--c1);background:var(--c1);color:#fff;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--c1)}
+    .plan{position:relative}
+    .badge{position:absolute;top:12px;right:12px;background:rgba(10,91,215,.08);color:var(--c1);border:1px solid var(--c1);font-weight:700;font-size:12px;border-radius:999px;padding:4px 8px}
+    .toggle{display:flex;gap:8px;align-items:center;background:#f4f7fb;border:1px solid var(--border);padding:6px;border-radius:999px;width:max-content}
+    .switch{position:relative;width:56px;height:28px;background:#dbe6f6;border-radius:999px;cursor:pointer}
+    .knob{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:all .2s ease}
+    .switch.on .knob{left:31px;background:#fff}
+    .price{font-size:28px;font-weight:800}
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <img src="./favicon-64.png" alt="logo"/>
+    <span>ProtègeMoi</span>
+  </div>
+  <div>
+    <a href="./index.html" class="btn ghost">Accueil</a>
+    <a href="./dashboard.html" class="btn ghost">Tableau de bord</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <h2>Choisissez votre protection</h2>
+    <p class="muted small">Basculez entre <strong>Mensuel</strong> et <strong>Annuel</strong> (–17 %).</p>
+    <div class="toggle">
+      <span>Mensuel</span>
+      <div id="modeSwitch" class="switch"><div class="knob"></div></div>
+      <span>Annuel <span class="muted small">(-17%)</span></span>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="card plan col-4" id="plan1">
+      <div class="badge" id="badge1" style="display:none">-17%</div>
+      <h3>Protection 1 enfant</h3>
+      <div class="price"><span id="p1"></span> <span class="muted small" id="p1suffix"></span></div>
+      <div class="muted small" id="p1alt"></div>
+      <ul>
+        <li>Surveillance intelligente (IA)</li>
+        <li>Détection harcèlement & prédateurs</li>
+        <li>Filtrage +18 & radicalisation</li>
+        <li>Non désinstallable par l’enfant</li>
+      </ul>
+      <button class="btn" id="b1">Protéger maintenant</button>
+    </div>
+
+    <div class="card plan col-4" id="plan2">
+      <div class="badge" id="badge2" style="display:none">-17%</div>
+      <h3>Protection 2 enfants <span class="badge" style="position:static;margin-left:8px">Populaire</span></h3>
+      <div class="price"><span id="p2"></span> <span class="muted small" id="p2suffix"></span></div>
+      <div class="muted small" id="p2alt"></div>
+      <ul>
+        <li>Tout le pack 1 enfant</li>
+        <li>Alertes et statistiques par enfant</li>
+        <li>Priorité support</li>
+      </ul>
+      <button class="btn" id="b2">Protéger maintenant</button>
+    </div>
+
+    <div class="card plan col-4" id="plan3">
+      <div class="badge" id="badge3" style="display:none">-17%</div>
+      <h3>Protection 3 enfants</h3>
+      <div class="price"><span id="p3"></span> <span class="muted small" id="p3suffix"></span></div>
+      <div class="muted small" id="p3alt"></div>
+      <ul>
+        <li>Tout le pack 2 enfants</li>
+        <li>Historique étendu et exports</li>
+        <li>Assistance Premium</li>
+      </ul>
+      <button class="btn" id="b3">Protéger maintenant</button>
+    </div>
+  </section>
+</main>
+
+<script src="./config.js"></script>
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js'
+  import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js'
+  import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js'
+
+  const cfg = window.PM_CONFIG
+  const app = initializeApp(cfg.firebase)
+  const auth = getAuth(app)
+  const fun = getFunctions(app, cfg.functionsRegion || undefined)
+
+  let billingMode = 'monthly' // or 'yearly'
+
+  const prices = {
+    monthly: {1: '9,99 €', 2: '13,99 €', 3: '17,99 €'},
+    yearly:  {1: '99 €',   2: '139 €',  3: '169 €'  }
+  }
+
+  function renderPrices(){
+    const yearly = billingMode === 'yearly'
+    document.getElementById('badge1').style.display = yearly ? '' : 'none'
+    document.getElementById('badge2').style.display = yearly ? '' : 'none'
+    document.getElementById('badge3').style.display = yearly ? '' : 'none'
+
+    const sfx = yearly ? '/ an' : '/ mois'
+    const alt = yearly ? 'Equivalent 2 mois offerts' : 'Annuel: -17% → 99/139/169 €'
+    document.getElementById('p1').textContent = prices[billingMode][1]
+    document.getElementById('p2').textContent = prices[billingMode][2]
+    document.getElementById('p3').textContent = prices[billingMode][3]
+    document.getElementById('p1suffix').textContent = sfx
+    document.getElementById('p2suffix').textContent = sfx
+    document.getElementById('p3suffix').textContent = sfx
+    document.getElementById('p1alt').textContent = alt
+    document.getElementById('p2alt').textContent = alt
+    document.getElementById('p3alt').textContent = alt
+
+    // toggle knob
+    const sw = document.getElementById('modeSwitch')
+    if(yearly) sw.classList.add('on'); else sw.classList.remove('on')
+  }
+
+  // Initial render
+  renderPrices()
+
+  // Toggle switch
+  document.getElementById('modeSwitch').addEventListener('click', ()=>{
+    billingMode = (billingMode === 'monthly') ? 'yearly' : 'monthly'
+    renderPrices()
+  })
+
+  async function subscribe(priceId){
+    const user = auth.currentUser
+    if(!user){ alert('Connectez-vous d’abord.'); return }
+    try {
+      const createCheckout = httpsCallable(fun, 'createCheckout')
+      const res = await createCheckout({ priceId })
+      if(res?.data?.url) location.href = res.data.url
+      else alert('Réponse inattendue de createCheckout')
+    } catch(e){
+      console.error(e)
+      alert('Erreur abonnement')
+    }
+  }
+
+  // Buttons bind with config prices
+  document.getElementById('b1').addEventListener('click', ()=>{
+    const priceId = (billingMode === 'yearly')
+      ? cfg.pricesYearly.oneChild
+      : cfg.pricesMonthly.oneChild
+    subscribe(priceId)
+  })
+  document.getElementById('b2').addEventListener('click', ()=>{
+    const priceId = (billingMode === 'yearly')
+      ? cfg.pricesYearly.twoChildren
+      : cfg.pricesMonthly.twoChildren
+    subscribe(priceId)
+  })
+  document.getElementById('b3').addEventListener('click', ()=>{
+    const priceId = (billingMode === 'yearly')
+      ? cfg.pricesYearly.threeChildren
+      : cfg.pricesMonthly.threeChildren
+    subscribe(priceId)
+  })
+
+  onAuthStateChanged(auth, (u)=>{
+    // Optionnel : afficher l'état de connexion si besoin
+    console.log('Auth:', u ? (u.email || u.uid) : 'non connecté')
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,1696 @@
+{
+  "version": "3.0.0",
+  "generated_at": "2025-08-13T00:55:25.740064Z",
+  "base_count": 209,
+  "pattern_count": 209,
+  "normalization": {
+    "leet_classes": {
+      "a": "[aàáâäã@4]",
+      "e": "[eèéêë3]",
+      "i": "[iîï1!|]",
+      "o": "[oôö0]",
+      "u": "[uùúûü]",
+      "c": "[cç]",
+      "s": "[s$5]",
+      "t": "[t7+]",
+      "y": "[y¥]"
+    },
+    "apostrophe_pattern": "['’`´]?",
+    "token_sep": "[^\\w]{0,2}",
+    "space": "\\s{0,2}"
+  },
+  "patterns": [
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "'",
+      "value": "(?i)\\b['’`´]?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)(ارسل|ابعث)\\s+(صور|صورة)",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\(ارسل\\|ابعث\\)\\\\[s$5]\\+\\(صور\\|صورة\\)\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)(اريد ان اموت|ساقتُل نفسي|انا حزين جداً)",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\(اريد[^\\w]{0,2}ان[^\\w]{0,2}اموت\\|ساقتل[^\\w]{0,2}نفسي\\|انا[^\\w]{0,2}حزين[^\\w]{0,2}جدا\\)\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)(شهيد|الجهاد|الله اختارك)",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\(شهيد\\|الجهاد\\|الله[^\\w]{0,2}اختارك\\)\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(18\\+|nsfw|porno?s?|xnxx|pornhub|onlyfans?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(18\\\\\\+\\|n[s$5]fw\\|p[oôö0]rn[oôö0]\\?[s$5]\\?\\|xnxx\\|p[oôö0]rnh[uùúûü]b\\|[oôö0]nl[y¥]f[aàáâäã@4]n[s$5]\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "(?i)\\b(allah t[’']a choisi)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([aàáâäã@4]ll[aàáâäã@4]h[^\\w]{0,2}[t7+]\\[['’`´]?['’`´]?\\][aàáâäã@4][^\\w]{0,2}[cç]h[oôö0][iîï1!|][s$5][iîï1!|]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(autist(e|es|ique)s?)\\b.*\\b(degage|ta gueule|tg|abruti|clochard)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([aàáâäã@4][uùúûü][t7+][iîï1!|][s$5][t7+]\\([eèéêë3]\\|[eèéêë3][s$5]\\|[iîï1!|]q[uùúûü][eèéêë3]\\)[s$5]\\?\\)\\\\b\\.\\*\\\\b\\(d[eèéêë3]g[aàáâäã@4]g[eèéêë3]\\|[t7+][aàáâäã@4][^\\w]{0,2}g[uùúûü][eèéêë3][uùúûü]l[eèéêë3]\\|[t7+]g\\|[aàáâäã@4]br[uùúûü][t7+][iîï1!|]\\|[cç]l[oôö0][cç]h[aàáâäã@4]rd\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(clique|appuie|ouvre)\\s+(sur|ce)\\s+(lien|link|url)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([cç]l[iîï1!|]q[uùúûü][eèéêë3]\\|[aàáâäã@4]pp[uùúûü][iîï1!|][eèéêë3]\\|[oôö0][uùúûü]vr[eèéêë3]\\)\\\\[s$5]\\+\\([s$5][uùúûü]r\\|[cç][eèéêë3]\\)\\\\[s$5]\\+\\(l[iîï1!|][eèéêë3]n\\|l[iîï1!|]nk\\|[uùúûü]rl\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(down|trisomie)\\b.*\\b(degage|sale|nul(le)?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(d[oôö0]wn\\|[t7+]r[iîï1!|][s$5][oôö0]m[iîï1!|][eèéêë3]\\)\\\\b\\.\\*\\\\b\\(d[eèéêë3]g[aàáâäã@4]g[eèéêë3]\\|[s$5][aàáâäã@4]l[eèéêë3]\\|n[uùúûü]l\\(l[eèéêë3]\\)\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(envoie|envoies|envoi|envois)\\s+(des?\\s+)?(photos?|pics?|nudes?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([eèéêë3]nv[oôö0][iîï1!|][eèéêë3]\\|[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][s$5]\\|[eèéêë3]nv[oôö0][iîï1!|]\\|[eèéêë3]nv[oôö0][iîï1!|][s$5]\\)\\\\[s$5]\\+\\(d[eèéêë3][s$5]\\?\\\\[s$5]\\+\\)\\?\\(ph[oôö0][t7+][oôö0][s$5]\\?\\|p[iîï1!|][cç][s$5]\\?\\|n[uùúûü]d[eèéêë3][s$5]\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "sextortion_or_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(envoie|paye|verse)\\s+(de l'?argent|paypal|btc|crypto|carte\\s+cadeau)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([eèéêë3]nv[oôö0][iîï1!|][eèéêë3]\\|p[aàáâäã@4][y¥][eèéêë3]\\|v[eèéêë3]r[s$5][eèéêë3]\\)\\\\[s$5]\\+\\(d[eèéêë3][^\\w]{0,2}l['’`´]?\\?[aàáâäã@4]rg[eèéêë3]n[t7+]\\|p[aàáâäã@4][y¥]p[aàáâäã@4]l\\|b[t7+][cç]\\|[cç]r[y¥]p[t7+][oôö0]\\|[cç][aàáâäã@4]r[t7+][eèéêë3]\\\\[s$5]\\+[cç][aàáâäã@4]d[eèéêë3][aàáâäã@4][uùúûü]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(handicap[ée]s?)\\b.*\\b(degueu|degueulasse|pue|sale)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(h[aàáâäã@4]nd[iîï1!|][cç][aàáâäã@4]p\\[[eèéêë3][eèéêë3]\\][s$5]\\?\\)\\\\b\\.\\*\\\\b\\(d[eèéêë3]g[uùúûü][eèéêë3][uùúûü]\\|d[eèéêë3]g[uùúûü][eèéêë3][uùúûü]l[aàáâäã@4][s$5][s$5][eèéêë3]\\|p[uùúûü][eèéêë3]\\|[s$5][aàáâäã@4]l[eèéêë3]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(handi|handicap[ée]?|infirme|paralytique)s?\\s+(de\\s+)?(merde|faible|cass[ée]s?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(h[aàáâäã@4]nd[iîï1!|]\\|h[aàáâäã@4]nd[iîï1!|][cç][aàáâäã@4]p\\[[eèéêë3][eèéêë3]\\]\\?\\|[iîï1!|]nf[iîï1!|]rm[eèéêë3]\\|p[aàáâäã@4]r[aàáâäã@4]l[y¥][t7+][iîï1!|]q[uùúûü][eèéêë3]\\)[s$5]\\?\\\\[s$5]\\+\\(d[eèéêë3]\\\\[s$5]\\+\\)\\?\\(m[eèéêë3]rd[eèéêë3]\\|f[aàáâäã@4][iîï1!|]bl[eèéêë3]\\|[cç][aàáâäã@4][s$5][s$5]\\[[eèéêë3][eèéêë3]\\][s$5]\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(i'?m going to kill you|i will find you)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([iîï1!|]['’`´]?\\?m[^\\w]{0,2}g[oôö0][iîï1!|]ng[^\\w]{0,2}[t7+][oôö0][^\\w]{0,2}k[iîï1!|]ll[^\\w]{0,2}[y¥][oôö0][uùúûü]\\|[iîï1!|][^\\w]{0,2}w[iîï1!|]ll[^\\w]{0,2}f[iîï1!|]nd[^\\w]{0,2}[y¥][oôö0][uùúûü]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(i\\s+want\\s+to\\s+die|i\\s+will\\s+kill\\s+myself)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([iîï1!|]\\\\[s$5]\\+w[aàáâäã@4]n[t7+]\\\\[s$5]\\+[t7+][oôö0]\\\\[s$5]\\+d[iîï1!|][eèéêë3]\\|[iîï1!|]\\\\[s$5]\\+w[iîï1!|]ll\\\\[s$5]\\+k[iîï1!|]ll\\\\[s$5]\\+m[y¥][s$5][eèéêë3]lf\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(j'ai|jai|j ai)\\s+(un|des)?\\s*cadeau(x)?\\s+pour toi\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(j['’`´]?[aàáâäã@4][iîï1!|]\\|j[aàáâäã@4][iîï1!|]\\|j[^\\w]{0,2}[aàáâäã@4][iîï1!|]\\)\\\\[s$5]\\+\\([uùúûü]n\\|d[eèéêë3][s$5]\\)\\?\\\\[s$5]\\*[cç][aàáâäã@4]d[eèéêë3][aàáâäã@4][uùúûü]\\(x\\)\\?\\\\[s$5]\\+p[oôö0][uùúûü]r[^\\w]{0,2}[t7+][oôö0][iîï1!|]\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(je vais montrer (ça|ces photos) (à|a) (tes|ta)\\s*(parents|ecole|école|amis))\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(j[eèéêë3][^\\w]{0,2}v[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}m[oôö0]n[t7+]r[eèéêë3]r[^\\w]{0,2}\\([cç][aàáâäã@4]\\|[cç][eèéêë3][s$5][^\\w]{0,2}ph[oôö0][t7+][oôö0][s$5]\\)[^\\w]{0,2}\\([aàáâäã@4]\\|[aàáâäã@4]\\)[^\\w]{0,2}\\([t7+][eèéêë3][s$5]\\|[t7+][aàáâäã@4]\\)\\\\[s$5]\\*\\(p[aàáâäã@4]r[eèéêë3]n[t7+][s$5]\\|[eèéêë3][cç][oôö0]l[eèéêë3]\\|[eèéêë3][cç][oôö0]l[eèéêë3]\\|[aàáâäã@4]m[iîï1!|][s$5]\\)\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(je vais te tuer|je te retrouverai|on va te casser la gueule)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(j[eèéêë3][^\\w]{0,2}v[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}[t7+][uùúûü][eèéêë3]r\\|j[eèéêë3][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}r[eèéêë3][t7+]r[oôö0][uùúûü]v[eèéêë3]r[aàáâäã@4][iîï1!|]\\|[oôö0]n[^\\w]{0,2}v[aàáâäã@4][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}[cç][aàáâäã@4][s$5][s$5][eèéêë3]r[^\\w]{0,2}l[aàáâäã@4][^\\w]{0,2}g[uùúûü][eèéêë3][uùúûü]l[eèéêë3]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(je\\s+(veux|vais)\\s+mourir|je\\s+me\\s+fais\\s+du\\s+mal|je\\s+ne\\s+veux\\s+plus\\s+vivre)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(j[eèéêë3]\\\\[s$5]\\+\\(v[eèéêë3][uùúûü]x\\|v[aàáâäã@4][iîï1!|][s$5]\\)\\\\[s$5]\\+m[oôö0][uùúûü]r[iîï1!|]r\\|j[eèéêë3]\\\\[s$5]\\+m[eèéêë3]\\\\[s$5]\\+f[aàáâäã@4][iîï1!|][s$5]\\\\[s$5]\\+d[uùúûü]\\\\[s$5]\\+m[aàáâäã@4]l\\|j[eèéêë3]\\\\[s$5]\\+n[eèéêë3]\\\\[s$5]\\+v[eèéêë3][uùúûü]x\\\\[s$5]\\+pl[uùúûü][s$5]\\\\[s$5]\\+v[iîï1!|]vr[eèéêë3]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(mongol(ien|e|es)?s?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(m[oôö0]ng[oôö0]l\\([iîï1!|][eèéêë3]n\\|[eèéêë3]\\|[eèéêë3][s$5]\\)\\?[s$5]\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(no one likes you|you'?re (useless|dumb))\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(n[oôö0][^\\w]{0,2}[oôö0]n[eèéêë3][^\\w]{0,2}l[iîï1!|]k[eèéêë3][s$5][^\\w]{0,2}[y¥][oôö0][uùúûü]\\|[y¥][oôö0][uùúûü]['’`´]?\\?r[eèéêë3][^\\w]{0,2}\\([uùúûü][s$5][eèéêë3]l[eèéêë3][s$5][s$5]\\|d[uùúûü]mb\\)\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(pay|send)\\s+(money|btc|crypto|gift\\s*card)\\b.*\\b(or i will (post|share))\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(p[aàáâäã@4][y¥]\\|[s$5][eèéêë3]nd\\)\\\\[s$5]\\+\\(m[oôö0]n[eèéêë3][y¥]\\|b[t7+][cç]\\|[cç]r[y¥]p[t7+][oôö0]\\|g[iîï1!|]f[t7+]\\\\[s$5]\\*[cç][aàáâäã@4]rd\\)\\\\b\\.\\*\\\\b\\([oôö0]r[^\\w]{0,2}[iîï1!|][^\\w]{0,2}w[iîï1!|]ll[^\\w]{0,2}\\(p[oôö0][s$5][t7+]\\|[s$5]h[aàáâäã@4]r[eèéêë3]\\)\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(personne\\s+ne\\s+t'?aime|t'?es?\\s+nul(le)?|ta gueule|tg|clochard)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(p[eèéêë3]r[s$5][oôö0]nn[eèéêë3]\\\\[s$5]\\+n[eèéêë3]\\\\[s$5]\\+[t7+]['’`´]?\\?[aàáâäã@4][iîï1!|]m[eèéêë3]\\|[t7+]['’`´]?\\?[eèéêë3][s$5]\\?\\\\[s$5]\\+n[uùúûü]l\\(l[eèéêë3]\\)\\?\\|[t7+][aàáâäã@4][^\\w]{0,2}g[uùúûü][eèéêë3][uùúûü]l[eèéêë3]\\|[t7+]g\\|[cç]l[oôö0][cç]h[aàáâäã@4]rd\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(porn|nsfw|onlyfans?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(p[oôö0]rn\\|n[s$5]fw\\|[oôö0]nl[y¥]f[aàáâäã@4]n[s$5]\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(re[t7]ar[dt]\\w*|mong0l|tr1s0mi\\w*|aut1ste|hand1|handi)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(r[eèéêë3]\\[[t7+]7\\][aàáâäã@4]r\\[d[t7+]\\]\\\\w\\*\\|m[oôö0]ng0l\\|[t7+]r1[s$5]0m[iîï1!|]\\\\w\\*\\|[aàáâäã@4][uùúûü][t7+]1[s$5][t7+][eèéêë3]\\|h[aàáâäã@4]nd1\\|h[aàáâäã@4]nd[iîï1!|]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(retard[ée]s?|attard[ée]s?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(r[eèéêë3][t7+][aàáâäã@4]rd\\[[eèéêë3][eèéêë3]\\][s$5]\\?\\|[aàáâäã@4][t7+][t7+][aàáâäã@4]rd\\[[eèéêë3][eèéêë3]\\][s$5]\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(send|share)\\s+(me\\s+)?(pics?|nudes?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([s$5][eèéêë3]nd\\|[s$5]h[aàáâäã@4]r[eèéêë3]\\)\\\\[s$5]\\+\\(m[eèéêë3]\\\\[s$5]\\+\\)\\?\\(p[iîï1!|][cç][s$5]\\?\\|n[uùúûü]d[eèéêë3][s$5]\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "(?i)\\b(seul\\s+le\\s+martyre\\s+te\\s+sauvera)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([s$5][eèéêë3][uùúûü]l\\\\[s$5]\\+l[eèéêë3]\\\\[s$5]\\+m[aàáâäã@4]r[t7+][y¥]r[eèéêë3]\\\\[s$5]\\+[t7+][eèéêë3]\\\\[s$5]\\+[s$5][aàáâäã@4][uùúûü]v[eèéêë3]r[aàáâäã@4]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "(?i)\\b(si tu n'?envoies? pas|si tu refuses?)\\b.*\\b(je (vais|va) publier|je montrerai|je vais montrer)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([s$5][iîï1!|][^\\w]{0,2}[t7+][uùúûü][^\\w]{0,2}n['’`´]?\\?[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][s$5]\\?[^\\w]{0,2}p[aàáâäã@4][s$5]\\|[s$5][iîï1!|][^\\w]{0,2}[t7+][uùúûü][^\\w]{0,2}r[eèéêë3]f[uùúûü][s$5][eèéêë3][s$5]\\?\\)\\\\b\\.\\*\\\\b\\(j[eèéêë3][^\\w]{0,2}\\(v[aàáâäã@4][iîï1!|][s$5]\\|v[aàáâäã@4]\\)[^\\w]{0,2}p[uùúûü]bl[iîï1!|][eèéêë3]r\\|j[eèéêë3][^\\w]{0,2}m[oôö0]n[t7+]r[eèéêë3]r[aàáâäã@4][iîï1!|]\\|j[eèéêë3][^\\w]{0,2}v[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}m[oôö0]n[t7+]r[eèéêë3]r\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(tes|vos)\\s+informations\\s+ban(c|qu)aires\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([t7+][eèéêë3][s$5]\\|v[oôö0][s$5]\\)\\\\[s$5]\\+[iîï1!|]nf[oôö0]rm[aàáâäã@4][t7+][iîï1!|][oôö0]n[s$5]\\\\[s$5]\\+b[aàáâäã@4]n\\([cç]\\|q[uùúûü]\\)[aàáâäã@4][iîï1!|]r[eèéêë3][s$5]\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(trisomiqu(e|es|s)?)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\([t7+]r[iîï1!|][s$5][oôö0]m[iîï1!|]q[uùúûü]\\([eèéêë3]\\|[eèéêë3][s$5]\\|[s$5]\\)\\?\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(v[ée]rifie|confirme)\\s+(ton|votre)\\s+compte\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(v\\[[eèéêë3][eèéêë3]\\]r[iîï1!|]f[iîï1!|][eèéêë3]\\|[cç][oôö0]nf[iîï1!|]rm[eèéêë3]\\)\\\\[s$5]\\+\\([t7+][oôö0]n\\|v[oôö0][t7+]r[eèéêë3]\\)\\\\[s$5]\\+[cç][oôö0]mp[t7+][eèéêë3]\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)\\b(اباحي|+18)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b\\(اباحي\\|\\+18\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "(?i)\\bcode\\s+(sms|otp|banque|bancaire)\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\b[cç][oôö0]d[eèéêë3]\\\\[s$5]\\+\\([s$5]m[s$5]\\|[oôö0][t7+]p\\|b[aàáâäã@4]nq[uùúûü][eèéêë3]\\|b[aàáâäã@4]n[cç][aàáâäã@4][iîï1!|]r[eèéêë3]\\)\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "(?i)\\bmartyre\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\bm[aàáâäã@4]r[t7+][y¥]r[eèéêë3]\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "(?i)\\bverify\\s+your\\s+account\\b|\\benter\\s+the\\s+otp\\b",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)\\\\bv[eèéêë3]r[iîï1!|]f[y¥]\\\\[s$5]\\+[y¥][oôö0][uùúûü]r\\\\[s$5]\\+[aàáâäã@4][cç][cç][oôö0][uùúûü]n[t7+]\\\\b\\|\\\\b[eèéêë3]n[t7+][eèéêë3]r\\\\[s$5]\\+[t7+]h[eèéêë3]\\\\[s$5]\\+[oôö0][t7+]p\\\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "(?i)pr[ée]pare-toi\\s+à\\s+l['’]action",
+      "value": "(?i)\\b\\(\\?[iîï1!|]\\)pr\\[[eèéêë3][eèéêë3]\\]p[aàáâäã@4]r[eèéêë3]\\-[t7+][oôö0][iîï1!|]\\\\[s$5]\\+[aàáâäã@4]\\\\[s$5]\\+l\\[['’`´]?['’`´]?\\][aàáâäã@4][cç][t7+][iîï1!|][oôö0]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "1.2.0",
+      "value": "(?i)\\b1\\.2\\.0\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "2025-08-13t00:33:20.416851z",
+      "value": "(?i)\\b2025\\-08\\-13[t7+]00:33:20\\.416851z\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "`",
+      "value": "(?i)\\b`\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "a",
+      "value": "(?i)\\b[aàáâäã@4]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "accompagnement",
+      "value": "(?i)\\b[aàáâäã@4][cç][cç][oôö0]mp[aàáâäã@4]gn[eèéêë3]m[eèéêë3]n[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "allah t'a choisi",
+      "value": "(?i)\\b[aàáâäã@4]ll[aàáâäã@4]h[^\\w]{0,2}[t7+]['’`´]?[aàáâäã@4][^\\w]{0,2}[cç]h[oôö0][iîï1!|][s$5][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "allah t?a choisi",
+      "value": "(?i)\\b[aàáâäã@4]ll[aàáâäã@4]h[^\\w]{0,2}[t7+]\\?[aàáâäã@4][^\\w]{0,2}[cç]h[oôö0][iîï1!|][s$5][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "allez un petit snap",
+      "value": "(?i)\\b[aàáâäã@4]ll[eèéêë3]z[^\\w]{0,2}[uùúûü]n[^\\w]{0,2}p[eèéêë3][t7+][iîï1!|][t7+][^\\w]{0,2}[s$5]n[aàáâäã@4]p\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "allocations",
+      "value": "(?i)\\b[aàáâäã@4]ll[oôö0][cç][aàáâäã@4][t7+][iîï1!|][oôö0]n[s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "ar",
+      "value": "(?i)\\b[aàáâäã@4]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "blanc bec",
+      "value": "(?i)\\bbl[aàáâäã@4]n[cç][^\\w]{0,2}b[eèéêë3][cç]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "c'est un secret",
+      "value": "(?i)\\b[cç]['’`´]?[eèéêë3][s$5][t7+][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[s$5][eèéêë3][cç]r[eèéêë3][t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "ce monde est corrompu",
+      "value": "(?i)\\b[cç][eèéêë3][^\\w]{0,2}m[oôö0]nd[eèéêë3][^\\w]{0,2}[eèéêë3][s$5][t7+][^\\w]{0,2}[cç][oôö0]rr[oôö0]mp[uùúûü]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "ceux qui suivent la vérité doivent agir",
+      "value": "(?i)\\b[cç][eèéêë3][uùúûü]x[^\\w]{0,2}q[uùúûü][iîï1!|][^\\w]{0,2}[s$5][uùúûü][iîï1!|]v[eèéêë3]n[t7+][^\\w]{0,2}l[aàáâäã@4][^\\w]{0,2}v[eèéêë3]r[iîï1!|][t7+][eèéêë3][^\\w]{0,2}d[oôö0][iîï1!|]v[eèéêë3]n[t7+][^\\w]{0,2}[aàáâäã@4]g[iîï1!|]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "challenge snap ?",
+      "value": "(?i)\\b[cç]h[aàáâäã@4]ll[eèéêë3]ng[eèéêë3][^\\w]{0,2}[s$5]n[aàáâäã@4]p[^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "chantage lié à des images, menaces de publication si non-paiement",
+      "value": "(?i)\\b[cç]h[aàáâäã@4]n[t7+][aàáâäã@4]g[eèéêë3][^\\w]{0,2}l[iîï1!|][eèéêë3][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}d[eèéêë3][s$5][^\\w]{0,2}[iîï1!|]m[aàáâäã@4]g[eèéêë3][s$5],[^\\w]{0,2}m[eèéêë3]n[aàáâäã@4][cç][eèéêë3][s$5][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}p[uùúûü]bl[iîï1!|][cç][aàáâäã@4][t7+][iîï1!|][oôö0]n[^\\w]{0,2}[s$5][iîï1!|][^\\w]{0,2}n[oôö0]n\\-p[aàáâäã@4][iîï1!|][eèéêë3]m[eèéêë3]n[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "chocolat noir",
+      "value": "(?i)\\b[cç]h[oôö0][cç][oôö0]l[aàáâäã@4][t7+][^\\w]{0,2}n[oôö0][iîï1!|]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "clique ici c?est drôle",
+      "value": "(?i)\\b[cç]l[iîï1!|]q[uùúûü][eèéêë3][^\\w]{0,2}[iîï1!|][cç][iîï1!|][^\\w]{0,2}[cç]\\?[eèéêë3][s$5][t7+][^\\w]{0,2}dr[oôö0]l[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "clique ici pour ton cadeau",
+      "value": "(?i)\\b[cç]l[iîï1!|]q[uùúûü][eèéêë3][^\\w]{0,2}[iîï1!|][cç][iîï1!|][^\\w]{0,2}p[oôö0][uùúûü]r[^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}[cç][aàáâäã@4]d[eèéêë3][aàáâäã@4][uùúûü]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "contenu +18, pornographie",
+      "value": "(?i)\\b[cç][oôö0]n[t7+][eèéêë3]n[uùúûü][^\\w]{0,2}\\+18,[^\\w]{0,2}p[oôö0]rn[oôö0]gr[aàáâäã@4]ph[iîï1!|][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "diagnostic",
+      "value": "(?i)\\bd[iîï1!|][aàáâäã@4]gn[oôö0][s$5][t7+][iîï1!|][cç]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "diagnostiqué",
+      "value": "(?i)\\bd[iîï1!|][aàáâäã@4]gn[oôö0][s$5][t7+][iîï1!|]q[uùúûü][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "dossier médical",
+      "value": "(?i)\\bd[oôö0][s$5][s$5][iîï1!|][eèéêë3]r[^\\w]{0,2}m[eèéêë3]d[iîï1!|][cç][aàáâäã@4]l\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "e",
+      "value": "(?i)\\b[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "embrigadement, glorification du martyre, appels à l’action violente",
+      "value": "(?i)\\b[eèéêë3]mbr[iîï1!|]g[aàáâäã@4]d[eèéêë3]m[eèéêë3]n[t7+],[^\\w]{0,2}gl[oôö0]r[iîï1!|]f[iîï1!|][cç][aàáâäã@4][t7+][iîï1!|][oôö0]n[^\\w]{0,2}d[uùúûü][^\\w]{0,2}m[aàáâäã@4]r[t7+][y¥]r[eèéêë3],[^\\w]{0,2}[aàáâäã@4]pp[eèéêë3]l[s$5][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}l['’`´]?[aàáâäã@4][cç][t7+][iîï1!|][oôö0]n[^\\w]{0,2}v[iîï1!|][oôö0]l[eèéêë3]n[t7+][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "en",
+      "value": "(?i)\\b[eèéêë3]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "envoi moi de l argent ou je dit au autre ou a tous le monde",
+      "value": "(?i)\\b[eèéêë3]nv[oôö0][iîï1!|][^\\w]{0,2}m[oôö0][iîï1!|][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}l[^\\w]{0,2}[aàáâäã@4]rg[eèéêë3]n[t7+][^\\w]{0,2}[oôö0][uùúûü][^\\w]{0,2}j[eèéêë3][^\\w]{0,2}d[iîï1!|][t7+][^\\w]{0,2}[aàáâäã@4][uùúûü][^\\w]{0,2}[aàáâäã@4][uùúûü][t7+]r[eèéêë3][^\\w]{0,2}[oôö0][uùúûü][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}[t7+][oôö0][uùúûü][s$5][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}m[oôö0]nd[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "envoie juste une petite photo",
+      "value": "(?i)\\b[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][^\\w]{0,2}j[uùúûü][s$5][t7+][eèéêë3][^\\w]{0,2}[uùúûü]n[eèéêë3][^\\w]{0,2}p[eèéêë3][t7+][iîï1!|][t7+][eèéêë3][^\\w]{0,2}ph[oôö0][t7+][oôö0]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "envoie moi ton code",
+      "value": "(?i)\\b[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][^\\w]{0,2}m[oôö0][iîï1!|][^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}[cç][oôö0]d[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "envoie moi ça ou je dis tout",
+      "value": "(?i)\\b[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][^\\w]{0,2}m[oôö0][iîï1!|][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}[oôö0][uùúûü][^\\w]{0,2}j[eèéêë3][^\\w]{0,2}d[iîï1!|][s$5][^\\w]{0,2}[t7+][oôö0][uùúûü][t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "envoie une photo sans habits",
+      "value": "(?i)\\b[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][^\\w]{0,2}[uùúûü]n[eèéêë3][^\\w]{0,2}ph[oôö0][t7+][oôö0][^\\w]{0,2}[s$5][aàáâäã@4]n[s$5][^\\w]{0,2}h[aàáâäã@4]b[iîï1!|][t7+][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "sextortion_or_grooming",
+      "severity": 3,
+      "phrase": "envoie-moi de l?argent",
+      "value": "(?i)\\b[eèéêë3]nv[oôö0][iîï1!|][eèéêë3]\\-m[oôö0][iîï1!|][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}l\\?[aàáâäã@4]rg[eèéêë3]n[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "esclave",
+      "value": "(?i)\\b[eèéêë3][s$5][cç]l[aàáâäã@4]v[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "fais ça ou je t'attrape",
+      "value": "(?i)\\bf[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}[oôö0][uùúûü][^\\w]{0,2}j[eèéêë3][^\\w]{0,2}[t7+]['’`´]?[aàáâäã@4][t7+][t7+]r[aàáâäã@4]p[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "threats_menaces",
+      "severity": 3,
+      "phrase": "fais ça ou je te frappe",
+      "value": "(?i)\\bf[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}[oôö0][uùúûü][^\\w]{0,2}j[eèéêë3][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}fr[aàáâäã@4]pp[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "threats_menaces",
+      "severity": 3,
+      "phrase": "fais ça sinon je balance tout",
+      "value": "(?i)\\bf[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}[s$5][iîï1!|]n[oôö0]n[^\\w]{0,2}j[eèéêë3][^\\w]{0,2}b[aàáâäã@4]l[aàáâäã@4]n[cç][eèéêë3][^\\w]{0,2}[t7+][oôö0][uùúûü][t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "threats_menaces",
+      "severity": 3,
+      "phrase": "fais ça sinon je dis tout le monde",
+      "value": "(?i)\\bf[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}[s$5][iîï1!|]n[oôö0]n[^\\w]{0,2}j[eèéêë3][^\\w]{0,2}d[iîï1!|][s$5][^\\w]{0,2}[t7+][oôö0][uùúûü][t7+][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}m[oôö0]nd[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "fais-le sinon je montre à tout le monde",
+      "value": "(?i)\\bf[aàáâäã@4][iîï1!|][s$5]\\-l[eèéêë3][^\\w]{0,2}[s$5][iîï1!|]n[oôö0]n[^\\w]{0,2}j[eèéêë3][^\\w]{0,2}m[oôö0]n[t7+]r[eèéêë3][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}[t7+][oôö0][uùúûü][t7+][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}m[oôö0]nd[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "fais-moi confiance",
+      "value": "(?i)\\bf[aàáâäã@4][iîï1!|][s$5]\\-m[oôö0][iîï1!|][^\\w]{0,2}[cç][oôö0]nf[iîï1!|][aàáâäã@4]n[cç][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "fait sa ou je t frappe",
+      "value": "(?i)\\bf[aàáâäã@4][iîï1!|][t7+][^\\w]{0,2}[s$5][aàáâäã@4][^\\w]{0,2}[oôö0][uùúûü][^\\w]{0,2}j[eèéêë3][^\\w]{0,2}[t7+][^\\w]{0,2}fr[aàáâäã@4]pp[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "flamant rose",
+      "value": "(?i)\\bfl[aàáâäã@4]m[aàáâäã@4]n[t7+][^\\w]{0,2}r[oôö0][s$5][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "fr",
+      "value": "(?i)\\bfr\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "gagne 500 € sans bouger",
+      "value": "(?i)\\bg[aàáâäã@4]gn[eèéêë3][^\\w]{0,2}500[^\\w]{0,2}€[^\\w]{0,2}[s$5][aàáâäã@4]n[s$5][^\\w]{0,2}b[oôö0][uùúûü]g[eèéêë3]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "garde ça entre nous",
+      "value": "(?i)\\bg[aàáâäã@4]rd[eèéêë3][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}[eèéêë3]n[t7+]r[eèéêë3][^\\w]{0,2}n[oôö0][uùúûü][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "gros attardé",
+      "value": "(?i)\\bgr[oôö0][s$5][^\\w]{0,2}[aàáâäã@4][t7+][t7+][aàáâäã@4]rd[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "handicap moteur",
+      "value": "(?i)\\bh[aàáâäã@4]nd[iîï1!|][cç][aàáâäã@4]p[^\\w]{0,2}m[oôö0][t7+][eèéêë3][uùúûü]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "handicap reconnu",
+      "value": "(?i)\\bh[aàáâäã@4]nd[iîï1!|][cç][aàáâäã@4]p[^\\w]{0,2}r[eèéêë3][cç][oôö0]nn[uùúûü]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "handicapé",
+      "value": "(?i)\\bh[aàáâäã@4]nd[iîï1!|][cç][aàáâäã@4]p[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "i",
+      "value": "(?i)\\b[iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "idées suicidaires/auto‑mutilation",
+      "value": "(?i)\\b[iîï1!|]d[eèéêë3][eèéêë3][s$5][^\\w]{0,2}[s$5][uùúûü][iîï1!|][cç][iîï1!|]d[aàáâäã@4][iîï1!|]r[eèéêë3][s$5]/[aàáâäã@4][uùúûü][t7+][oôö0]‐m[uùúûü][t7+][iîï1!|]l[aàáâäã@4][t7+][iîï1!|][oôö0]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "il faut éradiquer les mécréants",
+      "value": "(?i)\\b[iîï1!|]l[^\\w]{0,2}f[aàáâäã@4][uùúûü][t7+][^\\w]{0,2}[eèéêë3]r[aàáâäã@4]d[iîï1!|]q[uùúûü][eèéêë3]r[^\\w]{0,2}l[eèéêë3][s$5][^\\w]{0,2}m[eèéêë3][cç]r[eèéêë3][aàáâäã@4]n[t7+][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "ils sont contre nous",
+      "value": "(?i)\\b[iîï1!|]l[s$5][^\\w]{0,2}[s$5][oôö0]n[t7+][^\\w]{0,2}[cç][oôö0]n[t7+]r[eèéêë3][^\\w]{0,2}n[oôö0][uùúûü][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "info",
+      "value": "(?i)\\b[iîï1!|]nf[oôö0]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "insultes / moqueries visant le handicap ou des troubles (fr élargi, variantes). exceptions incluses pour limiter les faux positifs.",
+      "value": "(?i)\\b[iîï1!|]n[s$5][uùúûü]l[t7+][eèéêë3][s$5][^\\w]{0,2}/[^\\w]{0,2}m[oôö0]q[uùúûü][eèéêë3]r[iîï1!|][eèéêë3][s$5][^\\w]{0,2}v[iîï1!|][s$5][aàáâäã@4]n[t7+][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}h[aàáâäã@4]nd[iîï1!|][cç][aàáâäã@4]p[^\\w]{0,2}[oôö0][uùúûü][^\\w]{0,2}d[eèéêë3][s$5][^\\w]{0,2}[t7+]r[oôö0][uùúûü]bl[eèéêë3][s$5][^\\w]{0,2}\\(fr[^\\w]{0,2}[eèéêë3]l[aàáâäã@4]rg[iîï1!|],[^\\w]{0,2}v[aàáâäã@4]r[iîï1!|][aàáâäã@4]n[t7+][eèéêë3][s$5]\\)\\.[^\\w]{0,2}[eèéêë3]x[cç][eèéêë3]p[t7+][iîï1!|][oôö0]n[s$5][^\\w]{0,2}[iîï1!|]n[cç]l[uùúûü][s$5][eèéêë3][s$5][^\\w]{0,2}p[oôö0][uùúûü]r[^\\w]{0,2}l[iîï1!|]m[iîï1!|][t7+][eèéêë3]r[^\\w]{0,2}l[eèéêë3][s$5][^\\w]{0,2}f[aàáâäã@4][uùúûü]x[^\\w]{0,2}p[oôö0][s$5][iîï1!|][t7+][iîï1!|]f[s$5]\\.\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "insultes générales",
+      "value": "(?i)\\b[iîï1!|]n[s$5][uùúûü]l[t7+][eèéêë3][s$5][^\\w]{0,2}g[eèéêë3]n[eèéêë3]r[aàáâäã@4]l[eèéêë3][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "investis ici, c'est garanti",
+      "value": "(?i)\\b[iîï1!|]nv[eèéêë3][s$5][t7+][iîï1!|][s$5][^\\w]{0,2}[iîï1!|][cç][iîï1!|],[^\\w]{0,2}[cç]['’`´]?[eèéêë3][s$5][t7+][^\\w]{0,2}g[aàáâäã@4]r[aàáâäã@4]n[t7+][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "j?ai une surprise pour toi",
+      "value": "(?i)\\bj\\?[aàáâäã@4][iîï1!|][^\\w]{0,2}[uùúûü]n[eèéêë3][^\\w]{0,2}[s$5][uùúûü]rpr[iîï1!|][s$5][eèéêë3][^\\w]{0,2}p[oôö0][uùúûü]r[^\\w]{0,2}[t7+][oôö0][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "j?en peux plus",
+      "value": "(?i)\\bj\\?[eèéêë3]n[^\\w]{0,2}p[eèéêë3][uùúûü]x[^\\w]{0,2}pl[uùúûü][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "je delete",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}d[eèéêë3]l[eèéêë3][t7+][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "je garde pas",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}g[aàáâäã@4]rd[eèéêë3][^\\w]{0,2}p[aàáâäã@4][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "self_harm_suicide",
+      "severity": 3,
+      "phrase": "je me sens vide",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}m[eèéêë3][^\\w]{0,2}[s$5][eèéêë3]n[s$5][^\\w]{0,2}v[iîï1!|]d[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "je supprime après",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}[s$5][uùúûü]ppr[iîï1!|]m[eèéêë3][^\\w]{0,2}[aàáâäã@4]pr[eèéêë3][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "je supprime après, promis",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}[s$5][uùúûü]ppr[iîï1!|]m[eèéêë3][^\\w]{0,2}[aàáâäã@4]pr[eèéêë3][s$5],[^\\w]{0,2}pr[oôö0]m[iîï1!|][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "sextortion_or_grooming",
+      "severity": 3,
+      "phrase": "je t'envoie un virement",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}[t7+]['’`´]?[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}v[iîï1!|]r[eèéêë3]m[eèéêë3]n[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "sextortion_or_grooming",
+      "severity": 3,
+      "phrase": "je t?envoie un virement",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}[t7+]\\?[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}v[iîï1!|]r[eèéêë3]m[eèéêë3]n[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "je te rembourse après",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}r[eèéêë3]mb[oôö0][uùúûü]r[s$5][eèéêë3][^\\w]{0,2}[aàáâäã@4]pr[eèéêë3][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "je te trouve trop sexy pour ton âge",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}[t7+]r[oôö0][uùúûü]v[eèéêë3][^\\w]{0,2}[t7+]r[oôö0]p[^\\w]{0,2}[s$5][eèéêë3]x[y¥][^\\w]{0,2}p[oôö0][uùúûü]r[^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}[aàáâäã@4]g[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "je vais disparaître",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}v[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}d[iîï1!|][s$5]p[aàáâäã@4]r[aàáâäã@4][iîï1!|][t7+]r[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "threats_menaces",
+      "severity": 3,
+      "phrase": "je vais détruire ta vie",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}v[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}d[eèéêë3][t7+]r[uùúûü][iîï1!|]r[eèéêë3][^\\w]{0,2}[t7+][aàáâäã@4][^\\w]{0,2}v[iîï1!|][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "self_harm_suicide",
+      "severity": 3,
+      "phrase": "je vais me suicider",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}v[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}m[eèéêë3][^\\w]{0,2}[s$5][uùúûü][iîï1!|][cç][iîï1!|]d[eèéêë3]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "self_harm_suicide",
+      "severity": 3,
+      "phrase": "je veux me faire du mal",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}v[eèéêë3][uùúûü]x[^\\w]{0,2}m[eèéêë3][^\\w]{0,2}f[aàáâäã@4][iîï1!|]r[eèéêë3][^\\w]{0,2}d[uùúûü][^\\w]{0,2}m[aàáâäã@4]l\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "self_harm_suicide",
+      "severity": 3,
+      "phrase": "je veux mourir",
+      "value": "(?i)\\bj[eèéêë3][^\\w]{0,2}v[eèéêë3][uùúûü]x[^\\w]{0,2}m[oôö0][uùúûü]r[iîï1!|]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "juste tes coordonnées",
+      "value": "(?i)\\bj[uùúûü][s$5][t7+][eèéêë3][^\\w]{0,2}[t7+][eèéêë3][s$5][^\\w]{0,2}[cç][oôö0][oôö0]rd[oôö0]nn[eèéêë3][eèéêë3][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "juste une photo",
+      "value": "(?i)\\bj[uùúûü][s$5][t7+][eèéêë3][^\\w]{0,2}[uùúûü]n[eèéêë3][^\\w]{0,2}ph[oôö0][t7+][oôö0]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "self_harm_suicide",
+      "severity": 3,
+      "phrase": "la vie ne vaut plus rien",
+      "value": "(?i)\\bl[aàáâäã@4][^\\w]{0,2}v[iîï1!|][eèéêë3][^\\w]{0,2}n[eèéêë3][^\\w]{0,2}v[aàáâäã@4][uùúûü][t7+][^\\w]{0,2}pl[uùúûü][s$5][^\\w]{0,2}r[iîï1!|][eèéêë3]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "le vrai croyant doit se battre",
+      "value": "(?i)\\bl[eèéêë3][^\\w]{0,2}vr[aàáâäã@4][iîï1!|][^\\w]{0,2}[cç]r[oôö0][y¥][aàáâäã@4]n[t7+][^\\w]{0,2}d[oôö0][iîï1!|][t7+][^\\w]{0,2}[s$5][eèéêë3][^\\w]{0,2}b[aàáâäã@4][t7+][t7+]r[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "les vrais savent",
+      "value": "(?i)\\bl[eèéêë3][s$5][^\\w]{0,2}vr[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}[s$5][aàáâäã@4]v[eèéêë3]n[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "leurres, isolement, demandes d'images, rendez-vous secrets",
+      "value": "(?i)\\bl[eèéêë3][uùúûü]rr[eèéêë3][s$5],[^\\w]{0,2}[iîï1!|][s$5][oôö0]l[eèéêë3]m[eèéêë3]n[t7+],[^\\w]{0,2}d[eèéêë3]m[aàáâäã@4]nd[eèéêë3][s$5][^\\w]{0,2}d['’`´]?[iîï1!|]m[aàáâäã@4]g[eèéêë3][s$5],[^\\w]{0,2}r[eèéêë3]nd[eèéêë3]z\\-v[oôö0][uùúûü][s$5][^\\w]{0,2}[s$5][eèéêë3][cç]r[eèéêë3][t7+][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "liens suspects, codes otp, usurpation",
+      "value": "(?i)\\bl[iîï1!|][eèéêë3]n[s$5][^\\w]{0,2}[s$5][uùúûü][s$5]p[eèéêë3][cç][t7+][s$5],[^\\w]{0,2}[cç][oôö0]d[eèéêë3][s$5][^\\w]{0,2}[oôö0][t7+]p,[^\\w]{0,2}[uùúûü][s$5][uùúûü]rp[aàáâäã@4][t7+][iîï1!|][oôö0]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "mdph",
+      "value": "(?i)\\bmdph\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "menaces physiques, incitations à la violence",
+      "value": "(?i)\\bm[eèéêë3]n[aàáâäã@4][cç][eèéêë3][s$5][^\\w]{0,2}ph[y¥][s$5][iîï1!|]q[uùúûü][eèéêë3][s$5],[^\\w]{0,2}[iîï1!|]n[cç][iîï1!|][t7+][aàáâäã@4][t7+][iîï1!|][oôö0]n[s$5][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}l[aàáâäã@4][^\\w]{0,2}v[iîï1!|][oôö0]l[eèéêë3]n[cç][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "mongolien de base",
+      "value": "(?i)\\bm[oôö0]ng[oôö0]l[iîï1!|][eèéêë3]n[^\\w]{0,2}d[eèéêë3][^\\w]{0,2}b[aàáâäã@4][s$5][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "montre-moi ton corps",
+      "value": "(?i)\\bm[oôö0]n[t7+]r[eèéêë3]\\-m[oôö0][iîï1!|][^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}[cç][oôö0]rp[s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "sextortion_or_grooming",
+      "severity": 3,
+      "phrase": "montre-moi ça et je t?envoie un virement",
+      "value": "(?i)\\bm[oôö0]n[t7+]r[eèéêë3]\\-m[oôö0][iîï1!|][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}[eèéêë3][t7+][^\\w]{0,2}j[eèéêë3][^\\w]{0,2}[t7+]\\?[eèéêë3]nv[oôö0][iîï1!|][eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}v[iîï1!|]r[eèéêë3]m[eèéêë3]n[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "montre-moi, personne saura",
+      "value": "(?i)\\bm[oôö0]n[t7+]r[eèéêë3]\\-m[oôö0][iîï1!|],[^\\w]{0,2}p[eèéêë3]r[s$5][oôö0]nn[eèéêë3][^\\w]{0,2}[s$5][aàáâäã@4][uùúûü]r[aàáâäã@4]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "ne le dis à personne",
+      "value": "(?i)\\bn[eèéêë3][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}d[iîï1!|][s$5][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}p[eèéêë3]r[s$5][oôö0]nn[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "o",
+      "value": "(?i)\\b[oôö0]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "offre limitée, clique vite",
+      "value": "(?i)\\b[oôö0]ffr[eèéêë3][^\\w]{0,2}l[iîï1!|]m[iîï1!|][t7+][eèéêë3][eèéêë3],[^\\w]{0,2}[cç]l[iîï1!|]q[uùúûü][eèéêë3][^\\w]{0,2}v[iîï1!|][t7+][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "on fait un échange ?",
+      "value": "(?i)\\b[oôö0]n[^\\w]{0,2}f[aàáâäã@4][iîï1!|][t7+][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[eèéêë3][cç]h[aàáâäã@4]ng[eèéêë3][^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "on joue au jeu des gages ?",
+      "value": "(?i)\\b[oôö0]n[^\\w]{0,2}j[oôö0][uùúûü][eèéêë3][^\\w]{0,2}[aàáâäã@4][uùúûü][^\\w]{0,2}j[eèéêë3][uùúûü][^\\w]{0,2}d[eèéêë3][s$5][^\\w]{0,2}g[aàáâäã@4]g[eèéêë3][s$5][^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "on se retrouve au paradis",
+      "value": "(?i)\\b[oôö0]n[^\\w]{0,2}[s$5][eèéêë3][^\\w]{0,2}r[eèéêë3][t7+]r[oôö0][uùúûü]v[eèéêë3][^\\w]{0,2}[aàáâäã@4][uùúûü][^\\w]{0,2}p[aàáâäã@4]r[aàáâäã@4]d[iîï1!|][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "on veut pas de vous ici",
+      "value": "(?i)\\b[oôö0]n[^\\w]{0,2}v[eèéêë3][uùúûü][t7+][^\\w]{0,2}p[aàáâäã@4][s$5][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}v[oôö0][uùúûü][s$5][^\\w]{0,2}[iîï1!|][cç][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "ose me montrer",
+      "value": "(?i)\\b[oôö0][s$5][eèéêë3][^\\w]{0,2}m[eèéêë3][^\\w]{0,2}m[oôö0]n[t7+]r[eèéêë3]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "personne ne t'aimera jamais",
+      "value": "(?i)\\bp[eèéêë3]r[s$5][oôö0]nn[eèéêë3][^\\w]{0,2}n[eèéêë3][^\\w]{0,2}[t7+]['’`´]?[aàáâäã@4][iîï1!|]m[eèéêë3]r[aàáâäã@4][^\\w]{0,2}j[aàáâäã@4]m[aàáâäã@4][iîï1!|][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "personne t'aime",
+      "value": "(?i)\\bp[eèéêë3]r[s$5][oôö0]nn[eèéêë3][^\\w]{0,2}[t7+]['’`´]?[aàáâäã@4][iîï1!|]m[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "phrase",
+      "value": "(?i)\\bphr[aàáâäã@4][s$5][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "plus tu fais peur",
+      "value": "(?i)\\bpl[uùúûü][s$5][^\\w]{0,2}[t7+][uùúûü][^\\w]{0,2}f[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}p[eèéêë3][uùúûü]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "plus tu parles, plus tu fais peur",
+      "value": "(?i)\\bpl[uùúûü][s$5][^\\w]{0,2}[t7+][uùúûü][^\\w]{0,2}p[aàáâäã@4]rl[eèéêë3][s$5],[^\\w]{0,2}pl[uùúûü][s$5][^\\w]{0,2}[t7+][uùúûü][^\\w]{0,2}f[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}p[eèéêë3][uùúûü]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "prise en charge",
+      "value": "(?i)\\bpr[iîï1!|][s$5][eèéêë3][^\\w]{0,2}[eèéêë3]n[^\\w]{0,2}[cç]h[aàáâäã@4]rg[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "promesse d'argent facile",
+      "value": "(?i)\\bpr[oôö0]m[eèéêë3][s$5][s$5][eèéêë3][^\\w]{0,2}d['’`´]?[aàáâäã@4]rg[eèéêë3]n[t7+][^\\w]{0,2}f[aàáâäã@4][cç][iîï1!|]l[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "promis tu seras riche",
+      "value": "(?i)\\bpr[oôö0]m[iîï1!|][s$5][^\\w]{0,2}[t7+][uùúûü][^\\w]{0,2}[s$5][eèéêë3]r[aàáâäã@4][s$5][^\\w]{0,2}r[iîï1!|][cç]h[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "prépare-toi à l'action",
+      "value": "(?i)\\bpr[eèéêë3]p[aàáâäã@4]r[eèéêë3]\\-[t7+][oôö0][iîï1!|][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}l['’`´]?[aàáâäã@4][cç][t7+][iîï1!|][oôö0]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "prépare-toi à l?action",
+      "value": "(?i)\\bpr[eèéêë3]p[aàáâäã@4]r[eèéêë3]\\-[t7+][oôö0][iîï1!|][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}l\\?[aàáâäã@4][cç][t7+][iîï1!|][oôö0]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "purifie-toi dans le martyre",
+      "value": "(?i)\\bp[uùúûü]r[iîï1!|]f[iîï1!|][eèéêë3]\\-[t7+][oôö0][iîï1!|][^\\w]{0,2}d[aàáâäã@4]n[s$5][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}m[aàáâäã@4]r[t7+][y¥]r[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "race inférieure",
+      "value": "(?i)\\br[aàáâäã@4][cç][eèéêë3][^\\w]{0,2}[iîï1!|]nf[eèéêë3]r[iîï1!|][eèéêë3][uùúûü]r[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "regarde cette vidéo",
+      "value": "(?i)\\br[eèéêë3]g[aàáâäã@4]rd[eèéêë3][^\\w]{0,2}[cç][eèéêë3][t7+][t7+][eèéêë3][^\\w]{0,2}v[iîï1!|]d[eèéêë3][oôö0]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "regarde ta tête dans un miroir",
+      "value": "(?i)\\br[eèéêë3]g[aàáâäã@4]rd[eèéêë3][^\\w]{0,2}[t7+][aàáâäã@4][^\\w]{0,2}[t7+][eèéêë3][t7+][eèéêë3][^\\w]{0,2}d[aàáâäã@4]n[s$5][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}m[iîï1!|]r[oôö0][iîï1!|]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "regex",
+      "value": "(?i)\\br[eèéêë3]g[eèéêë3]x\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "rencontrons-nous seul",
+      "value": "(?i)\\br[eèéêë3]n[cç][oôö0]n[t7+]r[oôö0]n[s$5]\\-n[oôö0][uùúûü][s$5][^\\w]{0,2}[s$5][eèéêë3][uùúûü]l\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "retourne dans ton pays",
+      "value": "(?i)\\br[eèéêë3][t7+][oôö0][uùúûü]rn[eèéêë3][^\\w]{0,2}d[aàáâäã@4]n[s$5][^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}p[aàáâäã@4][y¥][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "s",
+      "value": "(?i)\\b[s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "sale autiste",
+      "value": "(?i)\\b[s$5][aàáâäã@4]l[eèéêë3][^\\w]{0,2}[aàáâäã@4][uùúûü][t7+][iîï1!|][s$5][t7+][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "sale blanc",
+      "value": "(?i)\\b[s$5][aàáâäã@4]l[eèéêë3][^\\w]{0,2}bl[aàáâäã@4]n[cç]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "sale bougnoul",
+      "value": "(?i)\\b[s$5][aàáâäã@4]l[eèéêë3][^\\w]{0,2}b[oôö0][uùúûü]gn[oôö0][uùúûü]l\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "sale gros singe à lunettes",
+      "value": "(?i)\\b[s$5][aàáâäã@4]l[eèéêë3][^\\w]{0,2}gr[oôö0][s$5][^\\w]{0,2}[s$5][iîï1!|]ng[eèéêë3][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}l[uùúûü]n[eèéêë3][t7+][t7+][eèéêë3][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "sale nain",
+      "value": "(?i)\\b[s$5][aàáâäã@4]l[eèéêë3][^\\w]{0,2}n[aàáâäã@4][iîï1!|]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "sale noir",
+      "value": "(?i)\\b[s$5][aàáâäã@4]l[eèéêë3][^\\w]{0,2}n[oôö0][iîï1!|]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "seul le martyre te sauvera",
+      "value": "(?i)\\b[s$5][eèéêë3][uùúûü]l[^\\w]{0,2}l[eèéêë3][^\\w]{0,2}m[aàáâäã@4]r[t7+][y¥]r[eèéêë3][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}[s$5][aàáâäã@4][uùúûü]v[eèéêë3]r[aàáâäã@4]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "threats_menaces",
+      "severity": 3,
+      "phrase": "si tu ne fais pas ça je montre à tout le monde",
+      "value": "(?i)\\b[s$5][iîï1!|][^\\w]{0,2}[t7+][uùúûü][^\\w]{0,2}n[eèéêë3][^\\w]{0,2}f[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}p[aàáâäã@4][s$5][^\\w]{0,2}[cç][aàáâäã@4][^\\w]{0,2}j[eèéêë3][^\\w]{0,2}m[oôö0]n[t7+]r[eèéêë3][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}[t7+][oôö0][uùúûü][t7+][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}m[oôö0]nd[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "spectre de l'autisme",
+      "value": "(?i)\\b[s$5]p[eèéêë3][cç][t7+]r[eèéêë3][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}l['’`´]?[aàáâäã@4][uùúûü][t7+][iîï1!|][s$5]m[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t",
+      "value": "(?i)\\b[t7+]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "t'as de beaux seins",
+      "value": "(?i)\\b[t7+]['’`´]?[aàáâäã@4][s$5][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}b[eèéêë3][aàáâäã@4][uùúûü]x[^\\w]{0,2}[s$5][eèéêë3][iîï1!|]n[s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'as des courbes de ouf",
+      "value": "(?i)\\b[t7+]['’`´]?[aàáâäã@4][s$5][^\\w]{0,2}d[eèéêë3][s$5][^\\w]{0,2}[cç][oôö0][uùúûü]rb[eèéêë3][s$5][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}[oôö0][uùúûü]f\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'as déjà essayé un truc coquin ?",
+      "value": "(?i)\\b[t7+]['’`´]?[aàáâäã@4][s$5][^\\w]{0,2}d[eèéêë3]j[aàáâäã@4][^\\w]{0,2}[eèéêë3][s$5][s$5][aàáâäã@4][y¥][eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[t7+]r[uùúûü][cç][^\\w]{0,2}[cç][oôö0]q[uùúûü][iîï1!|]n[^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "t'as pas d'amis",
+      "value": "(?i)\\b[t7+]['’`´]?[aàáâäã@4][s$5][^\\w]{0,2}p[aàáâäã@4][s$5][^\\w]{0,2}d['’`´]?[aàáâäã@4]m[iîï1!|][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'as pas le choix",
+      "value": "(?i)\\b[t7+]['’`´]?[aàáâäã@4][s$5][^\\w]{0,2}p[aàáâäã@4][s$5][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}[cç]h[oôö0][iîï1!|]x\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "t'as un corps magnifique",
+      "value": "(?i)\\b[t7+]['’`´]?[aàáâäã@4][s$5][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[cç][oôö0]rp[s$5][^\\w]{0,2}m[aàáâäã@4]gn[iîï1!|]f[iîï1!|]q[uùúûü][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'es bon(ne) à rien",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}b[oôö0]n\\(n[eèéêë3]\\)[^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}r[iîï1!|][eèéêë3]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "threats_menaces",
+      "severity": 3,
+      "phrase": "t'es fichu(e)",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}f[iîï1!|][cç]h[uùúûü]\\([eèéêë3]\\)\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "t'es mature pour ton âge",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}m[aàáâäã@4][t7+][uùúûü]r[eèéêë3][^\\w]{0,2}p[oôö0][uùúûü]r[^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}[aàáâäã@4]g[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'es moche",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}m[oôö0][cç]h[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "t'es pas chez toi ici",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}p[aàáâäã@4][s$5][^\\w]{0,2}[cç]h[eèéêë3]z[^\\w]{0,2}[t7+][oôö0][iîï1!|][^\\w]{0,2}[iîï1!|][cç][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "t'es qu'un(e) looser",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}q[uùúûü]['’`´]?[uùúûü]n\\([eèéêë3]\\)[^\\w]{0,2}l[oôö0][oôö0][s$5][eèéêë3]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'es qu'une erreur",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}q[uùúûü]['’`´]?[uùúûü]n[eèéêë3][^\\w]{0,2}[eèéêë3]rr[eèéêë3][uùúûü]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "t'es qu'une merde",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}q[uùúûü]['’`´]?[uùúûü]n[eèéêë3][^\\w]{0,2}m[eèéêë3]rd[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'es rempli de boutons",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}r[eèéêë3]mpl[iîï1!|][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}b[oôö0][uùúûü][t7+][oôö0]n[s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t'es un attardé",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[aàáâäã@4][t7+][t7+][aàáâäã@4]rd[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "t'es une victime",
+      "value": "(?i)\\b[t7+]['’`´]?[eèéêë3][s$5][^\\w]{0,2}[uùúûü]n[eèéêë3][^\\w]{0,2}v[iîï1!|][cç][t7+][iîï1!|]m[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t?as déjà essayé un truc coquin ?",
+      "value": "(?i)\\b[t7+]\\?[aàáâäã@4][s$5][^\\w]{0,2}d[eèéêë3]j[aàáâäã@4][^\\w]{0,2}[eèéêë3][s$5][s$5][aàáâäã@4][y¥][eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[t7+]r[uùúûü][cç][^\\w]{0,2}[cç][oôö0]q[uùúûü][iîï1!|]n[^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "predator_grooming",
+      "severity": 3,
+      "phrase": "t?as déjà été nu(e) ?",
+      "value": "(?i)\\b[t7+]\\?[aàáâäã@4][s$5][^\\w]{0,2}d[eèéêë3]j[aàáâäã@4][^\\w]{0,2}[eèéêë3][t7+][eèéêë3][^\\w]{0,2}n[uùúûü]\\([eèéêë3]\\)[^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t?es pas chez toi ici",
+      "value": "(?i)\\b[t7+]\\?[eèéêë3][s$5][^\\w]{0,2}p[aàáâäã@4][s$5][^\\w]{0,2}[cç]h[eèéêë3]z[^\\w]{0,2}[t7+][oôö0][iîï1!|][^\\w]{0,2}[iîï1!|][cç][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "t?es rempli de boutons",
+      "value": "(?i)\\b[t7+]\\?[eèéêë3][s$5][^\\w]{0,2}r[eèéêë3]mpl[iîï1!|][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}b[oôö0][uùúûü][t7+][oôö0]n[s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tdah",
+      "value": "(?i)\\b[t7+]d[aàáâäã@4]h\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tout le monde se fout de toi",
+      "value": "(?i)\\b[t7+][oôö0][uùúûü][t7+][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}m[oôö0]nd[eèéêë3][^\\w]{0,2}[s$5][eèéêë3][^\\w]{0,2}f[oôö0][uùúûü][t7+][^\\w]{0,2}d[eèéêë3][^\\w]{0,2}[t7+][oôö0][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "trouble du spectre",
+      "value": "(?i)\\b[t7+]r[oôö0][uùúûü]bl[eèéêë3][^\\w]{0,2}d[uùúûü][^\\w]{0,2}[s$5]p[eèéêë3][cç][t7+]r[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tsa",
+      "value": "(?i)\\b[t7+][s$5][aàáâäã@4]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "tu as gagné un iphone",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}[aàáâäã@4][s$5][^\\w]{0,2}g[aàáâäã@4]gn[eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[iîï1!|]ph[oôö0]n[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu connais ce site ?",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}[cç][oôö0]nn[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}[cç][eèéêë3][^\\w]{0,2}[s$5][iîï1!|][t7+][eèéêë3][^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "radicalization",
+      "severity": 3,
+      "phrase": "tu dois défendre ta foi",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}d[oôö0][iîï1!|][s$5][^\\w]{0,2}d[eèéêë3]f[eèéêë3]ndr[eèéêë3][^\\w]{0,2}[t7+][aàáâäã@4][^\\w]{0,2}f[oôö0][iîï1!|]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu dois payer d'abord",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}d[oôö0][iîï1!|][s$5][^\\w]{0,2}p[aàáâäã@4][y¥][eèéêë3]r[^\\w]{0,2}d['’`´]?[aàáâäã@4]b[oôö0]rd\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu dois te purifier",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}d[oôö0][iîï1!|][s$5][^\\w]{0,2}[t7+][eèéêë3][^\\w]{0,2}p[uùúûü]r[iîï1!|]f[iîï1!|][eèéêë3]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu es un élu",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}[eèéêë3][s$5][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}[eèéêë3]l[uùúûü]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu fais plus vieille que ton âge",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}f[aàáâäã@4][iîï1!|][s$5][^\\w]{0,2}pl[uùúûü][s$5][^\\w]{0,2}v[iîï1!|][eèéêë3][iîï1!|]ll[eèéêë3][^\\w]{0,2}q[uùúûü][eèéêë3][^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}[aàáâäã@4]g[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu me rends fou",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}m[eèéêë3][^\\w]{0,2}r[eèéêë3]nd[s$5][^\\w]{0,2}f[oôö0][uùúûü]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "cyberbullying",
+      "severity": 2,
+      "phrase": "tu pues la défaite",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}p[uùúûü][eèéêë3][s$5][^\\w]{0,2}l[aàáâäã@4][^\\w]{0,2}d[eèéêë3]f[aàáâäã@4][iîï1!|][t7+][eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu ressemble à rien",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}r[eèéêë3][s$5][s$5][eèéêë3]mbl[eèéêë3][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}r[iîï1!|][eèéêë3]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu ressembles à rien",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}r[eèéêë3][s$5][s$5][eèéêë3]mbl[eèéêë3][s$5][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}r[iîï1!|][eèéêë3]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu seras récompensé dans l'au-delà",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}[s$5][eèéêë3]r[aàáâäã@4][s$5][^\\w]{0,2}r[eèéêë3][cç][oôö0]mp[eèéêë3]n[s$5][eèéêë3][^\\w]{0,2}d[aàáâäã@4]n[s$5][^\\w]{0,2}l['’`´]?[aàáâäã@4][uùúûü]\\-d[eèéêë3]l[aàáâäã@4]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu sers à rien",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}[s$5][eèéêë3]r[s$5][^\\w]{0,2}[aàáâäã@4][^\\w]{0,2}r[iîï1!|][eèéêë3]n\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu vas aimer ça",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}v[aàáâäã@4][s$5][^\\w]{0,2}[aàáâäã@4][iîï1!|]m[eèéêë3]r[^\\w]{0,2}[cç][aàáâäã@4]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "threats_menaces",
+      "severity": 3,
+      "phrase": "tu vas le payer",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}v[aàáâäã@4][s$5][^\\w]{0,2}l[eèéêë3][^\\w]{0,2}p[aàáâäã@4][y¥][eèéêë3]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu vas regretter",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}v[aàáâäã@4][s$5][^\\w]{0,2}r[eèéêë3]gr[eèéêë3][t7+][t7+][eèéêë3]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "phishing_fraud",
+      "severity": 2,
+      "phrase": "tu veux gagner de l'argent facile ?",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}v[eèéêë3][uùúûü]x[^\\w]{0,2}g[aàáâäã@4]gn[eèéêë3]r[^\\w]{0,2}d[eèéêë3][^\\w]{0,2}l['’`´]?[aàáâäã@4]rg[eèéêë3]n[t7+][^\\w]{0,2}f[aàáâäã@4][cç][iîï1!|]l[eèéêë3][^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu veux qu'on fasse un défi ?",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}v[eèéêë3][uùúûü]x[^\\w]{0,2}q[uùúûü]['’`´]?[oôö0]n[^\\w]{0,2}f[aàáâäã@4][s$5][s$5][eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}d[eèéêë3]f[iîï1!|][^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tu veux qu?on fasse un défi ?",
+      "value": "(?i)\\b[t7+][uùúûü][^\\w]{0,2}v[eèéêë3][uùúûü]x[^\\w]{0,2}q[uùúûü]\\?[oôö0]n[^\\w]{0,2}f[aàáâäã@4][s$5][s$5][eèéêë3][^\\w]{0,2}[uùúûü]n[^\\w]{0,2}d[eèéêë3]f[iîï1!|][^\\w]{0,2}\\?\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "tutelle",
+      "value": "(?i)\\b[t7+][uùúûü][t7+][eèéêë3]ll[eèéêë3]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "self_harm_suicide",
+      "severity": 3,
+      "phrase": "va mourir",
+      "value": "(?i)\\bv[aàáâäã@4][^\\w]{0,2}m[oôö0][uùúûü]r[iîï1!|]r\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "va soigner ton handicap",
+      "value": "(?i)\\bv[aàáâäã@4][^\\w]{0,2}[s$5][oôö0][iîï1!|]gn[eèéêë3]r[^\\w]{0,2}[t7+][oôö0]n[^\\w]{0,2}h[aàáâäã@4]nd[iîï1!|][cç][aàáâäã@4]p\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "racism_discrimination",
+      "severity": 3,
+      "phrase": "vous êtes des singes",
+      "value": "(?i)\\bv[oôö0][uùúûü][s$5][^\\w]{0,2}[eèéêë3][t7+][eèéêë3][s$5][^\\w]{0,2}d[eèéêë3][s$5][^\\w]{0,2}[s$5][iîï1!|]ng[eèéêë3][s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "vous êtes tous pareils",
+      "value": "(?i)\\bv[oôö0][uùúûü][s$5][^\\w]{0,2}[eèéêë3][t7+][eèéêë3][s$5][^\\w]{0,2}[t7+][oôö0][uùúûü][s$5][^\\w]{0,2}p[aàáâäã@4]r[eèéêë3][iîï1!|]l[s$5]\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "´",
+      "value": "(?i)\\b\\b"
+    },
+    {
+      "type": "regex",
+      "lang": "fr",
+      "category": "generic_flag",
+      "severity": 2,
+      "phrase": "’",
+      "value": "(?i)\\b['’`´]?\\b"
+    }
+  ]
+}
