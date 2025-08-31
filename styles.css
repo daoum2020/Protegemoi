@@ -1,0 +1,47 @@
+/* Reset minimal */
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{font:16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f8fc;color:#0e1b2b}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;background:#ffffff;border-bottom:1px solid #e6ebf5;padding:10px 14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#0e1b2b;font-weight:700}
+.logo{width:28px;height:28px}
+.brand-text{font-size:18px}
+.hamburger{background:#2F80ED;color:#fff;border:0;border-radius:10px;padding:8px 10px;cursor:pointer}
+.menu{display:none;position:absolute;top:54px;right:10px;background:#fff;border:1px solid #e6ebf5;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:8px;min-width:210px}
+.menu a{display:block;padding:10px 12px;border-radius:10px;color:#0e1b2b;text-decoration:none}
+.menu a:hover{background:#f1f5ff}
+.menu.show{display:block}
+
+/* Layout */
+.container{width:min(980px,92vw);margin:24px auto}
+.card{background:#fff;border:1px solid #e6ebf5;border-radius:14px;padding:16px 16px 18px;box-shadow:0 4px 16px rgba(0,0,0,.03);margin:14px 0}
+.hero{display:grid;place-items:center;text-align:center;padding:28px}
+.hero-logo{width:60px;height:60px;opacity:.9}
+h1{font-size:28px;margin:8px 0}
+h2{font-size:22px;margin:6px 0 10px}
+.muted{color:#6b7c95}
+.small{font-size:14px}
+.form{display:grid;gap:10px;max-width:420px}
+.form label{display:grid;gap:6px}
+.form input{padding:10px 12px;border-radius:10px;border:1px solid #d9e1ef}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:12px;padding:10px 14px;text-decoration:none;cursor:pointer}
+.btn.primary{background:#2F80ED;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.list{margin:0;padding-left:18px}
+.footer{padding:18px;color:#6b7c95;text-align:center}
+
+/* Helpers */
+.hidden{display:none}
+
+@media (max-width:860px){
+  .grid{grid-template-columns:1fr}
+}
+
+
+.right{display:flex;align-items:center;gap:8px}
+.lang-label{font-size:14px;color:#6b7c95}
+#lang{padding:6px 8px;border:1px solid #d9e1ef;border-radius:8px;background:#fff}
+@media (max-width:520px){
+  .lang-label{display:none}
+}
