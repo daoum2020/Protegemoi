@@ -1,189 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>ProtègeMoi — Abonnement</title>
-  <meta name="theme-color" content="#0a5bd7"/>
-  <link rel="icon" type="image/png" href="./favicon-32.png"/>
-  <link rel="manifest" href="./manifest.json"/>
-  <style>
-    :root{--c1:#0a5bd7;--c2:#083a93;--text:#0b1e39;--muted:#6b7c95;--card:#fff;--border:#e6ebf5}
-    *{box-sizing:border-box} body{margin:0;font:16px/1.55 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:#fff}
-    header{position:sticky;top:0;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);background:#fff;z-index:10}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:800}
-    .brand img{height:28px}
-    .wrap{width:min(1080px,92vw);margin:22px auto}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 6px 18px rgba(8,58,147,.05);padding:16px;margin:14px 0}
-    .muted{color:var(--muted)} .small{font-size:14px}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .col-4{grid-column:span 4} .col-12{grid-column:span 12}
-    @media (max-width:900px){.col-4{grid-column:span 12}}
-    .btn{padding:10px 14px;border-radius:12px;border:1px solid var(--c1);background:var(--c1);color:#fff;cursor:pointer}
-    .btn.ghost{background:transparent;color:var(--c1)}
-    .plan{position:relative}
-    .badge{position:absolute;top:12px;right:12px;background:rgba(10,91,215,.08);color:var(--c1);border:1px solid var(--c1);font-weight:700;font-size:12px;border-radius:999px;padding:4px 8px}
-    .toggle{display:flex;gap:8px;align-items:center;background:#f4f7fb;border:1px solid var(--border);padding:6px;border-radius:999px;width:max-content}
-    .switch{position:relative;width:56px;height:28px;background:#dbe6f6;border-radius:999px;cursor:pointer}
-    .knob{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:all .2s ease}
-    .switch.on .knob{left:31px;background:#fff}
-    .price{font-size:28px;font-weight:800}
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="brand">ProtègeMoi</title>
+  <link rel="stylesheet" href="styles.css" />
+<meta property="og:title" content="ProtègeMoi — Abonnement">
+<meta property="og:image" content="assets/cover.png">
+
+<link rel="alternate" hreflang="fr" href="https://daoum2020.github.io/Protegemoi/billing.html?lang=fr">
+<link rel="alternate" hreflang="en" href="https://daoum2020.github.io/Protegemoi/billing.html?lang=en">
+<link rel="alternate" hreflang="es" href="https://daoum2020.github.io/Protegemoi/billing.html?lang=es">
 </head>
 <body>
-<header>
-  <div class="brand">
-    <img src="./favicon-64.png" alt="logo"/>
-    <span>ProtègeMoi</span>
-  </div>
-  <div>
-    <a href="./index.html" class="btn ghost">Accueil</a>
-    <a href="./dashboard.html" class="btn ghost">Tableau de bord</a>
-  </div>
-</header>
-
-<main class="wrap">
-  <section class="card">
-    <h2>Choisissez votre protection</h2>
-    <p class="muted small">Basculez entre <strong>Mensuel</strong> et <strong>Annuel</strong> (–17 %).</p>
-    <div class="toggle">
-      <span>Mensuel</span>
-      <div id="modeSwitch" class="switch"><div class="knob"></div></div>
-      <span>Annuel <span class="muted small">(-17%)</span></span>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img loading="lazy" src="assets/logo.png" alt="Logo" class="logo" />
+      <span class="brand-text" data-i18n="brand">ProtègeMoi</span>
+    </a>
+    <div class="right"><button id="themeToggle" class="theme-toggle" title="Theme">🌙</button>
+      <label class="lang-label" for="lang" data-i18n="lang_label">Langue</label>
+      <select id="lang" onchange="setLang(this.value,true)">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainmenu" onclick="toggleMenu()">☰</button>
     </div>
-  </section>
+    <nav id="mainmenu" class="menu" aria-label="Main menu">
+      <a href="index.html" onclick="closeMenu()" data-i18n="menu_home">Accueil</a>
+      <a href="dashboard.html" onclick="closeMenu()" data-i18n="menu_dashboard">Tableau de bord</a>
+      <a href="settings.html" onclick="closeMenu()" data-i18n="menu_settings">Paramètres</a>
+      <a href="stats.html" onclick="closeMenu()" data-i18n="menu_stats">Statistiques</a>
+      <a href="billing.html" onclick="closeMenu()" data-i18n="menu_billing">Abonnement</a>
+      <a href="login.html" class="login" onclick="closeMenu()" data-i18n="menu_login">Connexion</a>
+    <a href="link-child.html" onclick="closeMenu()" data-i18n="menu_link_child">Lier un enfant</a>
+    <a href="admin.html" onclick="closeMenu()" class="admin-only" style="display:none">Admin</a>
+    </nav>
+  </header>
+  <main class="container">
 
-  <section class="grid">
-    <div class="card plan col-4" id="plan1">
-      <div class="badge" id="badge1" style="display:none">-17%</div>
+<section class="card" id="billing">
+  <h2 data-i18n="billing">Abonnement</h2>
+  <p data-i18n="billing_desc">Gérez votre offre et votre facturation.</p>
+<div class="cta">
+  <button class="btn primary" onclick="checkout('oneChild')">1 enfant</button>
+  <button class="btn primary" onclick="checkout('twoChildren')">2 enfants</button>
+  <button class="btn primary" onclick="checkout('threeChildren')">3 enfants</button>
+</div>
+<p class="muted small">Demo : nécessite `config.js` avec `window.PM_CONFIG.prices.*` configurés et Stripe Checkout côté serveur ou lien Stripe.</p>
+<script>
+function checkout(plan){
+  if(!window.PM_CONFIG||!window.PM_CONFIG.prices||!window.PM_CONFIG.prices[plan]){ alert('Plan non configuré'); return; }
+  // Démo: si vous avez des URLs de Checkout hébergées, redirigez dessus :
+  const priceId = window.PM_CONFIG.prices[plan];
+  const url = (window.PM_CONFIG && window.PM_CONFIG.checkoutUrls && window.PM_CONFIG.checkoutUrls[plan]) || `https://checkout.stripe.com/pay/${priceId}`; window.location.href = url;
+}
+</script>
+</section>
+
+  
+
+<section class="card" id="pricing">
+  <h1 style="margin-bottom:8px">Choisissez votre offre</h1>
+  <p class="muted" style="margin-top:0">Abonnement simple et sans engagement. Changez entre <b>Mensuel</b> et <b>Annuel</b> (2 mois offerts).</p>
+
+  
+  <div class="billing-toggle" aria-label="Sélecteur de période">
+    <button id="btn-monthly" class="toggle active">Mensuel</button>
+    <button id="btn-yearly" class="toggle">Annuel <span class="discount">-17%</span></button>
+  </div>
+
+
+  <div class="grid-3">
+    <div class="price-card" data-plan="oneChild">
       <h3>Protection 1 enfant</h3>
-      <div class="price"><span id="p1"></span> <span class="muted small" id="p1suffix"></span></div>
-      <div class="muted small" id="p1alt"></div>
+      <div class="price"><span class="amount" data-month="9,99" data-year="99">9,99</span> € <small class="per">/ mois</small></div>
       <ul>
-        <li>Surveillance intelligente (IA)</li>
-        <li>Détection harcèlement & prédateurs</li>
-        <li>Filtrage +18 & radicalisation</li>
+        <li>Surveillance intelligente IA</li>
+        <li>Détection harcèlement et prédateurs</li>
         <li>Non désinstallable par l’enfant</li>
       </ul>
-      <button class="btn" id="b1">Protéger maintenant</button>
+      <button class="btn primary action">Protéger maintenant</button>
     </div>
 
-    <div class="card plan col-4" id="plan2">
-      <div class="badge" id="badge2" style="display:none">-17%</div>
-      <h3>Protection 2 enfants <span class="badge" style="position:static;margin-left:8px">Populaire</span></h3>
-      <div class="price"><span id="p2"></span> <span class="muted small" id="p2suffix"></span></div>
-      <div class="muted small" id="p2alt"></div>
+    <div class="price-card highlight" data-plan="twoChildren">
+      <div class="badge">Populaire</div>
+      <h3>Protection 2 enfants</h3>
+      <div class="price"><span class="amount" data-month="13,99" data-year="139">13,99</span> € <small class="per">/ mois</small></div>
       <ul>
-        <li>Tout le pack 1 enfant</li>
-        <li>Alertes et statistiques par enfant</li>
-        <li>Priorité support</li>
+        <li>Tout de l’offre 1 enfant</li>
+        <li>2 profils enfant inclus</li>
       </ul>
-      <button class="btn" id="b2">Protéger maintenant</button>
+      <button class="btn primary action">Protéger maintenant</button>
     </div>
 
-    <div class="card plan col-4" id="plan3">
-      <div class="badge" id="badge3" style="display:none">-17%</div>
+    <div class="price-card" data-plan="threeChildren">
       <h3>Protection 3 enfants</h3>
-      <div class="price"><span id="p3"></span> <span class="muted small" id="p3suffix"></span></div>
-      <div class="muted small" id="p3alt"></div>
+      <div class="price"><span class="amount" data-month="17,99" data-year="169">17,99</span> € <small class="per">/ mois</small></div>
       <ul>
-        <li>Tout le pack 2 enfants</li>
-        <li>Historique étendu et exports</li>
-        <li>Assistance Premium</li>
+        <li>Tout de l’offre 2 enfants</li>
+        <li>3 profils enfant inclus</li>
       </ul>
-      <button class="btn" id="b3">Protéger maintenant</button>
+      <button class="btn primary action">Protéger maintenant</button>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
-<script src="./config.js"></script>
-<script type="module">
-  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js'
-  import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js'
-  import { getFunctions, httpsCallable } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js'
+<style>
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{background:var(--card);border:1px solid #e7edf6;border-radius:14px;padding:18px;position:relative}
+.price-card .price{font-size:28px;font-weight:700;margin:6px 0}
+.price-card ul{padding-left:18px;line-height:1.5}
+.price-card .badge{position:absolute;top:-10px;right:12px;background:#ffd166;color:#111;
+  font-size:12px;font-weight:700;padding:4px 8px;border-radius:8px}
+.price-card.highlight{box-shadow:0 10px 28px rgba(0,0,0,.12);border-color:#d7e2f1}
+.billing-toggle{display:inline-flex;border:1px solid #dbe6f5;border-radius:10px;overflow:hidden;margin:10px 0 20px}
+.toggle{padding:8px 14px;border:0;background:transparent;cursor:pointer}
+.toggle.active{background:#2F80ED;color:#fff}
+@media (max-width: 800px){.grid-3{grid-template-columns:1fr}}
 
-  const cfg = window.PM_CONFIG
-  const app = initializeApp(cfg.firebase)
-  const auth = getAuth(app)
-  const fun = getFunctions(app, cfg.functionsRegion || undefined)
+.billing-toggle .discount{
+  background:#27ae60;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  padding:2px 6px;
+  border-radius:6px;
+  margin-left:4px;
+}
 
-  let billingMode = 'monthly' // or 'yearly'
 
-  const prices = {
-    monthly: {1: '9,99 €', 2: '13,99 €', 3: '17,99 €'},
-    yearly:  {1: '99 €',   2: '139 €',  3: '169 €'  }
+.save-badge{display:inline-block;margin-left:6px;padding:2px 6px;border-radius:8px;
+  background:#10b981;color:#fff;font-size:12px;font-weight:700;vertical-align:middle}
+.toggle.active .save-badge{background:#0ea371}
+</style>
+
+<script>
+(function(){
+  const btnMonthly = document.getElementById('btn-monthly');
+  const btnYearly = document.getElementById('btn-yearly');
+  const cards = document.querySelectorAll('.price-card');
+
+  function setMode(mode){
+    btnMonthly.classList.toggle('active', mode==='monthly');
+    btnYearly.classList.toggle('active', mode==='yearly');
+
+    cards.forEach(card => {
+      const amountEl = card.querySelector('.amount');
+      const perEl = card.querySelector('.per');
+      const month = amountEl.getAttribute('data-month');
+      const year = amountEl.getAttribute('data-year');
+      if(mode==='yearly'){ amountEl.textContent = year; perEl.textContent = '/ an'; }
+      else { amountEl.textContent = month; perEl.textContent = '/ mois'; }
+    });
+
+    // Attach correct Stripe URL set
+    const yearly = mode === 'yearly';
+    const urls = yearly ? (window.PM_CONFIG.checkoutUrlsYearly || {}) : (window.PM_CONFIG.checkoutUrls || {});
+    document.querySelectorAll('.price-card .action').forEach(btn=>{
+      btn.onclick = () => {
+        const plan = btn.closest('.price-card').getAttribute('data-plan');
+        const url = urls[plan];
+        if(!url || /_demo$/.test(url)){
+          alert('Lien Stripe non configuré pour ' + (yearly?'annuel':'mensuel') + '. Ouvrez config.js > ' + (yearly?'checkoutUrlsYearly':'checkoutUrls'));
+          return;
+        }
+        window.location.href = url;
+      };
+    });
   }
 
-  function renderPrices(){
-    const yearly = billingMode === 'yearly'
-    document.getElementById('badge1').style.display = yearly ? '' : 'none'
-    document.getElementById('badge2').style.display = yearly ? '' : 'none'
-    document.getElementById('badge3').style.display = yearly ? '' : 'none'
+  btnMonthly.addEventListener('click', ()=>setMode('monthly'));
+  btnYearly.addEventListener('click', ()=>setMode('yearly'));
 
-    const sfx = yearly ? '/ an' : '/ mois'
-    const alt = yearly ? 'Equivalent 2 mois offerts' : 'Annuel: -17% → 99/139/169 €'
-    document.getElementById('p1').textContent = prices[billingMode][1]
-    document.getElementById('p2').textContent = prices[billingMode][2]
-    document.getElementById('p3').textContent = prices[billingMode][3]
-    document.getElementById('p1suffix').textContent = sfx
-    document.getElementById('p2suffix').textContent = sfx
-    document.getElementById('p3suffix').textContent = sfx
-    document.getElementById('p1alt').textContent = alt
-    document.getElementById('p2alt').textContent = alt
-    document.getElementById('p3alt').textContent = alt
-
-    // toggle knob
-    const sw = document.getElementById('modeSwitch')
-    if(yearly) sw.classList.add('on'); else sw.classList.remove('on')
-  }
-
-  // Initial render
-  renderPrices()
-
-  // Toggle switch
-  document.getElementById('modeSwitch').addEventListener('click', ()=>{
-    billingMode = (billingMode === 'monthly') ? 'yearly' : 'monthly'
-    renderPrices()
-  })
-
-  async function subscribe(priceId){
-    const user = auth.currentUser
-    if(!user){ alert('Connectez-vous d’abord.'); return }
-    try {
-      const createCheckout = httpsCallable(fun, 'createCheckout')
-      const res = await createCheckout({ priceId })
-      if(res?.data?.url) location.href = res.data.url
-      else alert('Réponse inattendue de createCheckout')
-    } catch(e){
-      console.error(e)
-      alert('Erreur abonnement')
-    }
-  }
-
-  // Buttons bind with config prices
-  document.getElementById('b1').addEventListener('click', ()=>{
-    const priceId = (billingMode === 'yearly')
-      ? cfg.pricesYearly.oneChild
-      : cfg.pricesMonthly.oneChild
-    subscribe(priceId)
-  })
-  document.getElementById('b2').addEventListener('click', ()=>{
-    const priceId = (billingMode === 'yearly')
-      ? cfg.pricesYearly.twoChildren
-      : cfg.pricesMonthly.twoChildren
-    subscribe(priceId)
-  })
-  document.getElementById('b3').addEventListener('click', ()=>{
-    const priceId = (billingMode === 'yearly')
-      ? cfg.pricesYearly.threeChildren
-      : cfg.pricesMonthly.threeChildren
-    subscribe(priceId)
-  })
-
-  onAuthStateChanged(auth, (u)=>{
-    // Optionnel : afficher l'état de connexion si besoin
-    console.log('Auth:', u ? (u.email || u.uid) : 'non connecté')
-  })
+  // default monthly
+  setMode('monthly');
+})();
 </script>
+
+<style>
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.price-card{background:var(--card);border:1px solid #e7edf6;border-radius:14px;padding:18px;position:relative}
+.price-card .price{font-size:28px;font-weight:700;margin:6px 0}
+.price-card ul{padding-left:18px;line-height:1.5}
+.price-card .badge{position:absolute;top:-10px;right:12px;background:#ffd166;color:#111;
+  font-size:12px;font-weight:700;padding:4px 8px;border-radius:8px}
+.price-card.highlight{box-shadow:0 10px 28px rgba(0,0,0,.12);border-color:#d7e2f1}
+@media (max-width: 800px){.grid-3{grid-template-columns:1fr}}
+
+.billing-toggle .discount{
+  background:#27ae60;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  padding:2px 6px;
+  border-radius:6px;
+  margin-left:4px;
+}
+
+
+.save-badge{display:inline-block;margin-left:6px;padding:2px 6px;border-radius:8px;
+  background:#10b981;color:#fff;font-size:12px;font-weight:700;vertical-align:middle}
+.toggle.active .save-badge{background:#0ea371}
+</style>
+<script>
+function checkoutPlan(key){
+  const url = window.PM_CONFIG && window.PM_CONFIG.checkoutUrls && window.PM_CONFIG.checkoutUrls[key];
+  if(!url || /_demo$/.test(url)){ alert('Lien Stripe non configuré. Ouvrez config.js > checkoutUrls'); return; }
+  window.location.href = url;
+}
+</script>
+
+</main>
+  <footer class="footer">
+    <p>© <span id="year"></span> <span data-i18n="copyright">ProtègeMoi</span></p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+  <script type="module" src="auth.js"></script>
 </body>
 </html>

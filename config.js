@@ -1,40 +1,27 @@
-// === ProtègeMoi — Configuration Production (GitHub Pages) ===
-// Remplace les IDs Stripe 'price_xxx' par les tiens dans le Dashboard Stripe.
 window.PM_CONFIG = {
-  firebase: {
-    apiKey: "AIzaSyBIAJIfsh_cj-qUtqDYwjLAdDMcnTsLUpU",
-    authDomain: "protegemoi-ec5a9.firebaseapp.com",
-    projectId: "protegemoi-ec5a9",
-    appId: "1:690907366325:ios:c316da54297222dc220ffc",
-    messagingSenderId: "690907366325",
-    storageBucket: "protegemoi-ec5a9.appspot.com"
-  },
+  // ==== 🔑 FIREBASE CONFIG ====
+  apiKey: "AIzaSy…",                     // fourni par Firebase console
+  authDomain: "protegemoisafe.firebaseapp.com",  // fourni par Firebase
+  projectId: "protegemoisafe",           // ton ID projet Firebase
+  storageBucket: "protegemoisafe.appspot.com",   // ton bucket
+  messagingSenderId: "1234567890",       // fourni par Firebase
+  appId: "1:1234567890:web:abcdef123456", // fourni par Firebase
+  measurementId: "G-XXXXXXX",            // optionnel (Google Analytics)
 
-  // IDs Stripe — MENSUEL
-  // 1 enfant: 9,99 €/mois | 2 enfants: 13,99 €/mois | 3 enfants: 17,99 €/mois
-  pricesMonthly: {
-    oneChild:   "price_month_1_child",   // 9,99 €/mois
-    twoChildren:"price_month_2_children",// 13,99 €/mois
-    threeChildren:"price_month_3_children" // 17,99 €/mois
-  },
+  // ==== 🔔 NOTIFICATIONS (FCM) ====
+  vapidKey: "BH44s4dBIABRpnCiGj6AiafCEyhx1TuDJkl0zkc4Qso-OX7289han21offD-EX4MtpnPLZszMewBjfz8i5Kp780", // Firebase > Cloud Messaging > Clé publique Web Push
 
-  // IDs Stripe — ANNUEL (–17 %)
-  // 1 enfant: 99 €/an | 2 enfants: 139 €/an | 3 enfants: 169 €/an
-  pricesYearly: {
-    oneChild:   "price_year_1_child",     // 99 €/an
-    twoChildren:"price_year_2_children",  // 139 €/an
-    threeChildren:"price_year_3_children" // 169 €/an
-  },
-
-  // Clé publique Web Push FCM (VAPID)
-  vapidKey: "BH44s4dBIABRpnCiGj6AiafCEyhx1TuDJkl0zkc4Qso-OX7289han21offDEX4MtpmPLZszMewBjfz8i5Kp780",
-
-  // Région Cloud Functions
-  functionsRegion: "europe-west1",
-
-  // Nom & support
-  brand: {
-    name: "ProtègeMoi",
-    supportEmail: "support@votredomaine.com"
+  // ==== 💳 STRIPE PRICES ====
+  prices: {
+    oneChild: "price_123ABC",      // Stripe Price ID pour 1 enfant
+    twoChildren: "price_456DEF",   // Stripe Price ID pour 2 enfants
+    threeChildren: "price_789GHI"  // Stripe Price ID pour 3 enfants
   }
+};
+
+/* Liens Stripe annuels (à compléter si vous proposez la facturation annuelle) */
+window.PM_CONFIG.checkoutUrlsYearly = {
+  oneChild: "https://checkout.stripe.com/pay/oneChild_year_demo",
+  twoChildren: "https://checkout.stripe.com/pay/twoChildren_year_demo",
+  threeChildren: "https://checkout.stripe.com/pay/threeChildren_year_demo"
 };
