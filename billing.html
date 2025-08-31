@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="brand">ProtègeMoi</title>
+  <link rel="stylesheet" href="styles.css" />
+<meta property="og:title" content="ProtègeMoi — Abonnement">
+<meta property="og:image" content="assets/cover.png">
+
+<link rel="alternate" hreflang="fr" href="https://daoum2020.github.io/Protegemoi/billing.html?lang=fr">
+<link rel="alternate" hreflang="en" href="https://daoum2020.github.io/Protegemoi/billing.html?lang=en">
+<link rel="alternate" hreflang="es" href="https://daoum2020.github.io/Protegemoi/billing.html?lang=es">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img loading="lazy" src="assets/logo.png" alt="Logo" class="logo" />
+      <span class="brand-text" data-i18n="brand">ProtègeMoi</span>
+    </a>
+    <div class="right"><button id="themeToggle" class="theme-toggle" title="Theme">🌙</button>
+      <label class="lang-label" for="lang" data-i18n="lang_label">Langue</label>
+      <select id="lang" onchange="setLang(this.value,true)">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainmenu" onclick="toggleMenu()">☰</button>
+    </div>
+    <nav id="mainmenu" class="menu" aria-label="Main menu">
+      <a href="index.html" onclick="closeMenu()" data-i18n="menu_home">Accueil</a>
+      <a href="dashboard.html" onclick="closeMenu()" data-i18n="menu_dashboard">Tableau de bord</a>
+      <a href="settings.html" onclick="closeMenu()" data-i18n="menu_settings">Paramètres</a>
+      <a href="stats.html" onclick="closeMenu()" data-i18n="menu_stats">Statistiques</a>
+      <a href="billing.html" onclick="closeMenu()" data-i18n="menu_billing">Abonnement</a>
+      <a href="login.html" class="login" onclick="closeMenu()" data-i18n="menu_login">Connexion</a>
+    <a href="link-child.html" onclick="closeMenu()" data-i18n="menu_link_child">Lier un enfant</a>
+    <a href="admin.html" onclick="closeMenu()" class="admin-only" style="display:none">Admin</a>
+    </nav>
+  </header>
+  <main class="container">
+
+<section class="card" id="billing">
+  <h2 data-i18n="billing">Abonnement</h2>
+  <p data-i18n="billing_desc">Gérez votre offre et votre facturation.</p>
+<div class="cta">
+  <button class="btn primary" onclick="checkout('oneChild')">1 enfant</button>
+  <button class="btn primary" onclick="checkout('twoChildren')">2 enfants</button>
+  <button class="btn primary" onclick="checkout('threeChildren')">3 enfants</button>
+</div>
+<p class="muted small">Demo : nécessite `config.js` avec `window.PM_CONFIG.prices.*` configurés et Stripe Checkout côté serveur ou lien Stripe.</p>
+<script>
+function checkout(plan){
+  if(!window.PM_CONFIG||!window.PM_CONFIG.prices||!window.PM_CONFIG.prices[plan]){ alert('Plan non configuré'); return; }
+  // Démo: si vous avez des URLs de Checkout hébergées, redirigez dessus :
+  const priceId = window.PM_CONFIG.prices[plan];
+  const url = (window.PM_CONFIG && window.PM_CONFIG.checkoutUrls && window.PM_CONFIG.checkoutUrls[plan]) || `https://checkout.stripe.com/pay/${priceId}`; window.location.href = url;
+}
+</script>
+</section>
+
+  </main>
+  <footer class="footer">
+    <p>© <span id="year"></span> <span data-i18n="copyright">ProtègeMoi</span></p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
