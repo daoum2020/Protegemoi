@@ -1,9 +1,0 @@
-ProtègeMoi — Spécifications visuelles (proposées)
-- Format: 1080x1920 (9:16), zones sûres 90 px haut/bas pour badges et CTA.
-- Palette: Bleu #2F80ED (confiance), Rouge #EB5757 (urgence, touches), Vert #27AE60 (confirmation), Gris #111315 (fond sombre), Blanc #FFFFFF (texte).
-- Typo conseillée: Titres — Montserrat SemiBold; Corps — Inter Regular (ou équivalent système).
-- Bouton SOS: rouge avec halo animé; coins 14 px; ombre douce.
-- Style UI: propre, accessible, contraste AA/AAA respecté.
-- Transitions: coupes rythmées sur le beat (0:00, 0:03, 0:07, 0:12, 0:17, 0:22, 0:28, 0:33, 0:39, 0:46).
-- Mixage son: -14 LUFS (plateformes sociales), ducking -6 dB sous VO; limiter -1 dBFS.
-- Export: H.264, 1080x1920, 25 ou 30 fps, débit 12–16 Mbps, audio AAC 48 kHz 320 kbps.
