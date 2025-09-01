@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang='fr'><head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>ProtègeMoi — Abonnements</title><link rel='icon' href='favicon.ico'>
+<style>
+:root{--pm-bg:#ffffff;--pm-text:#0a3ea1;--pm-primary:#0a5bd7;--pm-muted:#5f7487;--pm-card:#ffffff;--pm-border:#e7eef6}
+body{margin:0;background:#0d0d0d;color:#fff;font-family:Arial, sans-serif}
+header{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #1f1f1f;background:#111;position:sticky;top:0;z-index:10}
+header .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+header img{height:28px}
+header nav{margin-left:auto;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+a{color:#0a84ff;text-decoration:none}
+.wrap{max-width:1100px;margin:24px auto;padding:0 16px;background:#fff;color:#0a3ea1;border-radius:16px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border:1px solid var(--pm-border);background:var(--pm-card);border-radius:16px;padding:18px;box-shadow:0 6px 20px rgba(8,58,147,0.04);position:relative}
+.ribbon{position:absolute;right:-6px;top:12px;background:#0a5bd7;color:#fff;padding:6px 10px;font-size:12px;font-weight:700;border-radius:8px 0 0 8px;box-shadow:0 4px 12px rgba(8,58,147,.2)}
+.price{font-size:28px;font-weight:800;margin:6px 0}
+.per{font-size:14px;color:#5f7487;font-weight:600}
+ul{margin:12px 0 16px;padding-left:18px} li{margin:6px 0}
+.btn{padding:10px 16px;border-radius:12px;border:1px solid var(--pm-primary);background:var(--pm-primary);color:#fff;cursor:pointer}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
+.badge{display:inline-block;background:rgba(10,91,215,.08);color:var(--pm-primary);border:1px solid var(--pm-primary);font-size:12px;font-weight:700;padding:4px 8px;border-radius:999px;margin-left:8px;vertical-align:middle}
+@media (max-width:900px){ .grid{grid-template-columns:1fr} .wrap{background:transparent;color:#fff} }
+</style>
+</head><body>
+<header>
+  <div class='brand'><img src='./logo.png' alt='ProtègeMoi'><span>ProtègeMoi</span></div>
+  <nav>
+    <a href='./landing.html'>Accueil</a>
+    <a href='./subscription.html' aria-current='page'>Abonnements</a>
+    <a href='./index.html'>App</a>
+  </nav>
+</header>
+<div class='wrap'>
+  <h1 data-i18n="plans.title">Choisissez la tranquillité d’esprit qui vous convient</h1>
+  <p class='subtitle' data-i18n="plans.subtitle">Une protection intelligente, invisible et non désinstallable par l’enfant.</p>
+  <div class='grid'>
+    <div class='card'>
+      <div class='ribbon'>-17%</div>
+      <h2 data-i18n="plans.one.title">Protection 1 enfant</h2>
+      <div class='price' data-i18n="plans.one.price_month">9,99 € / mois</div>
+      <div class='per' data-i18n="plans.one.price_year">ou 99 € / an (2 mois offerts)</div>
+      <ul>
+        <li data-i18n="plans.one.feature1">Surveillance intelligente (IA)</li>
+        <li data-i18n="plans.one.feature2">Détection du harcèlement et des prédateurs</li>
+        <li data-i18n="plans.one.feature3">Filtrage contenus +18 et radicalisation</li>
+        <li data-i18n="plans.one.feature4">Non désinstallable par l’enfant</li>
+      </ul>
+      <button class='btn' id='b1' data-i18n="plans.button">Protéger maintenant</button>
+    </div>
+    <div class='card'>
+      <div class='ribbon'>-17%</div>
+      <h2><span data-i18n="plans.two.title">Protection 2 enfants</span> <span class='badge' data-i18n="plans.two.popular">Populaire</span></h2>
+      <div class='price' data-i18n="plans.two.price_month">13,99 € / mois</div>
+      <div class='per' data-i18n="plans.two.price_year">ou 139 € / an (2 mois offerts)</div>
+      <ul>
+        <li data-i18n="plans.two.feature1">Tout le pack 1 enfant</li>
+        <li data-i18n="plans.two.feature2">Alertes et statistiques par enfant</li>
+        <li data-i18n="plans.two.feature3">Priorité support</li>
+      </ul>
+      <button class='btn' id='b2' data-i18n="plans.button">Protéger maintenant</button>
+    </div>
+    <div class='card'>
+      <div class='ribbon'>-17%</div>
+      <h2 data-i18n="plans.three.title">Protection 3 enfants</h2>
+      <div class='price' data-i18n="plans.three.price_month">17,99 € / mois</div>
+      <div class='per' data-i18n="plans.three.price_year">ou 169 € / an (2 mois offerts)</div>
+      <ul>
+        <li data-i18n="plans.three.feature1">Tout le pack 2 enfants</li>
+        <li data-i18n="plans.three.feature2">Historique étendu et exports</li>
+        <li data-i18n="plans.three.feature3">Assistance Premium</li>
+      </ul>
+      <button class='btn' id='b3' data-i18n="plans.button">Protéger maintenant</button>
+    </div>
+  </div>
+  <p class='subtitle' style='margin-top:18px' data-i18n="plans.note">Paiement sécurisé par Stripe. Vous pouvez annuler à tout moment.</p>
+</div>
+
+<script>
+(function(){ const s=document.createElement('script'); s.src='./config.js'; s.onerror=()=>console.warn('config.js introuvable'); document.head.appendChild(s); })();
+function disableButtons(){ ['b1','b2','b3'].forEach(id=>{ const b=document.getElementById(id); if(b){ b.disabled=true; b.title='Indisponible (configuration en cours)'; } }); }
+window.addEventListener('load', ()=>{ if(!window.PM_CONFIG || !window.PM_CONFIG.apiKey){ disableButtons(); } });
+</script>
+<script src="./js/lang.merge.js"></script>
+</body></html>

@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "slogan": "Your guardian angel: ProtègeMoi, discreet and responsive.",
+    "subtitle": "AI that detects danger and alerts you in real time.",
+    "cta_demo": "See demo",
+    "cta_enter": "Subscribe"
+  },
+  "footer": {
+    "rights": "© ProtègeMoi — All rights reserved",
+    "links": {
+      "legal": "Legal notice",
+      "privacy": "Privacy policy",
+      "terms": "Terms",
+      "contact": "Contact"
+    }
+  }
+}

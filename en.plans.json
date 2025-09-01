@@ -1,0 +1,34 @@
+{
+  "plans": {
+    "title": "Choose the peace of mind that fits you",
+    "subtitle": "Smart protection, invisible and not uninstallable by the child.",
+    "one": {
+      "title": "Protection for 1 child",
+      "price_month": "€9.99 / month",
+      "price_year": "or €99 / year (2 months free)",
+      "feature1": "Smart monitoring (AI)",
+      "feature2": "Bullying & predator detection",
+      "feature3": "Adult/radical content filtering",
+      "feature4": "Child cannot uninstall"
+    },
+    "two": {
+      "title": "Protection for 2 children",
+      "popular": "Popular",
+      "price_month": "€13.99 / month",
+      "price_year": "or €139 / year (2 months free)",
+      "feature1": "Everything in 1‑child plan",
+      "feature2": "Alerts & stats per child",
+      "feature3": "Priority support"
+    },
+    "three": {
+      "title": "Protection for 3 children",
+      "price_month": "€17.99 / month",
+      "price_year": "or €169 / year (2 months free)",
+      "feature1": "Everything in 2‑children plan",
+      "feature2": "Extended history & exports",
+      "feature3": "Premium assistance"
+    },
+    "button": "Protect now",
+    "note": "Secure payment by Stripe. You can cancel at any time."
+  }
+}
