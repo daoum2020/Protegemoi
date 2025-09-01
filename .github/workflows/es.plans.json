@@ -1,0 +1,34 @@
+{
+  "plans": {
+    "title": "Elige la tranquilidad que te conviene",
+    "subtitle": "Protección inteligente, invisible y no desinstalable por el niño.",
+    "one": {
+      "title": "Protección 1 niño",
+      "price_month": "9,99 € / mes",
+      "price_year": "o 99 € / año (2 meses gratis)",
+      "feature1": "Vigilancia inteligente (IA)",
+      "feature2": "Detección de acoso y depredadores",
+      "feature3": "Filtro +18 y radicalización",
+      "feature4": "El niño no puede desinstalar"
+    },
+    "two": {
+      "title": "Protección 2 niños",
+      "popular": "Popular",
+      "price_month": "13,99 € / mes",
+      "price_year": "o 139 € / año (2 meses gratis)",
+      "feature1": "Todo el plan de 1 niño",
+      "feature2": "Alertas y estadísticas por niño",
+      "feature3": "Soporte prioritario"
+    },
+    "three": {
+      "title": "Protección 3 niños",
+      "price_month": "17,99 € / mes",
+      "price_year": "o 169 € / año (2 meses gratis)",
+      "feature1": "Todo el plan de 2 niños",
+      "feature2": "Historial ampliado y exportaciones",
+      "feature3": "Asistencia Premium"
+    },
+    "button": "Proteger ahora",
+    "note": "Pago seguro con Stripe. Puedes cancelar en cualquier momento."
+  }
+}

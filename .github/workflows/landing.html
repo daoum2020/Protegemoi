@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang='fr'><head>
+<meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>ProtègeMoi — Accueil</title><link rel='icon' href='favicon.ico'>
+<style>
+body{margin:0;font-family:Arial, sans-serif;background:#0d0d0d;color:#fff}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+a{color:#0a84ff;text-decoration:none}
+header{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #1f1f1f;background:#111;position:sticky;top:0;z-index:10}
+header .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+header img{height:28px}
+header nav{margin-left:auto;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn{padding:12px 18px;border-radius:8px;border:1px solid #0a84ff;color:#0a84ff}
+.btn-primary{padding:12px 18px;border-radius:8px;background:#0a84ff;color:#fff}
+.hero{text-align:center;padding:64px 24px}
+footer{background:#0b0b0b;padding:32px 24px;font-size:.95rem}
+footer nav{display:flex;gap:12px;flex-wrap:wrap}
+footer a{color:#bbb}
+</style>
+</head><body>
+<header>
+  <div class='brand'><img src='./logo.png' alt='ProtègeMoi'><span>ProtègeMoi</span></div>
+  <nav>
+    <a href='./landing.html'>Accueil</a>
+    <a href='./subscription.html'>Abonnements</a>
+    <a href='./index.html'>App</a>
+  </nav>
+</header>
+<section class='hero'>
+  <div class='container'>
+    <h1 data-i18n='hero.slogan'>Votre ange gardien : ProtègeMoi, discret et réactif.</h1>
+    <p data-i18n='hero.subtitle'>Une IA qui repère les dangers et vous alerte en temps réel.</p>
+    <div style='margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap'>
+      <a href='./subscription.html' class='btn-primary' data-i18n='hero.cta_enter'>S’abonner</a>
+      <a href='./index.html' class='btn' data-i18n='hero.cta_demo'>Voir la démo</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class='container' style='display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px'>
+    <div data-i18n='footer.rights'>© ProtègeMoi — Tous droits réservés</div>
+    <nav>
+      <a href='./mentions-legales.html' data-i18n='footer.links.legal'>Mentions légales</a>
+      <a href='./confidentialite.html' data-i18n='footer.links.privacy'>Politique de confidentialité</a>
+      <a href='./cgu.html' data-i18n='footer.links.terms'>CGU</a>
+      <a href='./contact.html' data-i18n='footer.links.contact'>Contact</a>
+    </nav>
+  </div>
+</footer>
+<script src="./js/lang.merge.js"></script>
+</body></html>
