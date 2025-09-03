@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://daoum2020.github.io/Protegemoi/sitemap.xml
+
+Disallow: /settings.html
+Disallow: /admin.html

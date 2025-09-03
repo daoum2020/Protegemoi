@@ -1,0 +1,69 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Use custom claims set from your backend or the Firebase Admin SDK
+    // e.g. admin: true
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.admin == true;
+    }
+
+    // Owners are parents accessing their own subtree
+    function isOwner(parentId) {
+      return isSignedIn() && request.auth.uid == parentId;
+    }
+
+    // ===== Default: deny everything =====
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ===== Users profile (each user can read/write only their doc) =====
+    match /users/{uid} {
+      allow read, write: if isSignedIn() && request.auth.uid == uid;
+    }
+
+    // ===== Parents subtree =====
+    match /parents/{parentId} {
+      // Parents can read their own parent doc (if you store basic metadata here)
+      allow read: if isOwner(parentId) || isAdmin();
+      // Prevent arbitrary writes except by owner/admin
+      allow write: if isOwner(parentId) || isAdmin();
+
+      // Alerts: only the owner parent (or admin) can read/create; children should not read this.
+      match /alerts/{alertId} {
+        allow create: if isOwner(parentId) || isAdmin();
+        allow read:   if isOwner(parentId) || isAdmin();
+        // updates/deletes usually by system or owner
+        allow update, delete: if isOwner(parentId) || isAdmin();
+      }
+
+      // Tokens: device/browser push tokens
+      match /tokens/{tokenId} {
+        // Allow the signed-in owner to register their own device token
+        allow create: if isOwner(parentId) || isAdmin();
+        // Read tokens only by owner or admin (not public)
+        allow read: if isOwner(parentId) || isAdmin();
+        // Update/Delete by owner/admin
+        allow update, delete: if isOwner(parentId) || isAdmin();
+      }
+    }
+
+    // ===== Children collection (sensitive) =====
+    // If you keep child profiles here, keep them admin-only or owner-restricted.
+    match /children/{childId} {
+      // Example: admin-only access. If you want parents to read their own children,
+      // move children under /parents/{parentId}/children/{childId} and gate with isOwner().
+      allow read, write: if isAdmin();
+    }
+
+    // ===== Admin-only operational collections =====
+    match /admin/{doc=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

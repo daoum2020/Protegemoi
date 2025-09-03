@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProtègeMoi — Paramètres</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:840px;margin:32px auto;padding:0 16px}
+    h1{margin:0 0 16px}
+    .card{border:1px solid #e5e5e5;border-radius:12px;padding:16px;margin:12px 0}
+    label{display:block;font-weight:600;margin:8px 0 4px}
+    input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .row .full{grid-column:1 / -1}
+    .actions{display:flex;gap:8px;margin-top:16px}
+    button{padding:10px 14px;border-radius:8px;border:1px solid #ccc;background:#fff;cursor:pointer}
+    button.primary{background:#0a5bd7;color:white;border-color:#0a5bd7}
+    .hint{font-size:12px;color:#444}
+    .ok{color:#0a7d31;margin-left:4px;font-weight:600}
+    .danger{color:#b00020}
+    .nav{margin-bottom:16px}
+    .nav a{color:#0a5bd7;text-decoration:none}
+  </style>
+
+  <style>
+    @media print {
+      .nav, .actions, input, button, #debugLog { display:none !important }
+      .card { border:none; padding:0; margin:8px 0 }
+      body{ margin:0 }
+    }
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* PM Pro Theme */
+    :root{
+      --pm-bg:#ffffff;
+      --pm-text:#0a3ea1;
+      --pm-muted:#5f7487;
+      --pm-primary:#0a5bd7; /* logo blue */
+      --pm-primary-2:#083a93;
+      --pm-card:#ffffff;
+      --pm-border:#e7eef6;
+      --pm-hero-grad: linear-gradient(180deg, rgba(14,165,233,0.10), rgba(255,255,255,0));
+    }
+    body.dark{
+      --pm-bg:#0b1320;
+      --pm-text:#e6f0f7;
+      --pm-muted:#a6b5c1;
+      --pm-card:#0f1b2d;
+      --pm-border:#1d2a3a;
+      --pm-hero-grad: linear-gradient(180deg, rgba(14,165,233,0.18), rgba(11,19,32,0));
+    }
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--pm-bg);color:var(--pm-text);transition:background .3s,color .3s}
+    a{color:var(--pm-primary);text-decoration:none}
+    header.pm{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--pm-border);position:sticky;top:0;background:var(--pm-bg);z-index:10}
+    header.pm .brand{display:flex;align-items:center;gap:8px;font-weight:700}
+    header.pm .nav{margin-left:auto;display:flex;gap:12px;align-items:center;font-size:14px}
+    .btn{padding:10px 16px;border-radius:12px;border:1px solid var(--pm-primary);background:var(--pm-primary);color:#fff;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--pm-primary)}
+    .btn:hover{filter:brightness(1.05)}
+    .card{border:1px solid var(--pm-border);background:var(--pm-card);border-radius:14px;padding:16px}
+    .fade-in{opacity:0;transform:translateY(8px);animation:fade .5s ease forwards}
+    @keyframes fade{to{opacity:1;transform:none}}
+  </style>
+
+
+  <script>
+    // PM_THEME_TOGGLE
+    (function(){
+      const LS_KEY='PM_THEME';
+      const q = (sel)=>document.querySelector(sel);
+      function applyTheme(t){ document.body.classList.toggle('dark', t==='dark'); }
+      function load(){ return localStorage.getItem(LS_KEY) || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') }
+      function save(t){ localStorage.setItem(LS_KEY, t) }
+      window.PM_toggleTheme = function(){
+        const t = document.body.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(t); save(t);
+        const btn=q('#themeBtn'); if(btn) btn.textContent = t==='dark' ? '☀️' : '🌙';
+      }
+      const t = load(); applyTheme(t);
+      window.addEventListener('DOMContentLoaded',()=>{
+        const btn=q('#themeBtn'); if(btn) btn.textContent = (document.body.classList.contains('dark') ? '☀️' : '🌙');
+      });
+    })();
+  </script>
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="./favicon-48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="./favicon-64.png">
+  <link rel="apple-touch-icon" href="./favicon-180.png">
+  <link rel="manifest" href="./manifest.json">
+
+<meta property="og:title" content="ProtègeMoi — Paramètres">
+<meta property="og:image" content="assets/cover.png">
+
+<link rel="alternate" hreflang="fr" href="https://daoum2020.github.io/Protegemoi/settings.html?lang=fr">
+<link rel="alternate" hreflang="en" href="https://daoum2020.github.io/Protegemoi/settings.html?lang=en">
+<link rel="alternate" hreflang="es" href="https://daoum2020.github.io/Protegemoi/settings.html?lang=es">
+</head>
+<body>
+
+  <header class="pm">
+    <div class="brand"><img loading="lazy" src="assets/logo.png" alt="ProtègeMoi" style="height:28px"><span>ProtègeMoi</span></div>
+    <div class="nav">
+      <a href="./index.html">Accueil</a>
+      <a href="./settings.html">Paramètres</a>
+      <a href="./stats.html">Statistiques</a>
+      <button id="themeBtn" class="btn ghost" onclick="PM_toggleTheme()">🌙</button>
+    </div>
+  </header>
+
+  <div class="nav"><img loading="lazy" src="assets/logo.png" alt="ProtègeMoi" style="height:28px;vertical-align:middle;margin-right:8px"><a href="./index.html">← Retour à l'app</a></div>
+  <h1>Paramètres — ProtègeMoi</h1>
+  <p class="hint">Colle ici ta configuration Firebase et la clé VAPID. Ces valeurs seront stockées en local (<code>localStorage</code>) côté navigateur, et utilisées par l'app sans modifier le code.</p>
+
+  <div class="card">
+
+<div class="card">
+  <h3>Auth (Email / Mot de passe)</h3>
+  <p class="hint">Connecte-toi pour utiliser automatiquement ton UID (parentId) et sécuriser l'accès.</p>
+  <div class="row">
+    <div>
+      <label for="authEmail">Email</label>
+      <input id="authEmail" placeholder="parent@example.com">
+    </div>
+    <div>
+      <label for="authPass">Mot de passe</label>
+      <input id="authPass" type="password" placeholder="********">
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="loginBtn">Se connecter</button>
+    <button id="signupBtn">Créer un compte</button>
+    <button id="logoutBtn2">Se déconnecter</button>
+    <button id="copyUidBtn">Copier mon UID</button>
+    <span id="authStatus"></span>
+  </div>
+  <p class="hint">UID connecté : <span id="authUid">—</span></p>
+</div>
+
+    <div class="row">
+      <div>
+        <label for="apiKey">apiKey</label>
+        <input id="apiKey" placeholder="AIza...">
+      </div>
+      <div>
+        <label for="projectId">projectId</label>
+        <input id="projectId" placeholder="mon-projet-id">
+      </div>
+      <div>
+        <label for="authDomain">authDomain</label>
+        <input id="authDomain" placeholder="mon-projet-id.firebaseapp.com">
+      </div>
+      <div>
+        <label for="appId">appId</label>
+        <input id="appId" placeholder="1:1234567890:web:abcdef...">
+      </div>
+      <div>
+        <label for="messagingSenderId">messagingSenderId</label>
+        <input id="messagingSenderId" placeholder="1234567890">
+      </div>
+      <div class="full">
+        <label for="vapidKey">vapidKey (Web Push)</label>
+        <input id="vapidKey" placeholder="BPC...">
+      
+  <div class="actions">
+    <button class="danger" id="deleteTokensBtn">Supprimer tous les tokens</button>
+    <span id="deleteTokensStatus"></span>
+  </div>
+</div>
+
+    </div>
+<div class="card">
+  <h3>Test de notification</h3>
+  <p class="hint">Envoie une alerte de test via ta Cloud Function <code>addAlert</code>. Assure-toi que l'app est ouverte/loggée et que le token FCM est enregistré.</p>
+  <div class="row">
+    <div>
+      <label for="parentId">parentId</label>
+      <input id="parentId" placeholder="UID du parent">
+    </div>
+    <div>
+      <label for="childId">childId</label>
+      <input id="childId" placeholder="UID de l'enfant">
+    </div>
+    <div class="full">
+      <label for="testText">Message</label>
+      <input id="testText" placeholder="Message de test (ex: Alerte de test)">
+    </div>
+  </div>
+  
+<div class="card">
+  <h3>Enregistrer mon token (push)</h3>
+  <p class="hint">Enregistre le token FCM de <b>cet appareil/navigateur</b> sous le parentId indiqué (utilisé pour les notifications).</p>
+  <div class="row">
+    <div class="full">
+      <label for="parentIdToken">parentId (UID du parent)</label>
+      <input id="parentIdToken" placeholder="UID du parent (utilisé pour stocker le token)">
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="saveTokenBtn">Enregistrer mon token</button>
+    <span id="saveTokenStatus"></span>
+  </div>
+</div>
+
+<div class="actions">
+    <button class="primary" id="testBtn">Tester notification</button>
+    <span id="testStatus"></span>
+  </div>
+</div>
+<div class="actions">
+
+      <button class="primary" id="saveBtn">Enregistrer</button>
+      <button id="clearBtn">Effacer</button>
+      <span id="status"></span>
+    </div>
+    <p class="hint">Clés trouvées : <span id="hasConfig">non</span></p>
+  </div>
+
+  <script type="module" src="./settings.js"></script>
+
+<div class="card">
+  <h3>Déconnexion / Clear config</h3>
+  <p class="hint">Efface la configuration locale et tente une déconnexion Firebase (si initialisé).</p>
+  <div class="actions">
+    <button id="logoutBtn">Se déconnecter & effacer</button>
+    <span id="logoutStatus"></span>
+  </div>
+</div>
+
+
+<div class="card">
+  
+<div class="card">
+  <h3>Outils parent</h3>
+  <p class="hint">Exporter les alertes et compter les tokens enregistrés pour un parent.</p>
+  <div class="row">
+    <div class="full">
+      <label for="parentIdTools">parentId</label>
+      <input id="parentIdTools" placeholder="UID du parent">
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="exportAlertsBtn">Exporter les alertes (JSON)</button>
+    <button id="countTokensBtn">Compter les tokens</button>
+    <span id="toolsStatus"></span>
+  </div>
+</div>
+
+<h3>Lecture en temps réel des alertes</h3>
+  <p class="hint">Écoute la collection <code>parents/{parentId}/alerts</code> et affiche les nouvelles alertes.</p>
+  <div class="row">
+    <div class="full">
+      <label for="parentIdRealtime">parentId</label>
+      <input id="parentIdRealtime" placeholder="UID du parent">
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="startRealtimeBtn">Démarrer</button>
+    <button id="stopRealtimeBtn">Arrêter</button>
+    <span id="realtimeStatus"></span>
+  </div>
+  <div id="realtimeList" class="hint"></div>
+</div>
+
+
+<div class="card">
+  <h3>Exporter les alertes</h3>
+  <p class="hint">Télécharge un fichier JSON contenant toutes les alertes pour un parent donné.</p>
+  <div class="row">
+    <div class="full">
+      <label for="parentIdExport">parentId</label>
+      <input id="parentIdExport" placeholder="UID du parent">
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="exportAlertsBtn">Exporter en JSON</button>
+    <span id="exportStatus"></span>
+  </div>
+</div>
+
+
+<div class="card">
+  <h3>Compteur de tokens enregistrés</h3>
+  <p class="hint">Affiche le nombre de tokens FCM enregistrés pour un parentId.</p>
+  <div class="row">
+    <div class="full">
+      <label for="parentIdTokens">parentId</label>
+      <input id="parentIdTokens" placeholder="UID du parent">
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="countTokensBtn">Compter</button>
+    <span id="tokensStatus"></span>
+  </div>
+</div>
+
+
+<div class="card">
+  <h3>Console Admin — Outils avancés</h3>
+  <p class="hint">Outils supplémentaires pour atteindre 100 % : export CSV, tokens JSON/CSV, auto-refresh tokens, purge parent, import d'alertes, log viewer, notifications silencieuses.</p>
+  <div class="row">
+    <div class="full">
+      <label for="parentIdAdmin">parentId</label>
+      <input id="parentIdAdmin" placeholder="UID du parent">
+    </div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="exportAlertsCsvBtn">Export alertes (CSV)</button>
+    <button id="downloadTokensJsonBtn">Tokens (JSON)</button>
+    <button id="downloadTokensCsvBtn">Tokens (CSV)</button>
+  </div>
+  <div class="actions">
+    <label><input type="checkbox" id="autoRefreshTokensChk"> Auto‑refresh tokens</label>
+    <span id="autoTokensCount" class="hint"></span>
+  </div>
+  <div id="autoTokensList" class="hint"></div>
+  <div class="actions">
+    <button class="danger" id="purgeParentBtn">Purge totale parent (alerts + tokens)</button>
+    <input type="file" id="importAlertsFile" accept="application/json">
+    <button id="importAlertsBtn">Importer alertes (JSON)</button>
+  </div>
+  <div class="actions">
+    <label><input type="checkbox" id="silentNotifChk"> Notifications silencieuses (pas d'alerte modale)</label>
+    <span id="adminStatus"></span>
+  </div>
+  <div class="card">
+    <h4>Debug Log</h4>
+    <pre id="debugLog" style="white-space:pre-wrap;max-height:240px;overflow:auto;background:#fafafa;border:1px dashed #ddd;padding:8px;border-radius:8px"></pre>
+  </div>
+</div>
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./firebase-messaging-sw.js').catch(console.warn);
+    }
+  </script>
+
+
+<script>
+// PWA Update Banner
+(function(){
+  if(!('serviceWorker' in navigator)) return;
+  const bannerCss = document.createElement('style');
+  bannerCss.textContent = `
+    .pm-update{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;background:#0a5bd7;color:#fff;
+      padding:10px 14px;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.15);display:none;gap:8px;align-items:center;z-index:9999}
+    .pm-update button{background:#fff;color:#0b2942;border:0;border-radius:10px;padding:8px 12px;cursor:pointer}
+  `;
+  document.head.appendChild(bannerCss);
+  const bar = document.createElement('div');
+  bar.className = 'pm-update';
+  bar.innerHTML = '<span>Nouvelle version disponible</span> <button id="pmReloadBtn">Mettre à jour</button>';
+  document.body.appendChild(bar);
+  let newWorker = null;
+  navigator.serviceWorker.getRegistration().then(reg => {
+    if(!reg) return;
+    reg.addEventListener('updatefound', () => {
+      newWorker = reg.installing;
+      if(!newWorker) return;
+      newWorker.addEventListener('statechange', () => {
+        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+          bar.style.display = 'flex';
+        }
+      });
+    });
+  });
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    window.location.reload();
+  });
+  document.addEventListener('click', (e)=>{
+    if(e.target && e.target.id === 'pmReloadBtn'){
+      if(newWorker){
+        newWorker.postMessage({ type: 'SKIP_WAITING' });
+      } else {
+        // Fallback: ask any waiting worker
+        navigator.serviceWorker.getRegistration().then(reg => {
+          if(reg && reg.waiting){ reg.waiting.postMessage({ type: 'SKIP_WAITING' }); }
+        });
+      }
+    }
+  });
+})();
+</script>
+
+
+  <style>
+    #updateBanner{display:none;position:fixed;bottom:12px;left:50%;transform:translateX(-50%);
+      background:#0a5bd7;color:#fff;padding:10px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:1000}
+    #updateBanner button{margin-left:12px;padding:6px 10px;border:none;border-radius:6px;background:#fff;color:#0a5bd7;cursor:pointer}
+  </style>
+  <div id="updateBanner">Nouvelle version disponible <button onclick="location.reload()">Mettre à jour</button></div>
+  <script>
+    // PM_SW_UPDATE
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+        const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+      });
+      navigator.serviceWorker.register('./firebase-messaging-sw.js').then(reg=>{
+        if(reg.waiting){
+          const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+        }
+        reg.addEventListener('updatefound', ()=>{
+          const nw=reg.installing; nw.addEventListener('statechange', ()=>{
+            if(nw.state==='installed' && navigator.serviceWorker.controller){
+              const b=document.getElementById('updateBanner'); if(b) b.style.display='block';
+            }
+          });
+        });
+      });
+    }
+  </script>
+
+  <script src="config.js"></script>
+  <script type="module" src="auth.js"></script>
+
+  <script type="module">
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    const cfg = window.PM_CONFIG || {};
+    function isAdminEmail(email){ return Array.isArray(cfg.adminEmails) && cfg.adminEmails.includes(email); }
+    window.addEventListener('DOMContentLoaded', ()=>{
+      try{
+        const auth = getAuth();
+        onAuthStateChanged(auth, (u)=>{
+          if(!u || !isAdminEmail(u.email)){
+            alert('Accès réservé à l’équipe. Redirection...');
+            location.href = './index.html';
+          }
+        });
+      }catch(e){ console.warn(e); }
+    });
+  </script>
+
+</body>
+</html>
