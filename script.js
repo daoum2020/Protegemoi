@@ -1,1 +1,0 @@
-// Placeholder for future integrations (analytics, A/B tests, checkout, i18n)
