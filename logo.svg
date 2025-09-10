@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="28" viewBox="0 0 120 28" fill="none">
+<rect width="28" height="28" rx="6" fill="#22D3EE"/>
+<path d="M8 14l4.5 4.5L20 11" stroke="#001524" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="36" y="20" font-family="Inter, Arial" font-weight="800" font-size="16" fill="white">ProtègeMoi</text>
+</svg>
