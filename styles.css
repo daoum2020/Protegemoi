@@ -1,0 +1,687 @@
+/*
+ * Feuille de style principale pour le site ProtègeMoi.
+ * Les couleurs s’inspirent du logo : bleu et blanc, avec des variantes
+ * harmonieuses pour les fonds et les accents. Le design privilégie la
+ * clarté, l’accessibilité et l’équilibre des espaces.
+ */
+
+/* Réinitialisation de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #1f2937; /* Gris foncé lisible */
+  background-color: #f9fafb; /* Gris très clair pour un contraste doux */
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* En-tête */
+header {
+  background-color: #1e3a8a; /* Bleu sombre principal */
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.logo-icon {
+  height: 32px;
+  width: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.desktop-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.desktop-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.desktop-nav a:hover {
+  opacity: 0.8;
+}
+
+/* Menu mobile */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+  background-color: #1e3a8a;
+}
+
+.mobile-nav.open {
+  display: block;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 1rem;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 0.6rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mobile-nav a:last-child {
+  border-bottom: none;
+}
+
+/* Boutons */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #2563eb; /* Bleu éclatant pour les appels à l’action */
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.btn-secondary:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* Section Héros */
+.hero {
+  background-color: #f5f5f5;
+  padding: 4rem 0;
+}
+
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-text {
+  flex: 1 1 300px;
+}
+
+.hero-text h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-image {
+  flex: 1 1 300px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* Titres de section */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+/* Cartes de fonctionnalités */
+.features {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #f9fafb;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  color: #1e3a8a;
+  font-size: 1.25rem;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+}
+
+/* Profils */
+.profiles {
+  padding: 4rem 0;
+  background-color: #f5f5f5;
+}
+
+.profiles-grid .profile-card {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.profile-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-card h3 {
+  margin-bottom: 0.5rem;
+  color: #1e3a8a;
+  font-size: 1.25rem;
+}
+
+.profile-card p {
+  font-size: 0.9rem;
+}
+
+/* Tarifs */
+.pricing {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.pricing-card {
+  text-align: center;
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+}
+
+.pricing-card .subtitle {
+  color: #6b7280;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.pricing-card ul {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.pricing-card li {
+  margin-bottom: 0.5rem;
+}
+
+.pricing-card .price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin: 1rem 0;
+}
+
+.featured-plan {
+  border-color: #2563eb;
+  background-color: #eef2ff;
+}
+
+.featured-plan .price {
+  color: #2563eb;
+}
+
+/* Section CTA */
+.cta-section {
+  background-color: #1e3a8a;
+  color: #ffffff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.cta-container h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.cta-section .btn-primary {
+  background-color: #ffffff;
+  color: #1e3a8a;
+  border: none;
+}
+
+.cta-section .btn-primary:hover {
+  background-color: #f3f4f6;
+}
+
+/* Pied de page */
+footer {
+  background-color: #111827;
+  color: #9ca3af;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+/* Slideshow animé */
+.slider {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
+}
+
+.slideshow {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide .caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Animation des diapositives */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.slide:nth-child(1) {
+  animation: fadeSlide 18s infinite;
+  animation-delay: 0s;
+}
+.slide:nth-child(2) {
+  animation: fadeSlide 18s infinite;
+  animation-delay: 6s;
+}
+.slide:nth-child(3) {
+  animation: fadeSlide 18s infinite;
+  animation-delay: 12s;
+}
+
+/* Section de téléchargement */
+.download-section {
+  padding: 4rem 0;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+/* Styles spécifiques pour les plateformes (peuvent être personnalisés ultérieurement) */
+.download-btn.app-store {
+  background-color: #0070c9; /* bleu App Store */
+}
+.download-btn.app-store:hover {
+  background-color: #0055a3;
+}
+.download-btn.google-play {
+  background-color: #34a853; /* vert Google Play */
+}
+.download-btn.google-play:hover {
+  background-color: #2c8a46;
+}
+
+/* Adaptations responsives */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav-toggle {
+    display: block;
+  }
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .profiles-grid .profile-card {
+    padding: 1.5rem 1rem;
+  }
+  .slideshow {
+    height: 250px;
+  }
+  .slide .caption {
+    font-size: 0.85rem;
+    left: 1rem;
+    bottom: 1rem;
+  }
+}
+
+/* Ajouts pour les nouvelles sections et fonctionnalités */
+
+/* Badges de confiance sous le héros */
+.trust-badges {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  list-style: none;
+  color: #6b7280;
+}
+.trust-badges li {
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background-color: #ffffff;
+}
+
+/* Section "Comment ça marche" */
+.how-it-works {
+  background-color: #ffffff;
+  padding: 4rem 0;
+}
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.how-card h3 {
+  margin-bottom: 0.5rem;
+  color: #1e3a8a;
+  font-size: 1.25rem;
+}
+.how-card p {
+  font-size: 0.95rem;
+}
+
+/* Section fonctionnalités principales */
+.features-section {
+  background-color: #ffffff;
+  padding: 4rem 0;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.feature-card h3 {
+  margin-bottom: 0.5rem;
+  color: #1e3a8a;
+  font-size: 1.25rem;
+}
+.feature-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Les styles relatifs à l’ancienne section de comparaison ont été supprimés. */
+
+/* Bascule de tarification */
+.billing-toggle {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 1.2rem;
+}
+.billing-btn {
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #1e3a8a;
+  padding: 0.55rem 0.9rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.billing-btn.is-active {
+  border-color: rgba(37, 99, 235, 0.6);
+  box-shadow: 0 10px 24px -12px rgba(37, 99, 235, 0.4);
+  color: #2563eb;
+}
+.billing-btn .save {
+  color: #2563eb;
+  font-weight: 800;
+  margin-left: 0.25rem;
+}
+
+/* Tarification : grille et ruban */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.pricing-card .features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.9rem 0;
+}
+.pricing-card .features li {
+  border-top: 1px dashed #e5e7eb;
+  padding: 0.5rem 0;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.ribbon {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  background: #eef2ff;
+  color: #2563eb;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+.tiny {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+/* FAQ */
+.faq-section {
+  padding: 4rem 0;
+  background-color: #f5f5f5;
+}
+.faq-section details {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+  background-color: #ffffff;
+}
+.faq-section summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.faq-section p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* CTA collant sur mobile */
+.sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  z-index: 1000;
+  border-top: 1px solid #e5e7eb;
+}
+@media (max-width: 768px) {
+  .sticky-cta {
+    display: flex;
+  }
+}
+
+/* Section des dangers */
+.dangers-section {
+  padding: 4rem 0;
+  background-color: #ffffff;
+}
+.dangers-section .card h3 {
+  margin-bottom: 0.5rem;
+  color: #1e3a8a;
+  font-size: 1.25rem;
+}
+.dangers-section .card p {
+  font-size: 0.95rem;
+}
