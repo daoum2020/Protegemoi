@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProtègeMoi — Contrôle parental réinventé</title>
+  <meta name="description" content="ProtègeMoi aide les familles à protéger les enfants en ligne : alertes IA, temps d'écran, filtres web, localisation et plus." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/img/logo.png">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#"><img src="assets/img/logo.png" alt="Logo ProtègeMoi" height="28"><span data-i18n="brand">ProtègeMoi</span></a>
+      <nav class="menu" aria-label="Navigation principale">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+        <ul id="nav-links">
+          <li><a href="#comment-ca-marche">Fonctionnement</a></li>
+          <li><a href="features.html" data-i18n="menu_features">Fonctionnalités clés</a></li>
+          <li><a href="#tarifs" data-i18n="menu_billing">Abonnements</a></li>
+        </ul>
+      </nav>
+      <div class="right">
+        <label class="lang-label" for="lang" data-i18n="lang_label">Langue</label>
+        <select id="lang" onchange="setLang(this.value,true)">
+          <option value="fr">FR</option><option value="en">EN</option><option value="es">ES</option><option value="nl">NL</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Contrôle parental <span class="gradient">réinventé</span></h1>
+        <p class="sub" data-i18n="welcome_desc">Surveillez et recevez des alertes en temps réel. Cliquez sur « Entrer » pour afficher le tableau de bord ci‑dessous.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#tarifs" data-i18n="menu_billing">Abonnements</a>
+          <a class="btn link" href="#comment-ca-marche">Voir comment ça marche</a>
+        </div>
+        <ul class="trust-metrics">
+          <li><strong>+100 000</strong> familles protégées</li>
+          <li><strong>29</strong> catégories d’alertes IA</li>
+          <li><strong>30+</strong> applis & réseaux surveillés</li>
+        </ul>
+        <div class="press">
+          <span>Vu dans&nbsp;:</span>
+          <img src="assets/img/graduates-logo.png" alt="Logo" height="28"/>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="mockup">
+          <img src="assets/img/hero-notification.jpg" alt="Aperçu de l’application ProtègeMoi" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="comment-ca-marche" class="how">
+    <div class="container">
+      <h2>Comment ProtègeMoi fonctionne</h2>
+      <p class="lead">Installez l’app sur les appareils de votre enfant, reliez ses comptes, et laissez notre IA analyser les contenus à la recherche de signaux à risque.</p>
+      <div class="cards">
+        <article class="card">
+          <img src="assets/img/smart-home.png" alt="Icône surveillance" style="max-height:64px" />
+          <h3>Surveillance intelligente</h3>
+          <p>Analyse des messages, recherches, images, vidéos et audio pour détecter cyberharcèlement, pornographie, drogues, sextorsion, etc.</p>
+        </article>
+        <article class="card">
+          <img src="assets/img/app-permissions.png" alt="Icône alertes" style="max-height:64px" />
+          <h3>Alertes IA actionnables</h3>
+          <p>Recevez des alertes claires avec contexte et conseils pour agir rapidement.</p>
+        </article>
+        <article class="card">
+          <img src="assets/img/kid-usage-chart.jpg" alt="Icône insights" style="max-height:64px" />
+          <h3>Rapports & insights</h3>
+          <p>Tableau de bord avec tendances, heures d’usage, applis les plus utilisées et recommandations personnalisées.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="fonctionnalites-cles" style="background:#fff;padding:56px 0">
+    <div class="container" style="max-width:1100px">
+      <h2 data-i18n="features_title" style="margin:0 0 20px;font-weight:800;color:#0a5bd7">Fonctionnalités clés</h2>
+      <p data-i18n="features_lead" style="margin:0 0 24px;color:#0a5bd7;max-width:720px"></p>
+      <figure style="margin:0;border:1px solid var(--pm-border);border-radius:16px;overflow:hidden;background:#fff">
+        <img src="assets/img/fonctionnalites-cles.png" alt="Résumé des fonctionnalités clés de ProtègeMoi" style="display:block;width:100%;height:auto">
+        <figcaption data-i18n="features_caption" style="padding:12px 16px;color:#0a5bd7;font-size:14px"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="abos-hero" class="split highlight" style="padding:48px 0">
+    <div class="container split-grid" style="align-items:center">
+      <div>
+        <h2 style="margin:0 0 12px">Téléchargez <span class="gradient">ProtègeMoi</span></h2>
+        <p class="lead" data-i18n="hero_subtitle_abos" style="margin:0 0 16px"></p>
+        <a class="btn primary" href="#tarifs" data-i18n="pricing_title">Abonnements</a>
+      </div>
+      <div class="illustration">
+        <img src="assets/img/hero-abonnement.jpg" alt="ProtègeMoi — abonnement" style="border-radius:14px;max-height:520px;object-fit:cover;width:100%">
+      </div>
+    </div>
+  </section>
+
+  <section id="tarifs" class="pricing" style="padding:24px 0 64px">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap">
+        <h2 data-i18n="pricing_title" style="margin:0">Abonnements <span class="gradient" data-i18n="pricing_promo">Promotion</span></h2>
+        <div class="billing-toggle" style="display:flex;align-items:center;gap:10px">
+          <span data-i18n="pricing_toggle_monthly">Mensuel</span>
+          <label style="position:relative;display:inline-block;width:56px;height:30px">
+            <input id="billingSwitch" type="checkbox" aria-label="Basculer annuel" style="opacity:0;width:0;height:0">
+            <span style="position:absolute;top:0;left:0;right:0;bottom:0;background:#dfe7f2;border-radius:999px;transition:.2s"></span>
+            <span style="position:absolute;height:24px;width:24px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s"></span>
+          </label>
+          <span><span data-i18n="pricing_toggle_yearly">Annuel</span> <small style="background:#0a5bd7;color:#fff;border-radius:8px;padding:3px 8px;margin-left:4px" data-i18n="pricing_badge_yearly">-17%</small></span>
+        </div>
+      </div>
+
+      <div class="price-cards">
+        <article class="card">
+          <div class="ribbon" style="color:#0a5bd7;font-weight:700;margin-bottom:8px" data-i18n="pricing_promo">Promotion</div>
+          <h3 data-i18n="plan_1_title" style="margin:0 0 8px">1 enfant</h3>
+          <p class="price" data-monthly="7,99 € / mois" data-yearly="6,63 € / mois (79,56 € / an)" style="font-size:22px;font-weight:800;margin:0 0 12px">7,99 € / mois</p>
+          <ul style="margin:0 0 16px 18px">
+            <li>Surveillance & alertes IA</li><li>Filtres web & temps d’écran</li><li>Assistance standard</li>
+          </ul>
+          <a class="btn primary" href="#paiement-1" data-i18n="plan_cta_1">Souscrire</a>
+        </article>
+
+        <article class="card" style="border:2px solid var(--pm-blue);background:linear-gradient(180deg,#f6f9ff,transparent)">
+          <div class="ribbon" style="background:var(--pm-blue);color:#fff;display:inline-block;padding:3px 8px;border-radius:8px;margin-bottom:8px">Populaire</div>
+          <h3 data-i18n="plan_2_title" style="margin:0 0 8px">2 enfants</h3>
+          <p class="price" data-monthly="12,99 € / mois" data-yearly="10,78 € / mois (129,36 € / an)" style="font-size:22px;font-weight:800;margin:0 0 12px">12,99 € / mois</p>
+          <ul style="margin:0 0 16px 18px">
+            <li>Toutes fonctionnalités</li><li>Rapports hebdomadaires</li><li>Support prioritaire</li>
+          </ul>
+          <a class="btn secondary" href="#paiement-2" data-i18n="plan_cta_2">Souscrire</a>
+        </article>
+
+        <article class="card">
+          <div class="ribbon" style="color:#0a5bd7;font-weight:700;margin-bottom:8px" data-i18n="pricing_promo">Promotion</div>
+          <h3 data-i18n="plan_3_title" style="margin:0 0 8px">3 enfants</h3>
+          <p class="price" data-monthly="17,99 € / mois" data-yearly="14,93 € / mois (179,16 € / an)" style="font-size:22px;font-weight:800;margin:0 0 12px">17,99 € / mois</p>
+          <ul style="margin:0 0 16px 18px">
+            <li>Toutes fonctionnalités</li><li>Jusqu’à 3 profils</li><li>Support premium</li>
+          </ul>
+          <a class="btn ghost" href="#paiement-3" data-i18n="plan_cta_3">Souscrire</a>
+        </article>
+      </div>
+
+      <p class="note small" data-i18n="pricing_note">Annuel = -17% déjà appliqué. Abonnement résiliable à tout moment.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#"><img src="assets/img/logo.png" alt="" height="24"><span data-i18n="brand">ProtègeMoi</span></a>
+        <p class="small">© <span id="year"></span> <span data-i18n="brand">ProtègeMoi</span>. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+  <script>
+    (function(){ 
+      const label = document.querySelector('.billing-toggle label'); if(!label) return;
+      const track = label.children[1], knob = label.children[2];
+      const input = document.getElementById('billingSwitch');
+      function render(){
+        const on = input.checked;
+        track.style.background = on ? '#0a5bd7' : '#dfe7f2';
+        knob.style.transform = on ? 'translateX(26px)' : 'translateX(0)';
+        document.querySelectorAll('.price').forEach(p=>{
+          const m = p.getAttribute('data-monthly'), y = p.getAttribute('data-yearly');
+          p.textContent = on ? y : m;
+        });
+      }
+      input.addEventListener('change', render); render();
+    })();
+  </script>
+</body>
+</html>
