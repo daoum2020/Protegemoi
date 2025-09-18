@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ProtègeMoi - Démo Multilangue</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:20px;}
+    .promo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      margin: 40px 0;
+    }
+    .promo__img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 6px 24px rgba(0,0,0,.08);
+    }
+    .promo__text { max-width: 560px; }
+    .promo__logo { height: 34px; margin-bottom: 10px; }
+    .promo__badge { font-weight: 700; opacity: .9; }
+    @media (max-width: 900px) {
+      .promo { grid-template-columns: 1fr; }
+    }
+    nav.lang-switch button {margin: 0 5px; padding:6px 10px;}
+  
+    .flagbar { display:flex; gap:8px; align-items:center; }
+    .flagbtn { border:1px solid #ddd; background:#fff; padding:4px 8px; border-radius:8px; display:flex; align-items:center; gap:6px; cursor:pointer; }
+    .flagbtn:focus { outline:2px solid #333; outline-offset:2px; }
+    .flagbtn svg { width:18px; height:12px; display:block; }
+
+  :root { --brand:#1e66f5; --ink:#0e1320; --muted:#475569; --card:#ffffff; }
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; color:var(--ink); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+  header { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:12px 24px; position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px); background: rgba(255,255,255,.85); border-bottom:1px solid #eee; }
+  header .brand { display:flex; align-items:center; gap:10px; font-weight:700; }
+  header .brand img{ height:28px; }
+  #lang{ padding:6px 10px; }
+
+  /* 1) Hero notification overlay */
+  .hero {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    margin: 24px 0 40px;
+  }
+  .hero img { width:100%; display:block; }
+  .notif {
+    position:absolute; left:24px; bottom:24px;
+    background: var(--card); color: var(--ink);
+    border-radius: 14px; padding: 12px 14px; max-width: 520px;
+    display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center;
+    box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  }
+  .notif .logo { width:28px; height:28px; }
+  .notif .title { font-weight:700; }
+  .notif .time { color: var(--muted); font-size: .9rem; }
+  .notif .text { grid-column: 1 / -1; margin-top:2px; color:#111; }
+  @media (max-width:700px){
+    .notif { left:12px; right:12px; bottom:12px; max-width: unset; }
+  }
+
+  /* 2) Features grid (HTML instead of image text) */
+  .features { margin: 40px 0; display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start; }
+  .features .col { display:flex; flex-direction:column; gap:18px; }
+  .feat { display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; }
+  .feat svg { width:22px; height:22px; }
+  .feat h3 { margin:0; font-size:1.1rem; }
+  .feat p, .feat ul { margin:0; color:var(--muted); }
+  .feat ul { padding-left: 18px; }
+  @media (max-width:900px){ .features{ grid-template-columns:1fr; } }
+
+  /* 3) Location hero with card overlay + heading/paragraph in HTML */
+  .section { margin: 48px 0; }
+  .card { background:var(--card); border:1px solid #eaeaea; border-radius: 12px; padding: 14px 16px; box-shadow:0 6px 16px rgba(0,0,0,.12); display:flex; gap:10px; align-items:center; }
+  .loc-hero { position:relative; border-radius:16px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+  .loc-hero img{ width:100%; display:block; }
+  .loc-hero .overlay-card{ position:absolute; left:24px; top:24px; right:auto; }
+  h2 { font-size: clamp(24px, 3vw, 36px); margin: 18px 0 8px; }
+  p.lead { color: var(--muted); font-size: clamp(16px, 2.1vw, 18px); margin:0 0 8px; }
+  </style>
+</head>
+<body>
+<header style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px;">
+  <div style="font-weight:700;font-size:18px;">ProtègeMoi</div>
+  <label for="lang" style="display:flex;align-items:center;gap:8px;">
+    <span>Langue</span>
+    <select id="lang" aria-label="Choisir la langue">
+      <option value="fr">Français</option>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="nl">Nederlands</option>
+    </select>
+  </label>
+
+<div class="flagbar" aria-label="Changer de langue">
+  <button type="button" class="flagbtn" data-lang="fr" title="Français">
+    <svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1" height="2" x="0" y="0" fill="#0055A4"/>
+      <rect width="1" height="2" x="1" y="0" fill="#fff"/>
+      <rect width="1" height="2" x="2" y="0" fill="#EF4135"/>
+    </svg>
+    FR
+  </button>
+  <button type="button" class="flagbtn" data-lang="en" title="English">
+    <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg">
+      <clipPath id="t"><path d="M0,0 v30 h60 v-30 z"/></clipPath>
+      <clipPath id="s"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+      <g clip-path="url(#t)">
+        <path d="M0,0 v30 h60 v-30 z" fill="#012169"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#s)" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+      </g>
+    </svg>
+    EN
+  </button>
+  <button type="button" class="flagbtn" data-lang="es" title="Español">
+    <svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+      <rect width="3" height="2" fill="#AA151B"/>
+      <rect y="0.5" width="3" height="1" fill="#F1BF00"/>
+    </svg>
+    ES
+  </button>
+  <button type="button" class="flagbtn" data-lang="nl" title="Nederlands">
+    <svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg">
+      <rect width="3" height="2" fill="#21468B"/>
+      <rect width="3" height="1.333" y="0" fill="#fff"/>
+      <rect width="3" height="0.666" y="0" fill="#AE1C28"/>
+    </svg>
+    NL
+  </button>
+</div>
+
+</header>
+
+  <h1>Démo ProtègeMoi Multilangue</h1>
+  <nav class="lang-switch">
+    <button type="button" data-lang="fr">FR</button>
+    <button type="button" data-lang="en">EN</button>
+    <button type="button" data-lang="es">ES</button>
+    <button type="button" data-lang="nl">NL</button>
+  </nav>
+
+  <!-- Bloc 1 -->
+  <section class="promo">
+    <img class="promo__img" src="4AE4E23C.jpeg" alt="Adolescent utilisant un smartphone">
+    <div class="promo__text">
+      <img src="logo.svg" alt="ProtègeMoi" class="promo__logo">
+      <h2 data-i18n="promo.prevent.title">Empêchez la suppression des messages</h2>
+      <p data-i18n="promo.prevent.desc">Choisissez si votre enfant peut supprimer ou non des messages sur son téléphone.</p>
+      <p class="promo__badge" data-i18n="promo.prevent.included">Inclus avec : ProtègeMoi Phone</p>
+    </div>
+  </section>
+
+  <!-- Bloc 2 -->
+  <section class="promo">
+    <img class="promo__img" src="E4100BA5.jpeg" alt="Mère et fille utilisant un smartphone">
+    <div class="promo__text">
+      <img src="logo.svg" alt="ProtègeMoi" class="promo__logo">
+      <h2 data-i18n="promo.downloads.title">Contrôlez les téléchargements d’applications</h2>
+      <p data-i18n="promo.downloads.desc">Lorsque votre enfant essaie de télécharger une application, vous recevez une demande pour approuver ou refuser l'application.</p>
+      <p class="promo__badge" data-i18n="promo.downloads.included">Inclus avec : ProtègeMoi Phone</p>
+    </div>
+  </section>
+
+  <!-- Bloc 3 -->
+  <section class="promo">
+    <img class="promo__img" src="426C93B1.jpeg" alt="Père et fille utilisant un smartphone">
+    <div class="promo__text">
+      <img src="logo.svg" alt="ProtègeMoi" class="promo__logo">
+      <h2 data-i18n="promo.home.title">Ajoutez des contrôles parentaux aux appareils intelligents</h2>
+      <p data-i18n="promo.home.desc">Limitez le temps d’écran, bloquez le contenu, et mettez en pause l’accès à Internet sur les appareils intelligents comme les télévisions et les consoles de jeu.</p>
+      <p class="promo__badge" data-i18n="promo.home.included">Inclus avec : ProtègeMoi Home</p>
+    </div>
+  </section>
+
+  <script>
+  const I18N = {
+    fr: {
+      "promo.prevent.title": "Empêchez la suppression des messages",
+      "promo.prevent.desc": "Choisissez si votre enfant peut supprimer ou non des messages sur son téléphone.",
+      "promo.prevent.included": "Inclus avec : ProtègeMoi Phone",
+      "promo.downloads.title": "Contrôlez les téléchargements d’applications",
+      "promo.downloads.desc": "Lorsque votre enfant essaie de télécharger une application, vous recevez une demande pour approuver ou refuser l'application.",
+      "promo.downloads.included": "Inclus avec : ProtègeMoi Phone",
+      "promo.home.title": "Ajoutez des contrôles parentaux aux appareils intelligents",
+      "promo.home.desc": "Limitez le temps d’écran, bloquez le contenu, et mettez en pause l’accès à Internet sur les appareils intelligents comme les télévisions et les consoles de jeu.",
+      "promo.home.included": "Inclus avec : ProtègeMoi Home"
+    },
+    en: {
+      "promo.prevent.title": "Prevent message deletion",
+      "promo.prevent.desc": "Choose whether your child can delete messages on their phone.",
+      "promo.prevent.included": "Included with: ProtègeMoi Phone",
+      "promo.downloads.title": "Control app downloads",
+      "promo.downloads.desc": "When your child tries to download an app, you receive a request to approve or deny it.",
+      "promo.downloads.included": "Included with: ProtègeMoi Phone",
+      "promo.home.title": "Add parental controls to smart devices",
+      "promo.home.desc": "Limit screen time, block content, and pause Internet access on smart devices such as TVs and game consoles.",
+      "promo.home.included": "Included with: ProtègeMoi Home"
+    },
+    es: {
+      "promo.prevent.title": "Evita la eliminación de mensajes",
+      "promo.prevent.desc": "Elige si tu hijo puede borrar mensajes en su teléfono.",
+      "promo.prevent.included": "Incluido con: ProtègeMoi Phone",
+      "promo.downloads.title": "Controla las descargas de aplicaciones",
+      "promo.downloads.desc": "Cuando tu hijo intenta descargar una aplicación, recibes una solicitud para aprobarla o rechazarla.",
+      "promo.downloads.included": "Incluido con: ProtègeMoi Phone",
+      "promo.home.title": "Añade controles parentales a los dispositivos inteligentes",
+      "promo.home.desc": "Limita el tiempo de pantalla, bloquea contenido y pausa el acceso a Internet en dispositivos inteligentes como televisores y consolas de juegos.",
+      "promo.home.included": "Incluido con: ProtègeMoi Home"
+    },
+    nl: {
+      "promo.prevent.title": "Voorkom het verwijderen van berichten",
+      "promo.prevent.desc": "Bepaal of je kind berichten mag verwijderen op zijn of haar telefoon.",
+      "promo.prevent.included": "Inbegrepen bij: ProtègeMoi Phone",
+      "promo.downloads.title": "Beheer het downloaden van apps",
+      "promo.downloads.desc": "Wanneer je kind een app probeert te downloaden, ontvang je een verzoek om dit goed te keuren of te weigeren.",
+      "promo.downloads.included": "Inbegrepen bij: ProtègeMoi Phone",
+      "promo.home.title": "Voeg ouderlijk toezicht toe aan slimme apparaten",
+      "promo.home.desc": "Beperk schermtijd, blokkeer inhoud en pauzeer internettoegang op slimme apparaten zoals tv's en spelconsoles.",
+      "promo.home.included": "Inbegrepen bij: ProtègeMoi Home"
+    }
+  };
+
+  function applyI18n(lang) {
+    const dict = I18N[lang] || I18N.fr;
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) el.textContent = dict[key];
+    });
+  }
+  function setLang(lang) {
+    if (!I18N[lang]) lang = 'fr';
+    localStorage.setItem('lang', lang);
+    applyI18n(lang);
+  const selCtl = document.getElementById('lang');
+  if (selCtl) selCtl.value = lang;
+  }
+  function getInitialLang() {
+    const params = new URLSearchParams(location.search);
+    if (params.get('lang') && I18N[params.get('lang')]) return params.get('lang');
+    return localStorage.getItem('lang') || 'fr';
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const sel = document.getElementById('lang');
+    if (sel) sel.addEventListener('change', e => setLang(e.target.value));
+    const initial = getInitialLang();
+    setLang(initial);
+    const sel2 = document.getElementById('lang'); if (sel2) sel2.value = initial;
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+    });
+  });
+  </script>
+
+<script>
+// --- Merge overlay translations into existing I18N ---
+(function(){
+  const add = {fr: {
+    "now": "maintenant",
+    "hero.notif.text": "Des problèmes sont présents sur les comptes de votre enfant. Affichez-les maintenant.",
+    "feat.ai.title": "Contrôle parental intelligent (IA)",
+    "feat.ai.desc": "Protégez vos enfants grâce à une détection automatique des contenus dangereux : violence, haine, etc.",
+    "feat.risk.title": "Analyse des comportements à risque",
+    "feat.risk.b1": "Cyberharcèlement",
+    "feat.risk.b2": "Prédateurs d’enfants",
+    "feat.risk.b3": "Chantage ou manipulation",
+    "feat.risk.b4": "Drogues et substances illicites",
+    "feat.risk.b5": "Idées suicidaires (amour, harcèlement, dépression)",
+    "feat.risk.b6": "Radicalisation et extrémisme",
+    "feat.stealth.title": "Mode invisible et sécurisé",
+    "feat.stealth.desc": "L’application reste totalement cachée pour l’enfant et ne peut pas être désinstallée.",
+    "feat.dashboard.title": "Tableau de bord parental",
+    "feat.dashboard.desc": "Visualisez l’historique récent et les risques détectés. Chaque alerte est classée par niveau de gravité pour une réaction rapide et adaptée.",
+    "hero.loc.card": "Emma est arrivée à l’école",
+    "hero.loc.title": "Soyez rassuré quand votre enfant est dehors",
+    "hero.loc.desc": "Restez informé en temps réel de la localisation de votre enfant grâce au GPS intégré : carte en direct, alertes de position et points de contrôle."
+  },
+  en: {
+    "now": "now",
+    "hero.notif.text": "Issues have been detected on your child’s accounts. View them now.",
+    "feat.ai.title": "Smart parental control (AI)",
+    "feat.ai.desc": "Protect your children with automatic detection of harmful content: violence, hate, etc.",
+    "feat.risk.title": "Risk behavior analysis",
+    "feat.risk.b1": "Cyberbullying",
+    "feat.risk.b2": "Child predators",
+    "feat.risk.b3": "Blackmail or manipulation",
+    "feat.risk.b4": "Drugs and illicit substances",
+    "feat.risk.b5": "Suicidal ideation (love, harassment, depression)",
+    "feat.risk.b6": "Radicalization and extremism",
+    "feat.stealth.title": "Invisible & secure mode",
+    "feat.stealth.desc": "The app remains completely hidden from the child and cannot be uninstalled.",
+    "feat.dashboard.title": "Parental dashboard",
+    "feat.dashboard.desc": "See recent history and detected risks. Each alert is ranked by severity for a quick and appropriate response.",
+    "hero.loc.card": "Emma has arrived at school",
+    "hero.loc.title": "Feel reassured when your child is outside",
+    "hero.loc.desc": "Stay informed in real time about your child’s location via the built‑in GPS: live map, location alerts and checkpoints."
+  },
+  es: {
+    "now": "ahora",
+    "hero.notif.text": "Se han detectado problemas en las cuentas de tu hijo. Míralos ahora.",
+    "feat.ai.title": "Control parental inteligente (IA)",
+    "feat.ai.desc": "Protege a tus hijos con detección automática de contenido dañino: violencia, odio, etc.",
+    "feat.risk.title": "Análisis de comportamientos de riesgo",
+    "feat.risk.b1": "Ciberacoso",
+    "feat.risk.b2": "Depredadores de menores",
+    "feat.risk.b3": "Chantaje o manipulación",
+    "feat.risk.b4": "Drogas y sustancias ilícitas",
+    "feat.risk.b5": "Ideas suicidas (amor, acoso, depresión)",
+    "feat.risk.b6": "Radicalización y extremismo",
+    "feat.stealth.title": "Modo invisible y seguro",
+    "feat.stealth.desc": "La aplicación permanece totalmente oculta para el niño y no se puede desinstalar.",
+    "feat.dashboard.title": "Panel parental",
+    "feat.dashboard.desc": "Visualiza el historial reciente y los riesgos detectados. Cada alerta se clasifica por nivel de gravedad para una respuesta rápida y adecuada.",
+    "hero.loc.card": "Emma ha llegado a la escuela",
+    "hero.loc.title": "Tranquilidad cuando tu hijo está fuera",
+    "hero.loc.desc": "Mantente informado en tiempo real de la ubicación de tu hijo con el GPS integrado: mapa en directo, alertas de posición y puntos de control."
+  },
+  nl: {
+    "now": "nu",
+    "hero.notif.text": "Er zijn problemen gedetecteerd op de accounts van je kind. Bekijk ze nu.",
+    "feat.ai.title": "Slim ouderlijk toezicht (AI)",
+    "feat.ai.desc": "Bescherm je kinderen met automatische detectie van schadelijke inhoud: geweld, haat, enz.",
+    "feat.risk.title": "Analyse van risicogedrag",
+    "feat.risk.b1": "Cyberpesten",
+    "feat.risk.b2": "Kindermisbruikers",
+    "feat.risk.b3": "Chantage of manipulatie",
+    "feat.risk.b4": "Drugs en illegale stoffen",
+    "feat.risk.b5": "Suïcidale gedachten (liefde, pesten, depressie)",
+    "feat.risk.b6": "Radicalisering en extremisme",
+    "feat.stealth.title": "Onzichtbare en veilige modus",
+    "feat.stealth.desc": "De app blijft volledig verborgen voor het kind en kan niet worden verwijderd.",
+    "feat.dashboard.title": "Ouderlijk dashboard",
+    "feat.dashboard.desc": "Bekijk recente geschiedenis en gedetecteerde risico's. Elke melding is gerangschikt op ernst voor een snelle en passende reactie.",
+    "hero.loc.card": "Emma is op school aangekomen",
+    "hero.loc.title": "Stel je gerust wanneer je kind buiten is",
+    "hero.loc.desc": "Blijf realtime op de hoogte van de locatie van je kind via de ingebouwde GPS: live kaart, locatiewaarschuwingen en controlepunten."
+  }};
+  for (const lang in add){
+    if (!window.I18N) { window.I18N = {}; }
+    if (!window.I18N[lang]) { window.I18N[lang] = {}; }
+    Object.assign(window.I18N[lang], add[lang]);
+  }
+  // re-apply current lang after merging
+  const current = (document.documentElement.getAttribute('lang') || 'fr');
+  if (typeof applyI18n === 'function') applyI18n(current);
+})();
+</script>
+
+<!-- Overlays merged sections start -->
+<div class="container">
+<!-- 1) HERO avec notification (texte en HTML) -->
+  <section class="hero" aria-label="Notification de sécurité">
+    <img src="hero-notif.jpeg" alt="Parent souriant recevant une notification sur son téléphone">
+    <div class="notif" role="status" aria-live="polite">
+      <img class="logo" src="logo.svg" alt="ProtègeMoi">
+      <div class="title">ProtègeMoi</div>
+      <div class="time" data-i18n="now">maintenant</div>
+      <div class="text" data-i18n="hero.notif.text">
+        Des problèmes sont présents sur les comptes de votre enfant. Affichez-les maintenant.
+      </div>
+    </div>
+  </section>
+
+  <!-- 2) FONCTIONNALITÉS (HTML traduisible au lieu d'image) -->
+  <section class="features section" aria-label="Fonctionnalités clés">
+    <div class="col">
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+        <div>
+          <h3 data-i18n="feat.ai.title">Contrôle parental intelligent (IA)</h3>
+          <p data-i18n="feat.ai.desc">Protégez vos enfants grâce à une détection automatique des contenus dangereux&nbsp;: violence, haine, etc.</p>
+        </div>
+      </div>
+
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="7" r="4"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/>
+        </svg>
+        <div>
+          <h3 data-i18n="feat.risk.title">Analyse des comportements à risque</h3>
+          <ul>
+            <li data-i18n="feat.risk.b1">Cyberharcèlement</li>
+            <li data-i18n="feat.risk.b2">Prédateurs d’enfants</li>
+            <li data-i18n="feat.risk.b3">Chantage ou manipulation</li>
+            <li data-i18n="feat.risk.b4">Drogues et substances illicites</li>
+            <li data-i18n="feat.risk.b5">Idées suicidaires (amour, harcèlement, dépression)</li>
+            <li data-i18n="feat.risk.b6">Radicalisation et extrémisme</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/>
+        </svg>
+        <div>
+          <h3 data-i18n="feat.stealth.title">Mode invisible et sécurisé</h3>
+          <p data-i18n="feat.stealth.desc">L’application reste totalement cachée pour l’enfant et ne peut pas être désinstallée.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="feat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 3h18v14H3z"/><path d="M3 21h18"/><path d="M8 13l3 3 5-6"/>
+        </svg>
+        <div>
+          <h3 data-i18n="feat.dashboard.title">Tableau de bord parental</h3>
+          <p data-i18n="feat.dashboard.desc">
+            Visualisez l’historique récent et les risques détectés. Chaque alerte est classée par niveau de gravité pour une réaction rapide et adaptée.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) Localisation + titre/texte (HTML traduisible) -->
+  <section class="section" aria-label="Localisation en temps réel">
+    <div class="loc-hero">
+      <img src="location-hero.jpeg" alt="Parent consultant la localisation de son enfant sur son téléphone">
+      <div class="overlay-card card">
+        <img class="logo" src="logo.svg" alt="ProtègeMoi" style="width:22px;height:22px;">
+        <div>
+          <div style="font-weight:700">ProtègeMoi</div>
+          <div data-i18n="hero.loc.card">Emma est arrivée à l’école</div>
+        </div>
+      </div>
+    </div>
+    <h2 data-i18n="hero.loc.title">Soyez rassuré quand votre enfant est dehors</h2>
+    <p class="lead" data-i18n="hero.loc.desc">
+      Restez informé en temps réel de la localisation de votre enfant grâce au GPS intégré&nbsp;: carte en direct, alertes de position et points de contrôle.
+    </p>
+  </section>
+</div>
+<!-- Overlays merged sections end -->
+
+</body>
+</html>
