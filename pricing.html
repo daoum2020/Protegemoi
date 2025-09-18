@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="pricing_title">Abonnements — ProtègeMoi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="graduates-logo.png">
+  <style>
+    .price-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+    .pay{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="graduates-logo.png" alt="" height="28"><span data-i18n="brand">ProtègeMoi</span></a>
+      <nav class="menu" aria-label="Navigation">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+        <ul id="nav-links">
+          <li><a href="index.html#comment-ca-marche" data-i18n="menu_home">Fonctionnement</a></li>
+          <li><a href="features.html" data-i18n="menu_features">Fonctionnalités clés</a></li>
+          <li><a href="pricing.html" data-i18n="menu_billing">Abonnements</a></li>
+          <li><a href="contact.html" data-i18n="menu_contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="right">
+        <label class="lang-label" for="lang" data-i18n="lang_label">Langue</label>
+        <select id="lang" onchange="setLang(this.value,true)">
+          <option value="fr">FR</option><option value="es">ES</option><option value="nl">NL</option><option value="en">EN</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding:32px 0">
+    <h1 data-i18n="pricing_hero_title">Choisissez votre protection</h1>
+    <p class="small" data-i18n="pricing_hero_sub">Mensuel ou annuel (–17%). Changez d’avis à tout moment.</p>
+
+    <div class="price-cards">
+      <article class="card">
+        <h3 data-i18n="plan_1_title">1 enfant</h3>
+        <p class="price" data-monthly="7,99 € / mois" data-yearly="6,63 € / mois (79,56 € / an)" style="font-size:22px;font-weight:800;margin:0 0 12px">7,99 € / mois</p>
+        <div class="pay">
+          <a class="btn primary" href="#" data-i18n="pay_card_title">Carte bancaire (Stripe)</a>
+          <a class="btn ghost" href="#" data-i18n="pay_paypal_title">PayPal</a>
+        </div>
+      </article>
+      <article class="card" style="border:2px solid var(--pm-blue);background:linear-gradient(180deg,#f6f9ff,transparent)">
+        <div class="ribbon" style="background:var(--pm-blue);color:#fff;display:inline-block;padding:3px 8px;border-radius:8px;margin-bottom:8px">Populaire</div>
+        <h3 data-i18n="plan_2_title">2 enfants</h3>
+        <p class="price" data-monthly="12,99 € / mois" data-yearly="10,78 € / mois (129,36 € / an)" style="font-size:22px;font-weight:800;margin:0 0 12px">12,99 € / mois</p>
+        <div class="pay">
+          <a class="btn primary" href="#" data-i18n="pay_card_title">Carte bancaire (Stripe)</a>
+          <a class="btn ghost" href="#" data-i18n="pay_paypal_title">PayPal</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3 data-i18n="plan_3_title">3 enfants</h3>
+        <p class="price" data-monthly="17,99 € / mois" data-yearly="14,93 € / mois (179,16 € / an)" style="font-size:22px;font-weight:800;margin:0 0 12px">17,99 € / mois</p>
+        <div class="pay">
+          <a class="btn primary" href="#" data-i18n="pay_card_title">Carte bancaire (Stripe)</a>
+          <a class="btn ghost" href="#" data-i18n="pay_paypal_title">PayPal</a>
+        </div>
+      </article>
+    </div>
+    <p class="small" style="margin-top:8px" data-i18n="pay_secure_note">Paiements 100% sécurisés. Vous recevrez automatiquement un email de confirmation.</p>
+
+    <div style="margin-top:18px;display:flex;align-items:center;gap:10px">
+      <span data-i18n="pricing_toggle_monthly">Mensuel</span>
+      <label style="position:relative;display:inline-block;width:56px;height:30px">
+        <input id="billingSwitch" type="checkbox" aria-label="Basculer annuel" style="opacity:0;width:0;height:0">
+        <span style="position:absolute;top:0;left:0;right:0;bottom:0;background:#dfe7f2;border-radius:999px;transition:.2s"></span>
+        <span style="position:absolute;height:24px;width:24px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s"></span>
+      </label>
+      <span><span data-i18n="pricing_toggle_yearly">Annuel</span> <small style="background:#0a5bd7;color:#fff;border-radius:8px;padding:3px 8px;margin-left:4px" data-i18n="pricing_badge_yearly">-17%</small></span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p class="small">© <span id="year"></span> <span data-i18n="brand">ProtègeMoi</span></p></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>
