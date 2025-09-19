@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="nl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ProtègeMoi</title>
+<style>
+:root{--blue:#1f4fbf;--text:#0f172a;--muted:#64748b;--border:#e5e7eb;--bg:#ffffff;}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);}
+a{color:var(--blue);text-decoration:none}
+.container{max-width:980px;margin:0 auto;padding:0 16px}
+.btn{background:var(--blue);border:none;color:#fff;border-radius:10px;padding:10px 14px;cursor:pointer}
+.btn:hover{opacity:.9}
+header{background:var(--blue);color:#fff}
+header .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px}
+nav a{color:#fff;margin-left:14px}
+.hero{padding:44px 0 24px}
+.hero h1{font-size:36px;margin:0 0 12px}
+h2{font-size:28px;color:var(--blue);margin:0 0 10px}
+.lead{color:var(--text);opacity:.9;margin:0 0 10px}
+section{padding:22px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border:1px solid var(--border);border-radius:12px;background:#fff}
+.card .txt p{margin:.3rem 0}
+footer{border-top:1px solid var(--border);padding:22px 0;margin-top:26px;color:var(--muted)}
+input,textarea{font:inherit}
+form input,form textarea{width:100%;padding:10px;border:1px solid var(--border);border-radius:10px}
+form .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:640px){.hero h1{font-size:28px}}
+/* iPhone toggle */
+.switch{position:relative;display:inline-block;width:50px;height:26px}
+.switch input{display:none}
+.slider{position:absolute;cursor:pointer;inset:0;background:#cbd5e1;border-radius:26px;transition:.2s}
+.slider:before{content:"";position:absolute;height:20px;width:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s}
+input:checked+.slider{background:var(--blue)}
+input:checked+.slider:before{transform:translateX(24px)}
+.note{font-size:14px;color:var(--muted)}
+</style>
+<link rel="icon" href="assets/img/logo.png">
+
+<style>
+.header-brand{display:flex;align-items:center;gap:10px}
+.header-brand img{width:28px;height:28px;object-fit:contain;filter: brightness(0) invert(1);}
+</style>
+
+
+<style>
+/* Show only the label matching the data-lang on <html> (fallback FR) */
+.lang-label{display:none}
+html[data-lang="fr"] .label-fr,
+html[data-lang="es"] .label-es,
+html[data-lang="en"] .label-en,
+html[data-lang="nl"] .label-nl{display:inline}
+/* Default to FR if no data-lang set */
+:not(html[data-lang]) .label-fr{display:inline}
+</style>
+
+
+<style>
+/* Pricing cards */
+.pm-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:12px 0}
+.pm-card{border:1px solid #e5e7eb;border-radius:12px;background:#fff;overflow:hidden}
+.pm-card .txt{padding:16px}
+.pm-card h3{margin:0 0 6px 0;color:#2151c5}
+.pm-price{margin:6px 0 10px 0;color:#111}
+.pm-price s{margin-right:6px;visibility:hidden}
+.pm-btn{background:#2151c5;color:#fff;border:none;border-radius:10px;padding:10px 14px;cursor:pointer}
+.pm-btn:hover{opacity:.93}
+/* iPhone-style toggle */
+.pm-switch{position:relative;display:inline-block;width:50px;height:26px}
+.pm-switch input{display:none}
+.pm-slider{position:absolute;inset:0;background:#cbd5e1;border-radius:26px;transition:.2s}
+.pm-slider:before{content:"";position:absolute;height:20px;width:20px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s}
+.pm-switch input:checked + .pm-slider{background:#2151c5}
+.pm-switch input:checked + .pm-slider:before{transform:translateX(24px)}
+.pm-note{font-size:14px;color:#64748b}
+</style>
+
+</head>
+<body>
+\1
+<div class="header-brand"><img src="assets/img/logo.png" alt="ProtègeMoi"><span>ProtègeMoi</span></div>
+  <div class="bar container">
+    <div class="brand">ProtègeMoi</div>
+    <nav class="nav">
+      <a href="#pricing">Tarieven</a>
+      <a href="#contact">Contact</a>
+      <span style="margin-left:10px;opacity:.9"><a data-lang="fr" href="../fr/index.html" style="color:#fff;opacity:0.8">FR</a> · <a data-lang="en" href="../en/index.html" style="color:#fff;opacity:0.8">EN</a> · <a data-lang="es" href="../es/index.html" style="color:#fff;opacity:0.8">ES</a> · <a data-lang="nl" href="../nl/index.html" style="color:#fff;opacity:1">NL</a></span>
+    </nav>
+  </div>
+</header>
+
+<section class="hero container">
+  <h1>ProtègeMoi — Het digitale schild van uw kinderen.</h1>
+  <p class="lead">Online veiligheid, eenvoudig en slim, voor het hele gezin.</p>
+</section>
+
+<section id="vision" class="container">
+  <h2>Onze visie</h2>
+  <p class="lead">Met <strong>ProtègeMoi</strong> beleven gezinnen het digitale leven met vertrouwen.
+ Onze AI <strong>detecteert, blokkeert en waarschuwt</strong> bij online risico’s — zonder te spioneren of data op te slaan.
+ <br>We controleren alleen <strong>gevoelige trefwoorden</strong> en onze database wordt <strong>dagelijks bijgewerkt</strong> voor meer effectiviteit.
+ <br>We helpen ouders de controle te behouden met respect voor de vrijheid van kinderen.
+ <strong>ProtègeMoi groeit mee met uw gezin</strong>, voor een duurzame en betrouwbare bescherming.</p>
+</section>
+
+
+<section id="pricing" style="padding:24px 0">
+  <h2 style="color:#2151c5;margin:0 0 12px 0">
+    <span class="lang-label label-fr">Abonnements</span>
+    <span class="lang-label label-en">Subscriptions</span>
+    <span class="lang-label label-es">Planes</span>
+    <span class="lang-label label-nl">Abonnementen</span>
+  </h2>
+
+  <p class="pm-note" style="margin:0 0 12px 0">
+    <span class="lang-label label-fr">Offre de lancement : <strong>-50%</strong> avec le code promo</span>
+    <span class="lang-label label-en">Launch offer: <strong>-50%</strong> with promo code</span>
+    <span class="lang-label label-es">Oferta de lanzamiento: <strong>-50%</strong> con código</span>
+    <span class="lang-label label-nl">Lancering: <strong>-50%</strong> met promotiecode</span>
+    <strong>PROTEGEMOI2026</strong>
+  </p>
+
+  <!-- Toggle Mensuel / Annuel -->
+  <div style="display:flex;align-items:center;gap:12px;margin:16px 0">
+    <span class="lang-label label-fr">Mensuel</span>
+    <span class="lang-label label-en">Monthly</span>
+    <span class="lang-label label-es">Mensual</span>
+    <span class="lang-label label-nl">Maandelijks</span>
+
+    <label class="pm-switch">
+      <input type="checkbox" id="pmToggle">
+      <span class="pm-slider"></span>
+    </label>
+
+    <span class="lang-label label-fr">Annuel</span>
+    <span class="lang-label label-en">Yearly</span>
+    <span class="lang-label label-es">Anual</span>
+    <span class="lang-label label-nl">Jaarlijks</span>
+  </div>
+
+  <!-- Code promo -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px 0">
+    <input id="pmPromo" placeholder="Code promo / Promo code" style="padding:10px;border:1px solid #e5e7eb;border-radius:10px;flex:1;min-width:240px">
+    <button id="pmApply" class="pm-btn" type="button">
+      <span class="lang-label label-fr">Appliquer</span>
+      <span class="lang-label label-en">Apply</span>
+      <span class="lang-label label-es">Aplicar</span>
+      <span class="lang-label label-nl">Toepassen</span>
+    </button>
+    <span id="pmMsg" class="pm-note" style="align-self:center"></span>
+  </div>
+
+  <!-- Cards -->
+  <div class="pm-cards" id="pmCards">
+    <article class="pm-card" data-month="14.99" data-year="149.90">
+      <div class="txt">
+        <h3>
+          <span class="lang-label label-fr">1 enfant</span>
+          <span class="lang-label label-en">1 child</span>
+          <span class="lang-label label-es">1 niño</span>
+          <span class="lang-label label-nl">1 kind</span>
+        </h3>
+        <p class="pm-price"><s class="pm-strike"></s> <span class="pm-amount"></span></p>
+        <button class="pm-btn">
+          <span class="lang-label label-fr">Choisir cette offre</span>
+          <span class="lang-label label-en">Choose this plan</span>
+          <span class="lang-label label-es">Elegir este plan</span>
+          <span class="lang-label label-nl">Kies dit plan</span>
+        </button>
+      </div>
+    </article>
+
+    <article class="pm-card" data-month="19.99" data-year="199.90">
+      <div class="txt">
+        <h3>
+          <span class="lang-label label-fr">2 enfants</span>
+          <span class="lang-label label-en">2 children</span>
+          <span class="lang-label label-es">2 niños</span>
+          <span class="lang-label label-nl">2 kinderen</span>
+        </h3>
+        <p class="pm-price"><s class="pm-strike"></s> <span class="pm-amount"></span></p>
+        <button class="pm-btn">
+          <span class="lang-label label-fr">Choisir cette offre</span>
+          <span class="lang-label label-en">Choose this plan</span>
+          <span class="lang-label label-es">Elegir este plan</span>
+          <span class="lang-label label-nl">Kies dit plan</span>
+        </button>
+      </div>
+    </article>
+
+    <article class="pm-card" data-month="24.99" data-year="249.90">
+      <div class="txt">
+        <h3>
+          <span class="lang-label label-fr">3 enfants</span>
+          <span class="lang-label label-en">3 children</span>
+          <span class="lang-label label-es">3 niños</span>
+          <span class="lang-label label-nl">3 kinderen</span>
+        </h3>
+        <p class="pm-price"><s class="pm-strike"></s> <span class="pm-amount"></span></p>
+        <button class="pm-btn">
+          <span class="lang-label label-fr">Choisir cette offre</span>
+          <span class="lang-label label-en">Choose this plan</span>
+          <span class="lang-label label-es">Elegir este plan</span>
+          <span class="lang-label label-nl">Kies dit plan</span>
+        </button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script>
+(function(){
+  const CODE = "PROTEGEMOI2026"; // -50%
+  const toggle = document.getElementById('pmToggle');
+  const promo = document.getElementById('pmPromo');
+  const apply = document.getElementById('pmApply');
+  const msg = document.getElementById('pmMsg');
+  const cards = Array.from(document.querySelectorAll('#pmCards .pm-card'));
+  let promoOk = false;
+
+  function isComma(){
+    const lang = document.documentElement.getAttribute('data-lang') || 'fr';
+    return ['fr','es','nl'].includes(lang);
+  }
+  function perLabel(){
+    const lang = document.documentElement.getAttribute('data-lang') || 'fr';
+    if(toggle.checked){
+      return {fr:" / an", en:" / year", es:" / año", nl:" / jaar"}[lang] || " / an";
+    } else {
+      return {fr:" / mois", en:" / month", es:" / mes", nl:" / maand"}[lang] || " / mois";
+    }
+  }
+  function fmtEUR(v){
+    const s = v.toFixed(2);
+    return (isComma()? s.replace('.', ',') : s) + " €";
+  }
+  function update(){
+    cards.forEach(card=>{
+      const base = parseFloat(toggle.checked ? card.dataset.year : card.dataset.month);
+      const amount = card.querySelector('.pm-amount');
+      const strike = card.querySelector('.pm-strike');
+      if(promoOk){
+        strike.textContent = fmtEUR(base);
+        strike.style.visibility = 'visible';
+        amount.textContent = fmtEUR(base * 0.5) + perLabel();
+      } else {
+        strike.style.visibility = 'hidden';
+        amount.textContent = fmtEUR(base) + perLabel();
+      }
+    });
+  }
+  apply?.addEventListener('click', ()=>{
+    const val = (promo.value||"").trim().toUpperCase();
+    const lang = document.documentElement.getAttribute('data-lang') || 'fr';
+    promoOk = (val === CODE);
+    msg.textContent = promoOk
+      ? ({fr:"Code appliqué : -50%", en:"Promo applied: -50%", es:"Código aplicado: -50%", nl:"Code toegepast: -50%"}[lang] || "OK")
+      : ({fr:"Code invalide", en:"Invalid code", es:"Código inválido", nl:"Ongeldige code"}[lang] || "NOK");
+    msg.style.color = promoOk ? "green" : "#b91c1c";
+    update();
+  });
+  toggle?.addEventListener('change', update);
+  // React to language changes (if data-lang changes elsewhere)
+  const obs = new MutationObserver(update);
+  obs.observe(document.documentElement, {attributes:true, attributeFilter:['data-lang']});
+  update();
+})();
+</script>
+
+
+<section id="contact" class="container">
+  <h2>Contact</h2>
+  <form class="card" style="padding:16px">
+    <div class="grid">
+      <div><label>Naam<br><input type="text" required></label></div>
+      <div><label>E-mail<br><input type="email" required></label></div>
+    </div>
+    <div style="margin-top:10px"><label>Bericht<br><textarea rows="4"></textarea></label></div>
+    <div style="margin-top:12px"><button class="btn" type="submit">Verzenden</button></div>
+  </form>
+
+  <div class="contact-direct" style="margin-top:18px">
+    <h3 style="margin:12px 0 8px">Direct contact</h3>
+    <p style="margin:6px 0">📧 <a href="mailto:daoum@outlook.be">daoum@outlook.be</a></p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:6px">
+      <a href="https://www.tiktok.com/@protegemoiapp" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #e5e7eb;border-radius:999px">
+        <span>🎵 TikTok</span><span>@protegemoiapp</span>
+      </a>
+      <a href="https://www.instagram.com/protegemoiapp" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #e5e7eb;border-radius:999px">
+        <span>📷 Instagram</span><span>@protegemoiapp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="container">© ProtègeMoi — 2025</footer>
+
+<script>
+(function(){
+  const CODE = "PROTEGEMOI2026";
+  const toggle = document.getElementById('togglePlan');
+  const promoInput = document.getElementById('promo');
+  const applyBtn = document.getElementById('apply');
+  const msg = document.getElementById('promoMsg');
+  const cards = [...document.querySelectorAll('#pricing .card')];
+  let promoOk = false;
+  const perM = " / maand";
+  const perY = " / jaar";
+
+  const useComma = true;
+  const eur = v => (useComma ? v.toFixed(2).replace('.', ',') : v.toFixed(2)) + " €";
+
+  function update(){
+    cards.forEach(c=>{
+      const base = parseFloat(toggle.checked ? c.dataset.year : c.dataset.month);
+      const priceEl = c.querySelector('.price');
+      const strikeEl = c.querySelector('.strike');
+      if(promoOk){
+        strikeEl.textContent = eur(base);
+        strikeEl.style.visibility = 'visible';
+        priceEl.textContent = eur(base*0.5) + (toggle.checked?perY:perM);
+      } else {
+        strikeEl.style.visibility = 'hidden';
+        priceEl.textContent = eur(base) + (toggle.checked?perY:perM);
+      }
+    });
+  }
+  applyBtn.addEventListener('click', ()=>{
+    promoOk = (promoInput.value||"").trim().toUpperCase() === CODE;
+    msg.textContent = promoOk ? "Code toegepast: -50%" : "Ongeldige code";
+    msg.style.color = promoOk ? "green" : "#b91c1c";
+    update();
+  });
+  toggle.addEventListener('change', update);
+  update();
+})();
+</script>
+
+
+<script>
+(function(){
+  function applySaved(){
+    try{
+      var saved = localStorage.getItem('pm_lang');
+      if(saved){ document.documentElement.setAttribute('data-lang', saved); }
+      else if(!document.documentElement.hasAttribute('data-lang')){
+        document.documentElement.setAttribute('data-lang','fr');
+      }
+    }catch(e){}
+  }
+  applySaved();
+  document.querySelectorAll('a[data-lang]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var code = a.getAttribute('data-lang');
+      document.documentElement.setAttribute('data-lang', code);
+      try{ localStorage.setItem('pm_lang', code); }catch(e){}
+      // Optionally, update active state
+      document.querySelectorAll('a[data-lang]').forEach(function(x){
+        x.classList.toggle('active', x.getAttribute('data-lang')===code);
+      });
+    });
+  });
+})();
+</script>
+
+</body></html>
