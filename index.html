@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ProtègeMoi</title>
+<link rel="stylesheet" href="assets/css/style.min.css">
+
+<link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/icon-180.png">
+<link rel="manifest" href="assets/favicons/site.webmanifest">
+
+</head>
+<body>
+<header>
+  <div class="bar container">
+    <div class="brand"><img src="assets/img/logo.png" alt="ProtègeMoi" class="logo"><span data-i18n="brand">ProtègeMoi</span></div>
+    <nav class="nav">
+      <a href="#vision" data-i18n="nav_vision">Vision</a>
+      <a href="#family" data-i18n="nav_family">Famille</a>
+      <a href="#pricing" data-i18n="nav_pricing">Tarifs</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <select class="lang" id="langSel" aria-label="Language">
+        <option value="fr" selected>FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="nl">NL</option>
+      </select>
+    </nav>
+  </div>
+</header>
+
+<section class="hero container">
+  <h1 data-i18n="hero_title">ProtègeMoi — Le bouclier numérique de vos enfants.</h1>
+  <p class="lead" data-i18n="hero_sub">La sécurité en ligne, simple et intelligente, pour toute la famille.</p>
+</section>
+
+<section id="vision" class="container">
+  <h2 data-i18n="vision_title">Notre vision</h2>
+  <p class="lead" id="visionHtml">
+    Avec <strong>ProtègeMoi</strong>, les familles vivent le numérique en confiance.
+    Notre IA <strong>détecte, bloque et alerte</strong> face aux dangers en ligne — sans espionner ni stocker de données.
+    <br>Nous analysons uniquement des <strong>mots clés sensibles</strong>, et notre base est <strong>mise à jour chaque jour</strong> pour rester toujours plus efficace.
+    <br>Nous permettons aux parents de garder le contrôle tout en respectant la liberté des enfants.
+    <strong>ProtègeMoi évolue avec votre famille</strong>, pour une protection durable et sereine.
+  </p>
+</section>
+
+<section id="family" class="container">
+  <h2 data-i18n="family_title">La famille ProtègeMoi</h2>
+  <p class="lead" data-i18n="family_sub">Un aperçu de parents et d’enfants qui nous inspirent — vos sourires sont notre mission.</p>
+  <div class="slider-wrap">
+    <div class="slider-track" id="track">
+      <div class="slide"><img src="assets/img/5766FEA6-621A-447A-A746-17A734F5F239.jpeg" alt="Famille ProtègeMoi"></div>
+<div class="slide"><img src="assets/img/7541EC06-F1B4-4D68-A8B0-50AB8D21CB30.jpeg" alt="Famille ProtègeMoi"></div>
+<div class="slide"><img src="assets/img/4E1CF2DA-7FFA-4319-B221-A3F0D71D55F0.png" alt="Famille ProtègeMoi"></div>
+<div class="slide"><img src="assets/img/IMG_6462.jpeg" alt="Famille ProtègeMoi"></div>
+<div class="slide"><img src="assets/img/DEB71149-7283-4CCD-8C1F-F504E99755CB.png" alt="Famille ProtègeMoi"></div>
+<div class="slide"><img src="assets/img/7553E4DD-414C-4887-BD39-650FB2DF3937.jpeg" alt="Famille ProtègeMoi"></div>
+    </div>
+    <div class="slider-dots" id="dots"></div>
+  </div>
+</section>
+
+<section id="pricing" class="container">
+  <h2 data-i18n="pricing_title">Abonnements</h2>
+  <p class="lead" data-i18n="pricing_lead">Offre de lancement : <strong>-50%</strong> avec un code promo exclusif</p>
+
+  <div style="display:flex;align-items:center;gap:12px;margin:14px 0 10px">
+    <span data-i18n="monthly">Mensuel</span>
+    <label class="switch"><input type="checkbox" id="togglePlan"><span class="slider"></span></label>
+    <span data-i18n="yearly">Annuel</span>
+  </div>
+
+  <div style="margin:8px 0 18px;display:flex;gap:8px;flex-wrap:wrap">
+    <input id="promo" data-i18n-ph="placeholder" placeholder="Entrez votre code promo" style="padding:12px;border:1px solid #d1d5db;border-radius:10px;flex:1;min-width:240px">
+    <button id="apply" class="btn" data-i18n="apply" type="button">Appliquer</button>
+    <span id="promoMsg" class="note" style="align-self:center"></span>
+  </div>
+
+  <div class="cards" id="cards">
+    <article class="card" data-month="14.99" data-year="149.90">
+      <div class="txt" style="padding:16px">
+        <h3 data-i18n="plan1">1 enfant</h3>
+        <p class="note"><s class="strike"></s> <span class="price"></span></p>
+        <button class="btn" data-i18n="choose">Choisir cette offre</button>
+      </div>
+    </article>
+    <article class="card" data-month="19.99" data-year="199.90">
+      <div class="txt" style="padding:16px">
+        <h3 data-i18n="plan2">2 enfants</h3>
+        <p class="note"><s class="strike"></s> <span class="price"></span></p>
+        <button class="btn" data-i18n="choose">Choisir cette offre</button>
+      </div>
+    </article>
+    <article class="card" data-month="24.99" data-year="249.90">
+      <div class="txt" style="padding:16px">
+        <h3 data-i18n="plan3">3 enfants</h3>
+        <p class="note"><s class="strike"></s> <span class="price"></span></p>
+        <button class="btn" data-i18n="choose">Choisir cette offre</button>
+      </div>
+    </article>
+  </div>
+
+  <p class="note"><span class="badge">PROTEGEMOI2026</span> = -50% (lancement)</p>
+</section>
+
+<section id="contact" class="container">
+  <h2 data-i18n="contact_title">Contact</h2>
+  <form class="card" style="padding:16px">
+    <div class="grid">
+      <div><label data-i18n="form_name">Nom</label><br><input type="text" required></div>
+      <div><label data-i18n="form_email">Email</label><br><input type="email" required></div>
+    </div>
+    <div style="margin-top:10px"><label data-i18n="form_msg">Message</label><br><textarea rows="4"></textarea></div>
+    <div style="margin-top:12px"><button class="btn" type="submit" data-i18n="form_send">Envoyer</button></div>
+  </form>
+
+  <div class="contact-direct" style="margin-top:18px">
+    <h3 style="margin:12px 0 8px" data-i18n="contact_direct">Contact direct</h3>
+    <p style="margin:6px 0">📧 <a href="mailto:daoum@outlook.be">daoum@outlook.be</a></p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:6px">
+      <a href="https://www.tiktok.com/@protegemoiapp" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #e5e7eb;border-radius:999px">
+        <span>🎵 TikTok</span><span>@protegemoiapp</span>
+      </a>
+      <a href="https://www.instagram.com/protegemoiapp" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #e5e7eb;border-radius:999px">
+        <span>📷 Instagram</span><span>@protegemoiapp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="container">© ProtègeMoi — 2025</footer>
+
+<script src="assets/js/site.min.js"></script>
+</body></html>
