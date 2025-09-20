@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="contact_title">Contact — ProtègeMoi</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo-officiel.png">
+</head>
+<body>
+  
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="logo-officiel.png" alt="ProtègeMoi" height="30"><span>ProtègeMoi</span></a>
+      <nav class="menu" aria-label="Navigation principale" aria-expanded="false">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">☰</button>
+        <ul id="nav-links">
+          <li><a href="index.html#comment-ca-marche">Fonctionnement</a></li>
+          <li><a href="pricing.html">Abonnements</a></li>
+          <li><a href="famille.html">Famille ProtègeMoi</a></li>
+          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+          <li><a href="avis.html">Avis abonnés</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="container" style="padding:40px 0">
+    <h1 data-i18n="contact_title">Contact</h1>
+    <p class="lead" data-i18n="contact_desc">Une question ? Besoin d’aide ? Écrivez‑nous — réponse rapide.</p>
+
+    <form class="form" action="mailto:support@protegemoiexemple.com" method="post" enctype="text/plain">
+      <div class="grid-2">
+        <div><label><span data-i18n="contact_name">Nom complet</span><br><input class="input" type="text" name="name" required></label></div>
+        <div><label><span data-i18n="contact_email">Email</span><br><input class="input" type="email" name="email" required></label></div>
+      </div>
+      <div style="margin-top:12px"><label><span data-i18n="contact_subject">Objet</span><br><input class="input" type="text" name="subject" required></label></div>
+      <div style="margin-top:12px"><label><span data-i18n="contact_message">Message</span><br><textarea class="input" name="message" rows="6" required></textarea></label></div>
+      <div style="margin-top:16px"><button class="btn primary" type="submit" data-i18n="contact_send">Envoyer</button></div>
+    </form>
+
+    <p style="margin-top:18px" data-i18n="contact_alt">Ou contactez‑nous directement :</p>
+    <p>
+      <a class="btn link" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-i18n="contact_whatsapp">WhatsApp</a>
+      <a class="btn link" href="mailto:support@protegemoiexemple.com" data-i18n="contact_email_cta">Email</a>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p class="small">© <span id="year"></span> <span data-i18n="brand">ProtègeMoi</span></p></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>
