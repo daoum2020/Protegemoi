@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Famille ProtègeMoi</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/images/logo-officiel.png">
+
+<link rel="icon" href="/assets/icons/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0b5cff">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" data-i18n="a.protègemoi-5"><img src="assets/images/logo-officiel.png" alt="ProtègeMoi" height="30"><span>ProtègeMoi</span></a>
+    <nav class="menu" aria-label="Navigation principale" aria-expanded="false">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu" data-i18n="button.text-5">☰</button>
+      <ul id="nav-links">
+        <li data-i18n="li.fonctionnement-5"><a href="index.html#comment-ca-marche">Fonctionnement</a></li>
+        <li data-i18n="li.abonnements-5"><a href="pricing.html">Abonnements</a></li>
+        <li data-i18n="li.famille-protègemoi-5"><a href="famille.html">Famille ProtègeMoi</a></li>
+        <li data-i18n="li.fonctionnalités-5"><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li data-i18n="li.avis-abonnés-5"><a href="avis.html">Avis abonnés</a></li>
+        <li data-i18n="li.contact-5"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section style="padding:36px 0">
+  <div class="container" style="max-width:1100px">
+    <h1 class="section-title" data-i18n="h1.famille-protègemoi">Famille ProtègeMoi</h1>
+    <div class="carousel" id="familleCarousel">
+      <div class="slides">
+        <div class="slide"><img src="assets/images/famille-1.jpg" alt="Famille 1"></div>
+        <div class="slide"><img src="assets/images/famille-2.png" alt="Famille 2"></div>
+        <div class="slide"><img src="assets/images/famille-3.jpg" alt="Famille 3"></div>
+        <div class="slide"><img src="assets/images/famille-4.jpg" alt="Famille 4"></div>
+        <div class="slide"><img src="assets/images/famille-5.png" alt="Famille 5"></div>
+        <div class="slide"><img src="assets/images/famille-6.png" alt="Famille 6"></div>
+        <div class="slide"><img src="assets/images/famille-7.png" alt="Famille 7"></div>
+        <div class="slide"><img src="assets/images/famille-8.png" alt="Famille 8"></div>
+      </div>
+      <div class="controls"><span class="prev" data-i18n="span.text-6">❮</span><span class="next" data-i18n="span.text-7">❯</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer"><div class="container"><p class="small" data-i18n="p.protègemoi-5">© <span id="year"></span> ProtègeMoi</p></div></footer>
+<script src="assets/js/script.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+  });
+}
+</script>
+
+
+<div style="position:fixed;bottom:12px;right:12px;z-index:9999;font-size:14px;">
+  <button onclick="setLang('fr')" data-i18n="button.fr-5">FR</button>
+  <button onclick="setLang('en')" data-i18n="button.en-5">EN</button>
+  <button onclick="setLang('es')" data-i18n="button.es-5">ES</button>
+  <button onclick="setLang('ar')" data-i18n="button.ar-5">AR</button>
+  <button onclick="setLang('zh')" data-i18n="button.中文-5">中文</button>
+</div>
+
+</body>
+</html>

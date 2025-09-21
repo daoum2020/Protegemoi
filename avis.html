@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Avis abonnés</title><link rel="stylesheet" href="assets/css/styles.css"/><link rel="icon" href="assets/images/logo-officiel.png">
+<link rel="icon" href="/assets/icons/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0b5cff">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" data-i18n="a.protègemoi-7"><img src="assets/images/logo-officiel.png" alt="ProtègeMoi" height="30"><span>ProtègeMoi</span></a>
+    <nav class="menu" aria-label="Navigation principale" aria-expanded="false">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu" data-i18n="button.text-7">☰</button>
+      <ul id="nav-links">
+        <li data-i18n="li.fonctionnement-7"><a href="index.html#comment-ca-marche">Fonctionnement</a></li>
+        <li data-i18n="li.abonnements-7"><a href="pricing.html">Abonnements</a></li>
+        <li data-i18n="li.famille-protègemoi-7"><a href="famille.html">Famille ProtègeMoi</a></li>
+        <li data-i18n="li.fonctionnalités-7"><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li data-i18n="li.avis-abonnés-7"><a href="avis.html">Avis abonnés</a></li>
+        <li data-i18n="li.contact-7"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<section class="hero"><div class="container"><h1 class="section-title" data-i18n="h1.avis-abonnés">Avis abonnés</h1><p data-i18n="p.ce-que-disent-nos-utilisateurs">Ce que disent nos utilisateurs.</p></div></section>
+<section><div class="container" style="max-width:900px">
+  <div class="card" style="margin-bottom:14px"><p data-i18n="p.alertes-claires-et-rassurantes-on-dort-mieux-sophi">“Alertes claires et rassurantes. On dort mieux !” — <strong>Sophie</strong>, maman de 2 enfants</p></div>
+  <div class="card" style="margin-bottom:14px"><p data-i18n="p.mise-en-place-en-5-minutes-super-simple-karim">“Mise en place en 5 minutes, super simple.” — <strong>Karim</strong></p></div>
+  <div class="card" style="margin-bottom:14px"><p data-i18n="p.le-tableau-de-bord-nous-a-aidés-à-mieux-cadrer-lus">“Le tableau de bord nous a aidés à mieux cadrer l’usage.” — <strong>Julie</strong></p></div>
+</div></section>
+<footer class="site-footer"><div class="container"><p class="small" data-i18n="p.protègemoi-7">© <span id="year"></span> ProtègeMoi</p></div></footer>
+<script src="assets/js/script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+  });
+}
+</script>
+
+
+<div style="position:fixed;bottom:12px;right:12px;z-index:9999;font-size:14px;">
+  <button onclick="setLang('fr')" data-i18n="button.fr-7">FR</button>
+  <button onclick="setLang('en')" data-i18n="button.en-7">EN</button>
+  <button onclick="setLang('es')" data-i18n="button.es-7">ES</button>
+  <button onclick="setLang('ar')" data-i18n="button.ar-7">AR</button>
+  <button onclick="setLang('zh')" data-i18n="button.中文-7">中文</button>
+</div>
+
+</body></html>

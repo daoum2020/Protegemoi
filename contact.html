@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="contact_title">Contact — ProtègeMoi</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/images/logo-officiel.png">
+
+<link rel="icon" href="/assets/icons/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0b5cff">
+
+</head>
+<body>
+  
+  <header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" data-i18n="a.protègemoi-2"><img src="assets/images/logo-officiel.png" alt="ProtègeMoi" height="30"><span>ProtègeMoi</span></a>
+    <nav class="menu" aria-label="Navigation principale" aria-expanded="false">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu" data-i18n="button.text-2">☰</button>
+      <ul id="nav-links">
+        <li data-i18n="li.fonctionnement-2"><a href="index.html#comment-ca-marche">Fonctionnement</a></li>
+        <li data-i18n="li.abonnements-2"><a href="pricing.html">Abonnements</a></li>
+        <li data-i18n="li.famille-protègemoi-2"><a href="famille.html">Famille ProtègeMoi</a></li>
+        <li data-i18n="li.fonctionnalités-2"><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li data-i18n="li.avis-abonnés-2"><a href="avis.html">Avis abonnés</a></li>
+        <li data-i18n="li.contact-2"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="container" style="padding:40px 0">
+    <h1 data-i18n="contact_title">Contact</h1>
+    <p class="lead" data-i18n="contact_desc">Une question ? Besoin d’aide ? Écrivez‑nous — réponse rapide.</p>
+
+    
+<form id="contact-form" method="POST" data-netlify="true" name="contact" netlify-honeypot="bot-field">
+  <input type="hidden" name="form-name" value="contact">
+  <p style="display:none" data-i18n="p.dont-fill-this-out-if-youre-human">
+    <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+  </p>
+  <label data-i18n="label.nom">Nom
+    <input type="text" name="name" required>
+  </label>
+  <label data-i18n="label.email">Email
+    <input type="email" name="email" required>
+  </label>
+  <label data-i18n="label.message">Message
+    <textarea name="message" rows="5" required></textarea>
+  </label>
+  <button type="submit" data-i18n="button.envoyer">Envoyer</button>
+  <p id="contact-status" role="status" aria-live="polite"></p>
+</form>
+<script>
+// Client-side POST to Node/PHP if configured; otherwise Netlify processes the form
+document.getElementById('contact-form')?.addEventListener('submit', async (e)=>{
+  const form = e.target;
+  const data = new FormData(form);
+  const payload = Object.fromEntries(data.entries());
+  const status = document.getElementById('contact-status');
+  try{
+    // Try your own API first (set CONTACT_API to '/api/contact' or your endpoint)
+    const CONTACT_API = window.CONTACT_API || '';
+    if(CONTACT_API){
+      e.preventDefault();
+      const res = await fetch(CONTACT_API, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      const j = await res.json();
+      if(j.ok){ status.textContent = 'Merci ! Votre message a été envoyé.'; form.reset(); }
+      else { status.textContent = 'Erreur: ' + (j.error || 'envoi impossible'); }
+    }
+  }catch(err){
+    status.textContent = 'Erreur réseau.';
+  }
+});
+</script>
+<p style="font-size:0.9em;opacity:.8;" data-i18n="p.astuce-hébergez-backendnode-expressserverjs-node-o">
+  Astuce: hébergez <code>backend/node-express/server.js</code> (Node) ou <code>backend/php/contact.php</code> (PHP) et définissez <code>window.CONTACT_API</code> dans vos pages pour activer l’envoi direct.
+</p>
+
+
+    <p style="margin-top:18px" data-i18n="contact_alt">Ou contactez‑nous directement :</p>
+    <p data-i18n="p.whatsapp-email">
+      <a class="btn link" href="https://wa.me/0000000000" target="_blank" rel="noopener" data-i18n="contact_whatsapp">WhatsApp</a>
+      <a class="btn link" href="mailto:support@protegemoiexemple.com" data-i18n="contact_email_cta">Email</a>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p class="small" data-i18n="p.protègemoi-2">© <span id="year"></span> <span data-i18n="brand">ProtègeMoi</span></p></div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/i18n.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+  });
+}
+</script>
+
+
+<div style="position:fixed;bottom:12px;right:12px;z-index:9999;font-size:14px;">
+  <button onclick="setLang('fr')" data-i18n="button.fr-2">FR</button>
+  <button onclick="setLang('en')" data-i18n="button.en-2">EN</button>
+  <button onclick="setLang('es')" data-i18n="button.es-2">ES</button>
+  <button onclick="setLang('ar')" data-i18n="button.ar-2">AR</button>
+  <button onclick="setLang('zh')" data-i18n="button.中文-2">中文</button>
+</div>
+
+</body>
+</html>

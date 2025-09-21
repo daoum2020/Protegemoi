@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fonctionnalités clés — ProtègeMoi</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="icon" href="assets/images/logo-officiel.png">
+
+<link rel="icon" href="/assets/icons/favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0b5cff">
+
+</head>
+<body>
+  
+  <header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html" data-i18n="a.protègemoi-3"><img src="assets/images/logo-officiel.png" alt="ProtègeMoi" height="30"><span>ProtègeMoi</span></a>
+    <nav class="menu" aria-label="Navigation principale" aria-expanded="false">
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu" data-i18n="button.text-3">☰</button>
+      <ul id="nav-links">
+        <li data-i18n="li.fonctionnement-3"><a href="index.html#comment-ca-marche">Fonctionnement</a></li>
+        <li data-i18n="li.abonnements-3"><a href="pricing.html">Abonnements</a></li>
+        <li data-i18n="li.famille-protègemoi-3"><a href="famille.html">Famille ProtègeMoi</a></li>
+        <li data-i18n="li.fonctionnalités-3"><a href="fonctionnalites.html">Fonctionnalités</a></li>
+        <li data-i18n="li.avis-abonnés-3"><a href="avis.html">Avis abonnés</a></li>
+        <li data-i18n="li.contact-3"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="container" style="padding:40px 0">
+    <h1 data-i18n="features_title">Fonctionnalités clés</h1>
+    <p data-i18n="features_lead" style="max-width:760px"></p>
+    <figure style="margin:12px 0 0;border:1px solid var(--pm-border);border-radius:16px;overflow:hidden;background:#fff">
+      <img src="assets/images/fonctionnalites-cles.png" alt="" style="display:block;width:100%;height:auto">
+      <figcaption data-i18n="features_caption" style="padding:12px 16px;font-size:14px"></figcaption>
+    </figure>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p class="small" data-i18n="p.protègemoi-3">© <span id="year"></span> <span data-i18n="brand">ProtègeMoi</span></p></div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/i18n.js"></script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+  });
+}
+</script>
+
+
+<div style="position:fixed;bottom:12px;right:12px;z-index:9999;font-size:14px;">
+  <button onclick="setLang('fr')" data-i18n="button.fr-3">FR</button>
+  <button onclick="setLang('en')" data-i18n="button.en-3">EN</button>
+  <button onclick="setLang('es')" data-i18n="button.es-3">ES</button>
+  <button onclick="setLang('ar')" data-i18n="button.ar-3">AR</button>
+  <button onclick="setLang('zh')" data-i18n="button.中文-3">中文</button>
+</div>
+
+</body>
+</html>
