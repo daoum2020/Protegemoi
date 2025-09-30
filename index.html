@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="brand">ProtègeMoi</title>
+  <link rel="stylesheet" href="styles-improved.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header" role="banner">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Accueil">
+        <img src="logo-officiel.png" alt="Logo ProtègeMoi" height="30" width="30">
+        <span data-i18n="brand">ProtègeMoi</span>
+      </a>
+
+      <nav class="menu" role="navigation" aria-label="Navigation principale">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Ouvrir le menu">
+          <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+        </button>
+        <ul id="nav-links" role="menubar">
+          <li role="none"><a href="#features" role="menuitem" data-i18n="nav_features">Fonctionnalités</a></li>
+          <li role="none"><a href="#plans" role="menuitem" data-i18n="nav_plans">Tarifs</a></li>
+          <li role="none"><a href="#faq" role="menuitem" data-i18n="nav_faq">FAQ</a></li>
+          <li role="none"><a href="#resources" role="menuitem" data-i18n="nav_resources">Ressources</a></li>
+          <li role="none"><a href="#contact" role="menuitem" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-controls">
+        <label class="lang-label" for="lang">Langue</label>
+        <select id="lang" aria-label="Sélectionner la langue">
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="nl">Nederlands</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-content">
+          <figure class="hero-image">
+            <img src="assets/img/hero-boy.jpg" alt="Enfant utilisant un smartphone entouré de logos d’applications" class="hero-img" loading="eager">
+          </figure>
+
+          <div class="hero-notification" role="alert" aria-live="polite">
+            <strong data-i18n="brand">ProtègeMoi</strong> — <span data-i18n="hero.alert">Des problèmes sont présents...</span>
+          </div>
+
+          <h1 id="hero-title" data-i18n="hero_title">Protégez vos enfants en ligne</h1>
+          <p class="hero-description" data-i18n="hero_desc">Surveillez, bloquez et rassurez-vous...</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#plans" data-i18n="hero_cta">Commencer</a>
+            <a class="btn btn-secondary" href="#features" data-i18n="hero_cta_secondary">Voir les fonctionnalités</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="how-it-works" aria-labelledby="features-title">
+      <div class="container">
+        <h2 id="features-title" data-i18n="features_title">Fonctionnalités principales</h2>
+        <div class="feature-grid">
+          <article class="feature-card" tabindex="0" aria-expanded="false">
+            <figure class="feature-image">
+              <img src="assets/img/apps-control.png" alt="Panneau de contrôle des apps" class="feature-illustration" loading="lazy">
+            </figure>
+            <div class="feature-content">
+              <h3 data-i18n="feature_1_title">Surveillance intelligente</h3>
+              <p data-i18n="feature_1_desc">Gardez le contrôle des applications et du temps d’écran.</p>
+              <div class="feature-details">Bloquez les apps au mauvais moment, horaires d’étude, limites quotidiennes.</div>
+            </div>
+          </article>
+
+          <article class="feature-card" tabindex="0" aria-expanded="false">
+            <figure class="feature-image">
+              <img src="assets/img/alerts-mom.jpg" alt="Parent recevant une alerte" class="feature-illustration" loading="lazy">
+            </figure>
+            <div class="feature-content">
+              <h3 data-i18n="feature_2_title">Alertes IA</h3>
+              <p data-i18n="feature_2_desc">Notifications immédiates en cas de contenu à risque.</p>
+              <div class="feature-details">Détection de mots-clés sensibles, cyberharcèlement, contenus inadaptés.</div>
+            </div>
+          </article>
+
+          <article class="feature-card" tabindex="0" aria-expanded="false">
+            <figure class="feature-image">
+              <img src="assets/img/reports-chart.jpg" alt="Rapport d’utilisation hebdomadaire" class="feature-illustration" loading="lazy">
+            </figure>
+            <div class="feature-content">
+              <h3 data-i18n="feature_3_title">Rapports & insights</h3>
+              <p data-i18n="feature_3_desc">Statistiques claires pour suivre l’activité en ligne.</p>
+              <div class="feature-details">Tendances d’usage, temps par application, recommandations.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gps" class="features-showcase" aria-labelledby="gps-title">
+      <div class="container">
+        <h2 id="gps-title" data-i18n="gps_title">Localisation en temps réel</h2>
+        <figure class="features-showcase-image">
+          <img src="assets/img/gps-dad.jpg" alt="Notification de localisation d’un enfant" loading="lazy">
+          <figcaption data-i18n="gps_caption">Soyez rassuré quand votre enfant est dehors.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="plans" class="pricing-section" aria-labelledby="plans-title">
+      <div class="container">
+        <header class="pricing-header">
+          <h2 id="plans-title" data-i18n="plans_title">Choisissez votre formule</h2>
+          <div class="billing-toggle" role="group" aria-labelledby="billing-toggle-label">
+            <span data-i18n="billing_monthly">Mensuel</span>
+            <label class="toggle-switch" for="billingSwitch">
+              <input id="billingSwitch" type="checkbox" aria-label="Basculer vers la facturation annuelle" role="switch" aria-checked="false">
+              <span class="toggle-slider"></span>
+            </label>
+            <span><span data-i18n="billing_yearly">Annuel</span> <small class="discount-badge" data-i18n="billing_discount">-17%</small></span>
+          </div>
+        </header>
+
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div class="pricing-ribbon">Promotion</div>
+            <h3 data-i18n="plan_1">1 enfant</h3>
+            <p class="pricing-amount" data-monthly="7,99 € / mois" data-yearly="6,63 € / mois (79,56 € / an)">7,99 € / mois</p>
+            <a class="btn btn-primary" href="payment.html?plan=1-enfant" data-i18n="plan_cta">Souscrire</a>
+          </article>
+
+          <article class="pricing-card pricing-card--popular">
+            <div class="pricing-ribbon pricing-ribbon--popular">Populaire</div>
+            <h3 data-i18n="plan_2">2 enfants</h3>
+            <p class="pricing-amount" data-monthly="12,99 € / mois" data-yearly="10,78 € / mois (129,36 € / an)">12,99 € / mois</p>
+            <a class="btn btn-secondary" href="payment.html?plan=2-enfants" data-i18n="plan_cta">Souscrire</a>
+          </article>
+
+          <article class="pricing-card">
+            <div class="pricing-ribbon">Promotion</div>
+            <h3 data-i18n="plan_3">3 enfants</h3>
+            <p class="pricing-amount" data-monthly="17,99 € / mois" data-yearly="14,93 € / mois (179,16 € / an)">17,99 € / mois</p>
+            <a class="btn btn-ghost" href="payment.html?plan=3-enfants" data-i18n="plan_cta">Souscrire</a>
+          </article>
+        </div>
+
+        <p class="pricing-note" data-i18n="pricing_note">Annuel = -17% déjà appliqué. Résiliable à tout moment.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section alt" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title" data-i18n="faq_title">Questions fréquentes</h2>
+        <div class="faq">
+          <details>
+            <summary data-i18n="faq_q1">ProtègeMoi est-il gratuit ?</summary>
+            <p data-i18n="faq_a1">Vous pouvez tester gratuitement pendant 7 jours...</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_q2">Puis-je surveiller plusieurs enfants ?</summary>
+            <p data-i18n="faq_a2">Oui, vous pouvez ajouter jusqu’à 3 enfants...</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_q3">Les données sont-elles sécurisées ?</summary>
+            <p data-i18n="faq_a3">Oui, toutes les données sont chiffrées et stockées en Europe...</p>
+          </details>
+          <details>
+            <summary data-i18n="faq_q4">Puis-je résilier facilement ?</summary>
+            <p data-i18n="faq_a4">Oui, l’abonnement est sans engagement...</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section" aria-labelledby="testimonials-title">
+      <div class="container">
+        <h2 id="testimonials-title" data-i18n="testimonials_title">Ils nous font confiance</h2>
+        <div class="testimonials">
+          <blockquote class="testimonial">
+            <p data-i18n="testi_1">Depuis que j’utilise ProtègeMoi...</p>
+            <footer data-i18n="testi_1_author">Claire — maman de 2 enfants</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p data-i18n="testi_2">Mon fils est libre de naviguer...</p>
+            <footer data-i18n="testi_2_author">Sofiane — papa d’un ado</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section id="resources" class="section alt" aria-labelledby="resources-title">
+      <div class="container">
+        <h2 id="resources-title" data-i18n="resources_title">Ressources gratuites</h2>
+        <ol class="tips">
+          <li data-i18n="tips_1">Activez le contrôle parental...</li>
+          <li data-i18n="tips_2">Parlez régulièrement...</li>
+          <li data-i18n="tips_3">Limitez le temps d’écran...</li>
+          <li data-i18n="tips_4">Apprenez à reconnaître le cyberharcèlement.</li>
+          <li data-i18n="tips_5">Installez des filtres de contenu...</li>
+        </ol>
+        <div class="resource">
+          <a class="btn btn-secondary" href="guide-gratuit.html" download data-i18n="resource_cta">Télécharger le guide gratuit</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo" id="contact">
+    <div class="container">
+      <p class="copyright">© <span id="year"></span> <span data-i18n="brand">ProtègeMoi</span>. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+      <p class="text-center" data-i18n="contact_email">Email : support@protegemoiservice.com</p>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+    });
+
+    // Mobile menu
+    document.addEventListener('click', (e)=>{
+      const toggle = e.target.closest('.menu-toggle');
+      const links = document.getElementById('nav-links');
+      if(toggle && links){
+        const open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+    });
+
+    // Feature expand/collapse
+    document.querySelectorAll('.feature-card').forEach(card => {
+      const toggle = () => {
+        const open = card.classList.toggle('open');
+        card.setAttribute('aria-expanded', String(open));
+      };
+      card.addEventListener('click', (e) => {
+        if(['A','BUTTON'].includes((e.target.tagName||'').toUpperCase())) return;
+        toggle();
+      });
+      card.addEventListener('keypress', (e) => { if(['Enter',' '].includes(e.key)){ e.preventDefault(); toggle(); } });
+    });
+
+    // Billing toggle
+    const billingSwitch = document.getElementById('billingSwitch');
+    const updatePricing = () => {
+      const yearly = billingSwitch.checked;
+      billingSwitch.setAttribute('aria-checked', String(yearly));
+      document.querySelectorAll('.pricing-amount').forEach(el=>{
+        el.textContent = yearly ? el.getAttribute('data-yearly') : el.getAttribute('data-monthly');
+      });
+    };
+    billingSwitch.addEventListener('change', updatePricing);
+    updatePricing();
+
+    // Register SW
+    if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js').catch(()=>{}); }
+  </script>
+  <script src="i18n-improved.js"></script>
+</body>
+</html>

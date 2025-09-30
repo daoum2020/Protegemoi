@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="pay_title">Paiement sécurisé</title>
+  <link rel="stylesheet" href="styles-improved.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo-officiel.png" alt="Logo ProtègeMoi" height="30" width="30">
+        <span data-i18n="brand">ProtègeMoi</span>
+      </a>
+      <div class="header-controls">
+        <label class="lang-label" for="lang">Langue</label>
+        <select id="lang">
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="nl">Nederlands</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="payment">
+    <div class="container">
+      <div class="payment-card">
+        <h1 data-i18n="pay_title">Paiement sécurisé</h1>
+        <p data-i18n="pay_intro">Vous êtes sur le point de souscrire au plan :</p>
+        <p><strong id="chosen-plan">—</strong> <span class="plan-badge" data-i18n="brand">ProtègeMoi</span></p>
+
+        <p style="margin-top:1rem" data-i18n="pay_placeholder">
+          Le paiement en ligne sera activé prochainement. En attendant, contactez-nous.
+        </p>
+
+        <div class="modal-actions">
+          <a class="btn btn-secondary" href="index.html" data-i18n="pay_back">Retour</a>
+          <a class="btn btn-primary" href="mailto:support@protegemoiservice.com?subject=Souscription%20ProtègeMoi" data-i18n="pay_continue">Continuer</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get('plan') || '1-enfant';
+    const map = {
+      '1-enfant': {'fr':'1 enfant','en':'1 child','es':'1 niño','nl':'1 kind'},
+      '2-enfants': {'fr':'2 enfants','en':'2 children','es':'2 niños','nl':'2 kinderen'},
+      '3-enfants': {'fr':'3 enfants','en':'3 children','es':'3 niños','nl':'3 kinderen'}
+    };
+    const lang = (localStorage.getItem('pm-lang') || document.documentElement.lang || 'fr');
+    const label = (map[plan] && map[plan][lang]) ? map[plan][lang] : plan;
+    document.getElementById('chosen-plan').textContent = label;
+  </script>
+  <script src="i18n-improved.js"></script>
+</body>
+</html>

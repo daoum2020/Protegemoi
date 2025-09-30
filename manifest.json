@@ -1,0 +1,39 @@
+{
+  "name": "ProtègeMoi - Contrôle parental intelligent",
+  "short_name": "ProtègeMoi",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a5bd7",
+  "orientation": "portrait-primary",
+  "scope": "./",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/img/hero-boy.jpg",
+      "sizes": "800x1200",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Hero"
+    },
+    {
+      "src": "assets/img/family-dad-daughter.jpg",
+      "sizes": "800x600",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Fonctionnalités"
+    }
+  ]
+}
